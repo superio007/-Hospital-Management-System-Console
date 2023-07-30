@@ -1,0 +1,240 @@
+class Hospital{
+    String Hospital_name = "Life-care";
+    String Hospital_address = "Thane";
+    private double Hospital_money ;
+
+    private double Hospital_Insurance_Amount;
+
+    private String Hospital_staff ;
+
+    Hospital(){
+
+    }
+//    to get hospital money
+   public double getHospital_money() {
+        return Hospital_money;
+    }
+//    to set hospital money
+
+    public void setHospital_money(double hospital_money) {
+        Hospital_money = hospital_money;
+    }
+
+//    to get hospital staff info
+    public String getHospital_staff() {
+        return Hospital_staff;
+    }
+
+    //    to get hospital insurance amount
+    public double getHospital_Insurance_Amount() {
+
+        return Hospital_Insurance_Amount;
+    }
+
+//    to set hospital insurance amount
+
+    public void setHospital_Insurance_Amount(double hospital_Insurance_Amount) {
+        Hospital_Insurance_Amount = hospital_Insurance_Amount;
+    }
+    //    to set hospital staff info
+    public void setHospital_staff(String hospital_staff) {
+
+        Hospital_staff = hospital_staff;
+    }
+
+//    Hospital constructor
+    Hospital(String Hospital_staff,double Hospital_money,double Hospital_Insurance_Amount){
+        this.Hospital_staff = Hospital_staff;
+        this.Hospital_money = Hospital_money;
+        this.Hospital_Insurance_Amount = Hospital_Insurance_Amount;
+    }
+    public void Hospital_info(){
+        System.out.println("Hospital_name : "+Hospital_name);
+        System.out.println("Hospital_address : "+Hospital_address);
+        System.out.println("Hospital_staff : "+Hospital_staff);
+        System.out.println("Hospital_money : "+ getHospital_money());
+        System.out.println("Hospital_Insurance_Amount : "+getHospital_Insurance_Amount());
+    }
+}
+
+class Departments extends Hospital{
+    String Dept_Name ;
+    String Dept_Degree;
+    double Dept_Exp;
+    String Dept_Specialization;
+
+
+
+//    for child class
+    Departments(){
+
+    }
+
+
+
+    Departments(String Dept_Name,String Dept_Degree,double Dept_Exp,String Dept_Specialization){
+
+        this.Dept_Name = Dept_Name;
+        this.Dept_Degree = Dept_Degree;
+        this.Dept_Exp = Dept_Exp;
+        this.Dept_Specialization = Dept_Specialization;
+        this.setHospital_staff(Dept_Name);
+    }
+    public String getDept_name(){
+        return Dept_Name;
+    }
+
+    public void Deptinfo(){
+        System.out.println("Dept_Name : "+Dept_Name);
+        System.out.println("Dept_Degree : "+Dept_Degree);
+        System.out.println("Dept_Exp : "+Dept_Exp);
+        System.out.println("Dept_Specialization : "+Dept_Specialization);
+    }
+
+}
+class Accounts extends Departments{
+
+    String Patient_name;
+    double Account_money;
+
+// for adding all accounts money into hospitals money
+    public void money(){
+        double acoount_money =this.getHospital_money() + this.Account_money;
+        this.setHospital_money(acoount_money);
+    }
+
+
+// constructor for accounts
+    Accounts(String Patient_name ,double Account_money,String Dept_Name,String Dept_Degree,double Dept_Exp,String Dept_Specialization){
+        this.Dept_Degree = Dept_Degree;
+        this.Dept_Exp = Dept_Exp;
+        this.Dept_Specialization = Dept_Specialization;
+        this.Dept_Name =Dept_Name;
+        this.Patient_name=Patient_name;
+        this.Account_money=Account_money;
+        this.setHospital_money(Account_money);
+        this.money();
+    }
+
+}
+class Insurance extends Departments {
+    String Patient_name;
+    String Patient_gender;
+    int Patient_age;
+    String Patient_disease;
+    private double Patient_claimAmount;
+
+//    to get Patient_claimAmount
+    public double getPatient_claimAmount() {
+
+        return Patient_claimAmount;
+    }
+
+
+//    //    to set Patient_claimAmount
+    public void setPatient_claimAmount(double patient_claimAmount) {
+
+        Patient_claimAmount = patient_claimAmount;
+    }
+
+//    does not work
+    public void moneydeduct(){
+        double deductAmt = this.getHospital_Insurance_Amount() - this.Patient_claimAmount;
+        setHospital_Insurance_Amount(deductAmt);
+    }
+
+    Insurance(String Patient_name,String Patient_gender,int Patient_age,String Patient_disease,double Patient_claimAmount){
+        this.Patient_name = Patient_name;
+        this.Patient_gender = Patient_gender;
+        this.Patient_age = Patient_age;
+        this.Patient_disease = Patient_disease;
+        this.Patient_claimAmount = Patient_claimAmount;
+        this.moneydeduct();
+    }
+    Insurance(String Patient_name,String Patient_gender,int Patient_age,String Patient_disease,double Patient_claimAmount,double deductAmt){
+        this.Patient_name = Patient_name;
+        this.Patient_gender = Patient_gender;
+        this.Patient_age = Patient_age;
+        this.Patient_disease = Patient_disease;
+        this.Patient_claimAmount = Patient_claimAmount;
+        this.moneydeduct();
+        this.setHospital_Insurance_Amount(deductAmt);
+    }
+}
+
+class Management extends Departments{
+
+}
+class Management_staff extends Management{
+//    Departments D = new Departments();
+    String Staff_Name;
+    String Staff_Dept_name = getDept_name();
+
+//    Departments d = Hospital D();
+//    public String getStaff_Dept_name() {
+//        return this.getDept_name();
+//    }
+
+    private double Staff_sal ;
+
+    public double getStaff_sal() {
+
+        return Staff_sal;
+    }
+
+    public void setStaff_sal(double staff_sal) {
+        Staff_sal = staff_sal;
+    }
+
+    int Staff_age;
+    String Staff_gender;
+    String Staff_Specialization = Dept_Specialization;
+
+    public void Staff_info(){
+        System.out.println("Staff_Name : "+Staff_Name);
+        System.out.println("Staff_Dept_name : "+getDept_name());
+        System.out.println("Staff_sal : "+getStaff_sal());
+        System.out.println("Staff_age : "+Staff_age);
+        System.out.println("Staff_gender : "+Staff_gender);
+        System.out.println("Staff_spealization : "+Staff_Specialization);
+    }
+
+    Management_staff(String Staff_Name,double Staff_sal ,int Staff_age,String Staff_gender) {
+        this.Staff_Name = Staff_Name;
+        this.Staff_sal = Staff_sal;
+        this.Staff_age = Staff_age;
+        this.Staff_gender = Staff_gender;
+        this.Staff_Dept_name = this.getDept_name();
+    }
+}
+class Manage_Accouts extends Management{
+
+}
+
+public class Driver {
+    public static void main(String[] args) {
+
+        Hospital test1 = new Hospital("doctor",1000000,5200000);
+        Departments d = new Departments("Cardio","MD",4.0,"Heart");
+//        Accounts a = new Accounts("kiran",50000,"cardio","Md",4.0,"heart");
+        Accounts a1 = new Accounts("kiran",85560,"neuro","me",5.0,"spine");
+        Insurance I = new Insurance("Kiran","male",20,"Fever",45000);
+        Insurance I1 = new Insurance("Kiran","male",20,"Fever",45000,22221);
+//        System.out.println(test1.getHospital_Insurance_Amount());
+////        I.moneydeduct();
+//        System.out.println(I1.getHospital_Insurance_Amount());
+//
+//        System.out.println(I1.getHospital_Insurance_Amount());
+        Management_staff Ms = new Management_staff("Kiran",250000,42,"Male");
+        test1.Hospital_info();
+        System.out.println("========================");
+        d.Deptinfo();
+        System.out.println("========================");
+        Ms.Staff_info();
+
+
+
+
+    }
+}
+
