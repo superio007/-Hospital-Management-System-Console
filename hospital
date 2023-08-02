@@ -66,15 +66,90 @@ class Hospital{
         System.out.println("Hospital_Insurance_Amount : "+getHospital_Insurance_Amount());
     }
 }
+//=====================================================================================================
+
+// -------------------------- Admin  class ---------------------------------------------------
+
+class Admin{
+    private String First_name;
+
+    private String Middle_name;
+
+    private String Last_name;
+
+    private String User_name;
+
+    private String Password;
+
+    public String getFirst_name() {
+        return First_name;
+    }
+
+    public void setFirst_name(String first_name) {
+        First_name = first_name;
+    }
+
+    public String getMiddle_name() {
+        return Middle_name;
+    }
+
+    public void setMiddle_name(String middle_name) {
+        Middle_name = middle_name;
+    }
+
+    public String getLast_name() {
+        return Last_name;
+    }
+
+    public void setLast_name(String last_name) {
+        Last_name = last_name;
+    }
+
+    public String getUser_name() {
+        return User_name;
+    }
+
+    public void setUser_name(String user_name) {
+        User_name = user_name;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
+    }
+
+    Admin(String First_name,String Middle_name,String Last_name,String User_name,String Password){
+        this.First_name = First_name;
+        this.Middle_name = Middle_name;
+        this.Last_name = Last_name;
+        this.User_name = User_name;
+        this.Password = Password;
+
+    }
+
+    public void AdminInfo(){
+        System.out.println("Admin First name : "+First_name);
+        System.out.println("Admin Middle name : "+Middle_name);
+        System.out.println("Admin Last name : "+Last_name);
+        System.out.println("Admin username : "+User_name);
+        System.out.println("Admin Password : "+Password);
+
+    }
+
+
+}
 
 //============================================================================================================================================
 
 class Departments extends Hospital{
 
-    String Dept_Name ;
-    String Dept_Degree;
-    double Dept_Exp;
-    String Dept_Specialization;
+    private String Dept_Name ;
+    private String Dept_Degree;
+    private double Dept_Exp;
+    private String Dept_Specialization;
 
 
 
@@ -83,6 +158,37 @@ class Departments extends Hospital{
 
     }
 
+    public String getDept_Name(){
+        return Dept_Name;
+    }
+
+    public void  setDept_Name(String Dept_Name){
+        this.Dept_Name = Dept_Name;
+    }
+
+    public  String getDept_Degree(){
+        return Dept_Degree;
+    }
+
+    public void setDept_Degree(String Dept_Degree){
+        this.Dept_Degree = Dept_Degree;
+    }
+
+    public double getDept_Exp(){
+        return Dept_Exp;
+    }
+
+    public void setDept_Exp(double Dept_Exp){
+        this.Dept_Exp = Dept_Exp;
+    }
+
+    public String getDept_Specialization(){
+        return Dept_Specialization;
+    }
+
+    public void setDept_Specialization(String Dept_Specialization){
+        this.Dept_Specialization = Dept_Specialization;
+    }
 
 
     Departments(String Dept_Name,String Dept_Degree,double Dept_Exp,String Dept_Specialization){
@@ -110,13 +216,67 @@ class Departments extends Hospital{
 
 class Accounts extends Departments{
 
-    String Patient_name;
-    double Account_money;
+    private String Patient_name;
+    private double Account_money;
+    private String Dept_Name ;
+    private String Dept_Degree;
+    private double Dept_Exp;
+    private String Dept_Specialization;
+
 
     // for adding all accounts money into hospitals money
     public void money(){
         double updated_Hospital_acoount_money =getHospital_money() + Account_money;
         this.setHospital_money(updated_Hospital_acoount_money);
+    }
+
+    public String getPatient_name(){
+        return Patient_name;
+    }
+
+    public void setPatient_name(String Patient_name){
+        this.Patient_name = Patient_name;
+    }
+
+    public double getAccount_money(){
+        return Account_money;
+    }
+
+    public void setAccount_money(double Account_money){
+        this.Account_money = Account_money;
+    }
+
+
+    public String getDept_Name(){
+        return Dept_Name;
+    }
+
+    public void  setDept_Name(String Dept_Name){
+        this.Dept_Name = Dept_Name;
+    }
+
+    public  String getDept_Degree(){
+        return Dept_Degree;
+    }
+
+    public void setDept_Degree(String Dept_Degree){
+        this.Dept_Degree = Dept_Degree;
+    }
+
+    public double getDept_Exp(){
+        return Dept_Exp;
+    }
+
+    public void setDept_Exp(double Dept_Exp){
+        this.Dept_Exp = Dept_Exp;
+    }
+
+    public String getDept_Specialization(){
+        return Dept_Specialization;
+    }
+
+    public void setDept_Specialization(String Dept_Specialization){
+        this.Dept_Specialization = Dept_Specialization;
     }
 
 //    default constructor
@@ -126,12 +286,12 @@ class Accounts extends Departments{
     }
     // constructor for accounts
     Accounts(String Patient_name ,double Account_money,String Dept_Name,String Dept_Degree,double Dept_Exp,String Dept_Specialization){
+        this.Patient_name=Patient_name;
+        this.Account_money=Account_money;
+        this.Dept_Name =Dept_Name;
         this.Dept_Degree = Dept_Degree;
         this.Dept_Exp = Dept_Exp;
         this.Dept_Specialization = Dept_Specialization;
-        this.Dept_Name =Dept_Name;
-        this.Patient_name=Patient_name;
-        this.Account_money=Account_money;
         this.setHospital_money(Account_money);
         this.money();
     }
@@ -406,11 +566,43 @@ class Discharge {
 
 //============================================================================================================================
 class Insurance extends Departments {
-    String Patient_name;
-    String Patient_gender;
-    int Patient_age;
-    String Patient_disease;
+    private String Patient_name;
+    private String Patient_gender;
+    private int Patient_age;
+    private String Patient_disease;
     private double Patient_claimAmount;
+
+    public String getPatient_name() {
+        return Patient_name;
+    }
+
+    public void setPatient_name(String patient_name) {
+        Patient_name = patient_name;
+    }
+
+    public String getPatient_gender() {
+        return Patient_gender;
+    }
+
+    public void setPatient_gender(String patient_gender) {
+        Patient_gender = patient_gender;
+    }
+
+    public int getPatient_age() {
+        return Patient_age;
+    }
+
+    public void setPatient_age(int patient_age) {
+        Patient_age = patient_age;
+    }
+
+    public String getPatient_disease() {
+        return Patient_disease;
+    }
+
+    public void setPatient_disease(String patient_disease) {
+        Patient_disease = patient_disease;
+    }
 
     //    to get Patient_claimAmount
     public double getPatient_claimAmount() {
@@ -454,19 +646,51 @@ class Insurance extends Departments {
 //=====================================================================================================
 
 class Management_staff extends Departments{
-    //    Departments D = new Departments();
-    String Staff_Name;
-    String Staff_Dept_name = getDept_name();
+    private String Staff_First_Name;
 
-//    Departments d = Hospital D();
-    public String getStaff_Dept_name() {
-        return this.getDept_name();
+    private String Staff_Middle_Name;
+
+    private String Staff_Last_Name;
+    private String Staff_Dept_name ;
+    private double Staff_sal;
+
+    private int Staff_age;
+    private String Staff_gender;
+    private String Staff_Designation;
+
+    public String getStaff_First_Name() {
+        return Staff_First_Name;
     }
 
-    private double Staff_sal ;
+    public void setStaff_First_Name(String staff_First_Name) {
+        Staff_First_Name = staff_First_Name;
+    }
+
+    public String getStaff_Middle_Name() {
+        return Staff_Middle_Name;
+    }
+
+    public void setStaff_Middle_Name(String staff_Middle_Name) {
+        Staff_Middle_Name = staff_Middle_Name;
+    }
+
+    public String getStaff_Last_Name() {
+        return Staff_Last_Name;
+    }
+
+    public void setStaff_Last_Name(String staff_Last_Name) {
+        Staff_Last_Name = staff_Last_Name;
+    }
+
+    public String getStaff_Dept_name() {
+        return Staff_Dept_name;
+    }
+
+    public void setStaff_Dept_name(String staff_Dept_name) {
+        Staff_Dept_name = staff_Dept_name;
+    }
 
     public double getStaff_sal() {
-
         return Staff_sal;
     }
 
@@ -474,36 +698,63 @@ class Management_staff extends Departments{
         Staff_sal = staff_sal;
     }
 
-    int Staff_age;
-    String Staff_gender;
-    String Staff_Specialization = Dept_Specialization;
+    public int getStaff_age() {
+        return Staff_age;
+    }
 
-    Management_staff(){
+    public void setStaff_age(int staff_age) {
+        Staff_age = staff_age;
+    }
+
+    public String getStaff_gender() {
+        return Staff_gender;
+    }
+
+    public void setStaff_gender(String staff_gender) {
+        Staff_gender = staff_gender;
+    }
+
+    public String getStaff_Designation() {
+        return Staff_Designation;
+    }
+
+    public void setStaff_Designation(String staff_Designation) {
+        Staff_Designation = staff_Designation;
+    }
+
+        Management_staff(){
 
     }
     public void Staff_info(){
-        System.out.println("Staff_Name : "+Staff_Name);
-        System.out.println("Staff_Dept_name : "+getStaff_Dept_name());
-        System.out.println("Staff_sal : "+getStaff_sal());
-        System.out.println("Staff_age : "+Staff_age);
-        System.out.println("Staff_gender : "+Staff_gender);
-        System.out.println("Staff_spealization : "+Staff_Specialization);
-    }
-
-    Management_staff(String Staff_Name,double Staff_sal ,int Staff_age,String Staff_gender) {
-        this.Staff_Name = Staff_Name;
-        this.Staff_sal = Staff_sal;
-        this.Staff_age = Staff_age;
-        this.Staff_gender = Staff_gender;
-        this.Staff_Dept_name = this.getDept_name();
-    }
-
-    public void Management_staff_Info(){
-        System.out.println("Staff_Name : "+Staff_Name);
+        System.out.println("Staff_First_Name : "+Staff_First_Name);
+        System.out.println("Staff_Middle_Name : "+Staff_Middle_Name);
+        System.out.println("Staff_Last_Name : "+Staff_Last_Name);
+        System.out.println("Staff_Dept_name : "+Staff_Dept_name);
         System.out.println("Staff_sal : "+Staff_sal);
         System.out.println("Staff_age : "+Staff_age);
         System.out.println("Staff_gender : "+Staff_gender);
+        System.out.println("Staff_spealization : "+Staff_Designation);
     }
+
+    Management_staff(String Staff_First_Name,String Staff_Middle_Name,String Staff_Last_Name,String Staff_Dept_name ,double Staff_sal,int Staff_age,String Staff_gender,String Staff_Designation){
+        this.Staff_First_Name = Staff_First_Name;
+        this.Staff_Middle_Name = Staff_Middle_Name;
+        this.Staff_Last_Name = Staff_Last_Name;
+        this.Staff_Dept_name = Staff_Dept_name;
+        this.Staff_sal = Staff_sal;
+        this.Staff_age = Staff_age;
+        this.Staff_gender = Staff_gender;
+        this.Staff_Designation = Staff_Designation;
+    }
+
+//    use less method
+
+//    public void Management_staff_Info(){
+//        System.out.println("Staff_Name : "+Staff_Name);
+//        System.out.println("Staff_sal : "+Staff_sal);
+//        System.out.println("Staff_age : "+Staff_age);
+//        System.out.println("Staff_gender : "+Staff_gender);
+//    }
 }
 //=========================================================================
 class Manage_Accouts extends Management_staff{
@@ -661,6 +912,8 @@ class Pharmacy_Staff extends Pharmacy{
     }
 
 }
+
+//=====================================================================================================================================
 class Pharmacy_Medicine extends  Pharmacy{
     private String Pharmacy_Medicine_Dealer_name;
     private double Pharmacy_Medicine_Price;
@@ -972,6 +1225,14 @@ public class Driver {
 ////      To print Pharmacy details
 //        P.Pharmacy_info();
 
+//        ------------------------------- Admin Data ---------------------------------------------------
+
+        List<Admin> Admin_List = new ArrayList<>();
+
+        Admin_List.add(new Admin("Kiran","Pramod","Dhoke","Kiran@123","123456"));
+        Admin_List.add(new Admin("Mayur","Prabhakar","Devadiga","Mayur@123","987057"));
+
+
 //        --------------------------------accounts data -----------------------------------------------------------------------------
 
         List<Accounts> accountsList = new ArrayList<>();
@@ -1034,56 +1295,207 @@ public class Driver {
 
         List<Management_staff> managementStaffList = new ArrayList<>();
 
-        managementStaffList.add(new Management_staff("John Doe", 50000, 30, "Male"));
-        managementStaffList.add(new Management_staff("Jane Smith", 75000, 35, "Female"));
-        managementStaffList.add(new Management_staff("Michael Johnson", 60000, 28, "Male"));
-        managementStaffList.add(new Management_staff("Emily Williams", 85000, 32, "Female"));
-        managementStaffList.add(new Management_staff("David Brown", 48000, 27, "Male"));
-        managementStaffList.add(new Management_staff("Sophia Lee", 63000, 29, "Female"));
-        managementStaffList.add(new Management_staff("Oliver Davis", 56000, 31, "Male"));
-        managementStaffList.add(new Management_staff("Isabella Wilson", 72000, 34, "Female"));
-        managementStaffList.add(new Management_staff("James Johnson", 54000, 33, "Male"));
-        managementStaffList.add(new Management_staff("Ava Martin", 69000, 30, "Female"));
-        managementStaffList.add(new Management_staff("William Thompson", 71000, 32, "Male"));
-        managementStaffList.add(new Management_staff("Emma Anderson", 57000, 28, "Female"));
-        managementStaffList.add(new Management_staff("Liam Garcia", 66000, 31, "Male"));
-        managementStaffList.add(new Management_staff("Mia Martinez", 68000, 29, "Female"));
-        managementStaffList.add(new Management_staff("Noah Hernandez", 59000, 33, "Male"));
-        managementStaffList.add(new Management_staff("Olivia Robinson", 57000, 27, "Female"));
-        managementStaffList.add(new Management_staff("Ethan Lewis", 54000, 31, "Male"));
-        managementStaffList.add(new Management_staff("Aiden Allen", 62000, 29, "Female"));
-        managementStaffList.add(new Management_staff("Amelia Scott", 57000, 32, "Male"));
-        managementStaffList.add(new Management_staff("Benjamin Green", 73000, 30, "Female"));
-        managementStaffList.add(new Management_staff("Harper King", 68000, 33, "Male"));
-        managementStaffList.add(new Management_staff("Lucas Baker", 59000, 28, "Female"));
-        managementStaffList.add(new Management_staff("Evelyn Ward", 71000, 31, "Male"));
-        managementStaffList.add(new Management_staff("Zoey Cox", 66000, 29, "Female"));
-        managementStaffList.add(new Management_staff("Alexander Murphy", 68000, 32, "Male"));
-        managementStaffList.add(new Management_staff("Victoria Richardson", 59000, 30, "Female"));
-        managementStaffList.add(new Management_staff("Luke Rivera", 57000, 31, "Male"));
-        managementStaffList.add(new Management_staff("Madison Ross", 54000, 28, "Female"));
-        managementStaffList.add(new Management_staff("Henry Coleman", 62000, 29, "Male"));
-        managementStaffList.add(new Management_staff("Grace Morgan", 57000, 33, "Female"));
-        managementStaffList.add(new Management_staff("Leo Peterson", 73000, 31, "Male"));
-        managementStaffList.add(new Management_staff("Chloe Reed", 68000, 30, "Female"));
-        managementStaffList.add(new Management_staff("Gabriel Wood", 59000, 28, "Male"));
-        managementStaffList.add(new Management_staff("Addison Stewart", 71000, 29, "Female"));
-        managementStaffList.add(new Management_staff("Bentley Cox", 66000, 32, "Male"));
-        managementStaffList.add(new Management_staff("Paisley Bailey", 68000, 30, "Female"));
-        managementStaffList.add(new Management_staff("Jonathan Hill", 59000, 31, "Male"));
-        managementStaffList.add(new Management_staff("Nora Simmons", 57000, 29, "Female"));
-        managementStaffList.add(new Management_staff("Carter Rogers", 54000, 32, "Male"));
-        managementStaffList.add(new Management_staff("Sadie Price", 62000, 30, "Female"));
-        managementStaffList.add(new Management_staff("Owen Wood", 57000, 31, "Male"));
-        managementStaffList.add(new Management_staff("Aria Foster", 73000, 29, "Female"));
-        managementStaffList.add(new Management_staff("Wyatt Bryant", 68000, 32, "Male"));
-        managementStaffList.add(new Management_staff("Hazel Howard", 59000, 30, "Female"));
-        managementStaffList.add(new Management_staff("Eli Butler", 71000, 31, "Male"));
-        managementStaffList.add(new Management_staff("Scarlett Jenkins", 66000, 29, "Female"));
-        managementStaffList.add(new Management_staff("Maverick Hamilton", 68000, 32, "Male"));
-        managementStaffList.add(new Management_staff("Lily Foster", 59000, 30, "Female"));
-        managementStaffList.add(new Management_staff("Grayson Long", 57000, 31, "Male"));
-        managementStaffList.add(new Management_staff("Aurora Simmons", 54000, 29, "Female"));
+        managementStaffList.add(new Management_staff("Kiran","Pramod","Dhoke","Cardiology",50000,35,"Male","Surgen"));
+        managementStaffList.add(new Management_staff("John", "D.", "Smith", "Cardiology", 60000, 40, "Male", "Cardiologist"));
+        managementStaffList.add(new Management_staff("Alice", "M.", "Johnson", "Pediatrics", 55000, 35, "Female", "Pediatrician"));
+        managementStaffList.add(new Management_staff("Robert", "L.", "Williams", "Neurology", 70000, 42, "Male", "Neurologist"));
+        managementStaffList.add(new Management_staff("Emily", "A.", "Miller", "Oncology", 65000, 38, "Female", "Oncologist"));
+        managementStaffList.add(new Management_staff("Michael", "B.", "Davis", "Dermatology", 62000, 39, "Male", "Dermatologist"));
+        managementStaffList.add(new Management_staff("Sophia", "R.", "Brown", "Gastroenterology", 72000, 41, "Female", "Gastroenterologist"));
+        managementStaffList.add(new Management_staff("William", "J.", "Taylor", "Orthopedics", 68000, 43, "Male", "Orthopedic Surgeon"));
+        managementStaffList.add(new Management_staff("Olivia", "K.", "Anderson", "ENT", 69000, 38, "Female", "ENT Specialist"));
+        managementStaffList.add(new Management_staff("James", "S.", "Wilson", "Urology", 71000, 44, "Male", "Urologist"));
+        managementStaffList.add(new Management_staff("Isabella", "D.", "Clark", "Psychiatry", 58000, 37, "Female", "Psychiatrist"));
+        managementStaffList.add(new Management_staff("Benjamin", "N.", "Hall", "Pathology", 60000, 39, "Male", "Pathologist"));
+        managementStaffList.add(new Management_staff("Ava", "H.", "Lee", "Radiology", 72000, 42, "Female", "Radiologist"));
+        managementStaffList.add(new Management_staff("Mason", "W.", "Adams", "Cardiology", 65000, 41, "Male", "Cardiologist"));
+        managementStaffList.add(new Management_staff("Charlotte", "M.", "Young", "Pediatrics", 63000, 36, "Female", "Pediatrician"));
+        managementStaffList.add(new Management_staff("Liam", "E.", "Miller", "Neurology", 72000, 39, "Male", "Neurologist"));
+        managementStaffList.add(new Management_staff("Amelia", "T.", "Lewis", "Oncology", 68000, 37, "Female", "Oncologist"));
+        managementStaffList.add(new Management_staff("Elijah", "I.", "Harris", "Dermatology", 66000, 38, "Male", "Dermatologist"));
+        managementStaffList.add(new Management_staff("Harper", "O.", "King", "Gastroenterology", 74000, 43, "Female", "Gastroenterologist"));
+        managementStaffList.add(new Management_staff("Noah", "P.", "Ward", "Orthopedics", 71000, 41, "Male", "Orthopedic Surgeon"));
+        managementStaffList.add(new Management_staff("Evelyn", "U.", "Richardson", "ENT", 72000, 42, "Female", "ENT Specialist"));
+        managementStaffList.add(new Management_staff("Oliver", "Y.", "Cox", "Urology", 74000, 45, "Male", "Urologist"));
+        managementStaffList.add(new Management_staff("Aria", "A.", "Bailey", "Psychiatry", 60000, 38, "Female", "Psychiatrist"));
+        managementStaffList.add(new Management_staff("Lucas", "Q.", "Foster", "Pathology", 62000, 40, "Male", "Pathologist"));
+        managementStaffList.add(new Management_staff("Scarlett", "Z.", "Ward", "Radiology", 73000, 44, "Female", "Radiologist"));
+        managementStaffList.add(new Management_staff("Jacob", "S.", "Cole", "Cardiology", 66000, 39, "Male", "Cardiologist"));
+        managementStaffList.add(new Management_staff("Chloe", "D.", "Howard", "Pediatrics", 64000, 35, "Female", "Pediatrician"));
+        managementStaffList.add(new Management_staff("Alexander", "F.", "Rogers", "Neurology", 73000, 41, "Male", "Neurologist"));
+        managementStaffList.add(new Management_staff("Mia", "G.", "Wood", "Oncology", 69000, 37, "Female", "Oncologist"));
+        managementStaffList.add(new Management_staff("Daniel", "H.", "Bailey", "Dermatology", 67000, 38, "Male", "Dermatologist"));
+        managementStaffList.add(new Management_staff("Luna", "J.", "Murphy", "Gastroenterology", 75000, 43, "Female", "Gastroenterologist"));
+        managementStaffList.add(new Management_staff("Matthew", "K.", "Allen", "Orthopedics", 72000, 40, "Male", "Orthopedic Surgeon"));
+        managementStaffList.add(new Management_staff("Layla", "L.", "Richardson", "ENT", 73000, 41, "Female", "ENT Specialist"));
+        managementStaffList.add(new Management_staff("Jackson", "M.", "Hall", "Urology", 75000, 45, "Male", "Urologist"));
+        managementStaffList.add(new Management_staff("Isla", "N.", "Davis", "Psychiatry", 62000, 38, "Female", "Psychiatrist"));
+        managementStaffList.add(new Management_staff("Sebastian", "O.", "Clark", "Pathology", 64000, 40, "Male", "Pathologist"));
+        managementStaffList.add(new Management_staff("Avery", "P.", "Taylor", "Radiology", 74000, 44, "Female", "Radiologist"));
+        managementStaffList.add(new Management_staff("Carter", "Q.", "Adams", "Cardiology", 67000, 39, "Male", "Cardiologist"));
+        managementStaffList.add(new Management_staff("Grace", "R.", "Young", "Pediatrics", 65000, 35, "Female", "Pediatrician"));
+        managementStaffList.add(new Management_staff("Mateo", "S.", "Miller", "Neurology", 74000, 41, "Male", "Neurologist"));
+        managementStaffList.add(new Management_staff("Aurora", "T.", "Lewis", "Oncology", 70000, 37, "Female", "Oncologist"));
+        managementStaffList.add(new Management_staff("Maverick", "U.", "Harris", "Dermatology", 68000, 38, "Male", "Dermatologist"));
+        managementStaffList.add(new Management_staff("Nora", "V.", "King", "Gastroenterology", 76000, 43, "Female", "Gastroenterologist"));
+        managementStaffList.add(new Management_staff("Gabriel", "W.", "Ward", "Orthopedics", 73000, 40, "Male", "Orthopedic Surgeon"));
+        managementStaffList.add(new Management_staff("Camila", "X.", "Richardson", "ENT", 74000, 41, "Female", "ENT Specialist"));
+        managementStaffList.add(new Management_staff("Jayden", "Y.", "Cox", "Urology", 76000, 45, "Male", "Urologist"));
+        managementStaffList.add(new Management_staff("Lily", "Z.", "Bailey", "Psychiatry", 63000, 38, "Female", "Psychiatrist"));
+        managementStaffList.add(new Management_staff("Ethan", "A.", "Foster", "Pathology", 65000, 40, "Male", "Pathologist"));
+        managementStaffList.add(new Management_staff("Madison", "B.", "Ward", "Radiology", 75000, 44, "Female", "Radiologist"));
+        managementStaffList.add(new Management_staff("Logan", "C.", "Cole", "Cardiology", 68000, 39, "Male", "Cardiologist"));
+        managementStaffList.add(new Management_staff("Hannah", "D.", "Howard", "Pediatrics", 66000, 35, "Female", "Pediatrician"));
+        managementStaffList.add(new Management_staff("Oliver", "E.", "Rogers", "Neurology", 75000, 41, "Male", "Neurologist"));
+        managementStaffList.add(new Management_staff("Addison", "F.", "Wood", "Oncology", 71000, 37, "Female", "Oncologist"));
+        managementStaffList.add(new Management_staff("Sebastian", "G.", "Bailey", "Dermatology", 69000, 38, "Male", "Dermatologist"));
+        managementStaffList.add(new Management_staff("Abigail", "H.", "Murphy", "Gastroenterology", 77000, 43, "Female", "Gastroenterologist"));
+        managementStaffList.add(new Management_staff("Elijah", "I.", "Allen", "Orthopedics", 74000, 40, "Male", "Orthopedic Surgeon"));
+        managementStaffList.add(new Management_staff("Aria", "J.", "Richardson", "ENT", 75000, 41, "Female", "ENT Specialist"));
+        managementStaffList.add(new Management_staff("Benjamin", "K.", "Cox", "Urology", 77000, 45, "Male", "Urologist"));
+        managementStaffList.add(new Management_staff("Ava", "L.", "Davis", "Psychiatry", 64000, 38, "Female", "Psychiatrist"));
+        managementStaffList.add(new Management_staff("Carter", "M.", "Clark", "Pathology", 66000, 40, "Male", "Pathologist"));
+        managementStaffList.add(new Management_staff("Elizabeth", "N.", "Taylor", "Radiology", 76000, 44, "Female", "Radiologist"));
+        managementStaffList.add(new Management_staff("Daniel", "O.", "Adams", "Cardiology", 69000, 39, "Male", "Cardiologist"));
+        managementStaffList.add(new Management_staff("Isabella", "P.", "Young", "Pediatrics", 67000, 35, "Female", "Pediatrician"));
+        managementStaffList.add(new Management_staff("Jackson", "Q.", "Miller", "Neurology", 76000, 41, "Male", "Neurologist"));
+        managementStaffList.add(new Management_staff("Evelyn", "R.", "Lewis", "Oncology", 72000, 37, "Female", "Oncologist"));
+        managementStaffList.add(new Management_staff("Liam", "S.", "Harris", "Dermatology", 70000, 38, "Male", "Dermatologist"));
+        managementStaffList.add(new Management_staff("Luna", "T.", "King", "Gastroenterology", 78000, 43, "Female", "Gastroenterologist"));
+        managementStaffList.add(new Management_staff("Lucas", "U.", "Ward", "Orthopedics", 75000, 40, "Male", "Orthopedic Surgeon"));
+        managementStaffList.add(new Management_staff("Mia", "V.", "Richardson", "ENT", 76000, 41, "Female", "ENT Specialist"));
+        managementStaffList.add(new Management_staff("Matthew", "W.", "Cox", "Urology", 78000, 45, "Male", "Urologist"));
+        managementStaffList.add(new Management_staff("Harper", "X.", "Bailey", "Psychiatry", 65000, 38, "Female", "Psychiatrist"));
+        managementStaffList.add(new Management_staff("Maverick", "Y.", "Foster", "Pathology", 67000, 40, "Male", "Pathologist"));
+        managementStaffList.add(new Management_staff("Camila", "Z.", "Ward", "Radiology", 77000, 44, "Female", "Radiologist"));
+        managementStaffList.add(new Management_staff("Jayden", "A.", "Cole", "Cardiology", 70000, 39, "Male", "Cardiologist"));
+        managementStaffList.add(new Management_staff("Charlotte", "B.", "Howard", "Pediatrics", 68000, 35, "Female", "Pediatrician"));
+        managementStaffList.add(new Management_staff("Aurora", "C.", "Rogers", "Neurology", 77000, 41, "Male", "Neurologist"));
+        managementStaffList.add(new Management_staff("Oliver", "D.", "Wood", "Oncology", 73000, 37, "Female", "Oncologist"));
+        managementStaffList.add(new Management_staff("Daniel", "E.", "Bailey", "Dermatology", 71000, 38, "Male", "Dermatologist"));
+        managementStaffList.add(new Management_staff("Lily", "F.", "Murphy", "Gastroenterology", 79000, 43, "Female", "Gastroenterologist"));
+        managementStaffList.add(new Management_staff("Mason", "G.", "Allen", "Orthopedics", 76000, 40, "Male", "Orthopedic Surgeon"));
+        managementStaffList.add(new Management_staff("Layla", "H.", "Richardson", "ENT", 77000, 41, "Female", "ENT Specialist"));
+        managementStaffList.add(new Management_staff("Mateo", "I.", "Cox", "Urology", 79000, 45, "Male", "Urologist"));
+        managementStaffList.add(new Management_staff("Nora", "J.", "Davis", "Psychiatry", 66000, 38, "Female", "Psychiatrist"));
+        managementStaffList.add(new Management_staff("Gabriel", "K.", "Clark", "Pathology", 68000, 40, "Male", "Pathologist"));
+        managementStaffList.add(new Management_staff("Abigail", "L.", "Taylor", "Radiology", 78000, 44, "Female", "Radiologist"));
+        managementStaffList.add(new Management_staff("Liam", "M.", "Adams", "Cardiology", 71000, 39, "Male", "Cardiologist"));
+        managementStaffList.add(new Management_staff("Charlotte", "N.", "Young", "Pediatrics", 69000, 35, "Female", "Pediatrician"));
+        managementStaffList.add(new Management_staff("Jackson", "O.", "Miller", "Neurology", 78000, 41, "Male", "Neurologist"));
+        managementStaffList.add(new Management_staff("Evelyn", "P.", "Lewis", "Oncology", 74000, 37, "Female", "Oncologist"));
+        managementStaffList.add(new Management_staff("Lucas", "Q.", "Harris", "Dermatology", 72000, 38, "Male", "Dermatologist"));
+        managementStaffList.add(new Management_staff("Luna", "R.", "King", "Gastroenterology", 80000, 43, "Female", "Gastroenterologist"));
+        managementStaffList.add(new Management_staff("Oliver", "S.", "Ward", "Orthopedics", 77000, 40, "Male", "Orthopedic Surgeon"));
+        managementStaffList.add(new Management_staff("Ava", "T.", "Richardson", "ENT", 78000, 41, "Female", "ENT Specialist"));
+        managementStaffList.add(new Management_staff("Benjamin", "U.", "Cox", "Urology", 80000, 45, "Male", "Urologist"));
+        managementStaffList.add(new Management_staff("Aria", "V.", "Davis", "Psychiatry", 67000, 38, "Female", "Psychiatrist"));
+        managementStaffList.add(new Management_staff("Daniel", "W.", "Clark", "Pathology", 69000, 40, "Male", "Pathologist"));
+        managementStaffList.add(new Management_staff("Isabella", "X.", "Taylor", "Radiology", 79000, 44, "Female", "Radiologist"));
+        managementStaffList.add(new Management_staff("Jackson", "Y.", "Adams", "Cardiology", 72000, 39, "Male", "Cardiologist"));
+        managementStaffList.add(new Management_staff("Evelyn", "Z.", "Young", "Pediatrics", 70000, 35, "Female", "Pediatrician"));
+        managementStaffList.add(new Management_staff("Lucas", "A.", "Miller", "Neurology", 79000, 41, "Male", "Neurologist"));
+        managementStaffList.add(new Management_staff("Luna", "B.", "Lewis", "Oncology", 75000, 37, "Female", "Oncologist"));
+        managementStaffList.add(new Management_staff("Oliver", "C.", "Harris", "Dermatology", 73000, 38, "Male", "Dermatologist"));
+        managementStaffList.add(new Management_staff("Ava", "D.", "King", "Gastroenterology", 81000, 43, "Female", "Gastroenterologist"));
+        managementStaffList.add(new Management_staff("Benjamin", "E.", "Ward", "Orthopedics", 78000, 40, "Male", "Orthopedic Surgeon"));
+        managementStaffList.add(new Management_staff("Aria", "F.", "Richardson", "ENT", 79000, 41, "Female", "ENT Specialist"));
+        managementStaffList.add(new Management_staff("Daniel", "G.", "Cox", "Urology", 81000, 45, "Male", "Urologist"));
+        managementStaffList.add(new Management_staff("Isabella", "H.", "Davis", "Psychiatry", 68000, 38, "Female", "Psychiatrist"));
+        managementStaffList.add(new Management_staff("Jackson", "I.", "Clark", "Pathology", 70000, 40, "Male", "Pathologist"));
+        managementStaffList.add(new Management_staff("Evelyn", "J.", "Taylor", "Radiology", 80000, 44, "Female", "Radiologist"));
+        managementStaffList.add(new Management_staff("Lucas", "K.", "Adams", "Cardiology", 73000, 39, "Male", "Cardiologist"));
+        managementStaffList.add(new Management_staff("Luna", "L.", "Young", "Pediatrics", 71000, 35, "Female", "Pediatrician"));
+        managementStaffList.add(new Management_staff("Oliver", "M.", "Miller", "Neurology", 80000, 41, "Male", "Neurologist"));
+        managementStaffList.add(new Management_staff("Ava", "N.", "Lewis", "Oncology", 76000, 37, "Female", "Oncologist"));
+        managementStaffList.add(new Management_staff("Benjamin", "O.", "Harris", "Dermatology", 74000, 38, "Male", "Dermatologist"));
+        managementStaffList.add(new Management_staff("Aria", "P.", "King", "Gastroenterology", 82000, 43, "Female", "Gastroenterologist"));
+        managementStaffList.add(new Management_staff("Daniel", "Q.", "Ward", "Orthopedics", 79000, 40, "Male", "Orthopedic Surgeon"));
+        managementStaffList.add(new Management_staff("Isabella", "R.", "Richardson", "ENT", 80000, 41, "Female", "ENT Specialist"));
+        managementStaffList.add(new Management_staff("Jackson", "S.", "Cox", "Urology", 82000, 45, "Male", "Urologist"));
+        managementStaffList.add(new Management_staff("Evelyn", "T.", "Davis", "Psychiatry", 69000, 38, "Female", "Psychiatrist"));
+        managementStaffList.add(new Management_staff("Lucas", "U.", "Clark", "Pathology", 71000, 40, "Male", "Pathologist"));
+        managementStaffList.add(new Management_staff("Luna", "V.", "Taylor", "Radiology", 81000, 44, "Female", "Radiologist"));
+        managementStaffList.add(new Management_staff("Oliver", "W.", "Adams", "Cardiology", 74000, 39, "Male", "Cardiologist"));
+        managementStaffList.add(new Management_staff("Ava", "X.", "Young", "Pediatrics", 72000, 35, "Female", "Pediatrician"));
+        managementStaffList.add(new Management_staff("Benjamin", "Y.", "Miller", "Neurology", 81000, 41, "Male", "Neurologist"));
+        managementStaffList.add(new Management_staff("Aria", "Z.", "Lewis", "Oncology", 77000, 37, "Female", "Oncologist"));
+        managementStaffList.add(new Management_staff("Daniel", "A.", "Harris", "Dermatology", 75000, 38, "Male", "Dermatologist"));
+        managementStaffList.add(new Management_staff("Isabella", "B.", "King", "Gastroenterology", 83000, 43, "Female", "Gastroenterologist"));
+        managementStaffList.add(new Management_staff("Jackson", "C.", "Ward", "Orthopedics", 80000, 40, "Male", "Orthopedic Surgeon"));
+        managementStaffList.add(new Management_staff("Evelyn", "D.", "Richardson", "ENT", 81000, 41, "Female", "ENT Specialist"));
+        managementStaffList.add(new Management_staff("Lucas", "E.", "Cox", "Urology", 83000, 45, "Male", "Urologist"));
+        managementStaffList.add(new Management_staff("Luna", "F.", "Davis", "Psychiatry", 70000, 38, "Female", "Psychiatrist"));
+        managementStaffList.add(new Management_staff("Oliver", "G.", "Clark", "Pathology", 72000, 40, "Male", "Pathologist"));
+        managementStaffList.add(new Management_staff("Ava", "H.", "Taylor", "Radiology", 82000, 44, "Female", "Radiologist"));
+        managementStaffList.add(new Management_staff("Benjamin", "I.", "Adams", "Cardiology", 75000, 39, "Male", "Cardiologist"));
+        managementStaffList.add(new Management_staff("Aria", "J.", "Young", "Pediatrics", 73000, 35, "Female", "Pediatrician"));
+        managementStaffList.add(new Management_staff("Jackson", "K.", "Miller", "Neurology", 82000, 41, "Male", "Neurologist"));
+        managementStaffList.add(new Management_staff("Evelyn", "L.", "Lewis", "Oncology", 78000, 37, "Female", "Oncologist"));
+        managementStaffList.add(new Management_staff("Lucas", "M.", "Harris", "Dermatology", 76000, 38, "Male", "Dermatologist"));
+        managementStaffList.add(new Management_staff("Luna", "N.", "King", "Gastroenterology", 84000, 43, "Female", "Gastroenterologist"));
+        managementStaffList.add(new Management_staff("Oliver", "O.", "Ward", "Orthopedics", 81000, 40, "Male", "Orthopedic Surgeon"));
+        managementStaffList.add(new Management_staff("Ava", "P.", "Richardson", "ENT", 82000, 41, "Female", "ENT Specialist"));
+        managementStaffList.add(new Management_staff("Benjamin", "Q.", "Cox", "Urology", 84000, 45, "Male", "Urologist"));
+        managementStaffList.add(new Management_staff("Aria", "R.", "Davis", "Psychiatry", 71000, 38, "Female", "Psychiatrist"));
+        managementStaffList.add(new Management_staff("Jackson", "S.", "Clark", "Pathology", 73000, 40, "Male", "Pathologist"));
+        managementStaffList.add(new Management_staff("Evelyn", "T.", "Taylor", "Radiology", 83000, 44, "Female", "Radiologist"));
+        managementStaffList.add(new Management_staff("Lucas", "U.", "Adams", "Cardiology", 76000, 39, "Male", "Cardiologist"));
+        managementStaffList.add(new Management_staff("Luna", "V.", "Young", "Pediatrics", 74000, 35, "Female", "Pediatrician"));
+        managementStaffList.add(new Management_staff("Oliver", "W.", "Miller", "Neurology", 83000, 41, "Male", "Neurologist"));
+        managementStaffList.add(new Management_staff("Ava", "X.", "Lewis", "Oncology", 79000, 37, "Female", "Oncologist"));
+        managementStaffList.add(new Management_staff("Benjamin", "Y.", "Harris", "Dermatology", 77000, 38, "Male", "Dermatologist"));
+        managementStaffList.add(new Management_staff("Aria", "Z.", "King", "Gastroenterology", 85000, 43, "Female", "Gastroenterologist"));
+        managementStaffList.add(new Management_staff("Daniel", "A.", "Ward", "Orthopedics", 82000, 40, "Male", "Orthopedic Surgeon"));
+        managementStaffList.add(new Management_staff("Isabella", "B.", "Richardson", "ENT", 83000, 41, "Female", "ENT Specialist"));
+        managementStaffList.add(new Management_staff("Jackson", "C.", "Cox", "Urology", 85000, 45, "Male", "Urologist"));
+        managementStaffList.add(new Management_staff("Evelyn", "D.", "Davis", "Psychiatry", 72000, 38, "Female", "Psychiatrist"));
+        managementStaffList.add(new Management_staff("Lucas", "E.", "Clark", "Pathology", 74000, 40, "Male", "Pathologist"));
+        managementStaffList.add(new Management_staff("Luna", "F.", "Taylor", "Radiology", 84000, 44, "Female", "Radiologist"));
+        managementStaffList.add(new Management_staff("Oliver", "G.", "Adams", "Cardiology", 77000, 39, "Male", "Cardiologist"));
+        managementStaffList.add(new Management_staff("Ava", "H.", "Young", "Pediatrics", 75000, 35, "Female", "Pediatrician"));
+        managementStaffList.add(new Management_staff("Benjamin", "I.", "Miller", "Neurology", 84000, 41, "Male", "Neurologist"));
+        managementStaffList.add(new Management_staff("Aria", "J.", "Lewis", "Oncology", 80000, 37, "Female", "Oncologist"));
+        managementStaffList.add(new Management_staff("Jackson", "K.", "Harris", "Dermatology", 78000, 38, "Male", "Dermatologist"));
+        managementStaffList.add(new Management_staff("Evelyn", "L.", "King", "Gastroenterology", 86000, 43, "Female", "Gastroenterologist"));
+        managementStaffList.add(new Management_staff("Lucas", "M.", "Ward", "Orthopedics", 83000, 40, "Male", "Orthopedic Surgeon"));
+        managementStaffList.add(new Management_staff("Luna", "N.", "Richardson", "ENT", 84000, 41, "Female", "ENT Specialist"));
+        managementStaffList.add(new Management_staff("Oliver", "O.", "Cox", "Urology", 86000, 45, "Male", "Urologist"));
+        managementStaffList.add(new Management_staff("Ava", "P.", "Davis", "Psychiatry", 73000, 38, "Female", "Psychiatrist"));
+        managementStaffList.add(new Management_staff("Jackson", "Q.", "Clark", "Pathology", 75000, 40, "Male", "Pathologist"));
+        managementStaffList.add(new Management_staff("Evelyn", "R.", "Taylor", "Radiology", 85000, 44, "Female", "Radiologist"));
+        managementStaffList.add(new Management_staff("Lucas", "S.", "Adams", "Cardiology", 78000, 39, "Male", "Cardiologist"));
+        managementStaffList.add(new Management_staff("Luna", "T.", "Young", "Pediatrics", 76000, 35, "Female", "Pediatrician"));
+        managementStaffList.add(new Management_staff("Oliver", "U.", "Miller", "Neurology", 85000, 41, "Male", "Neurologist"));
+        managementStaffList.add(new Management_staff("Ava", "V.", "Lewis", "Oncology", 81000, 37, "Female", "Oncologist"));
+        managementStaffList.add(new Management_staff("Benjamin", "W.", "Harris", "Dermatology", 79000, 38, "Male", "Dermatologist"));
+        managementStaffList.add(new Management_staff("Aria", "X.", "King", "Gastroenterology", 87000, 43, "Female", "Gastroenterologist"));
+        managementStaffList.add(new Management_staff("Daniel", "Y.", "Ward", "Orthopedics", 84000, 40, "Male", "Orthopedic Surgeon"));
+        managementStaffList.add(new Management_staff("Isabella", "Z.", "Richardson", "ENT", 85000, 41, "Female", "ENT Specialist"));
+        managementStaffList.add(new Management_staff("Jackson", "Aa.", "Cox", "Urology", 87000, 45, "Male", "Urologist"));
+        managementStaffList.add(new Management_staff("Evelyn", "Bb.", "Davis", "Psychiatry", 74000, 38, "Female", "Psychiatrist"));
+        managementStaffList.add(new Management_staff("Lucas", "Cc.", "Clark", "Pathology", 76000, 40, "Male", "Pathologist"));
+        managementStaffList.add(new Management_staff("Luna", "Dd.", "Taylor", "Radiology", 86000, 44, "Female", "Radiologist"));
+        managementStaffList.add(new Management_staff("Oliver", "Ee.", "Adams", "Cardiology", 79000, 39, "Male", "Cardiologist"));
+        managementStaffList.add(new Management_staff("Ava", "Ff.", "Young", "Pediatrics", 77000, 35, "Female", "Pediatrician"));
+        managementStaffList.add(new Management_staff("Benjamin", "Gg.", "Miller", "Neurology", 86000, 41, "Male", "Neurologist"));
+        managementStaffList.add(new Management_staff("Aria", "Hh.", "Lewis", "Oncology", 82000, 37, "Female", "Oncologist"));
+        managementStaffList.add(new Management_staff("Jackson", "Ii.", "Harris", "Dermatology", 80000, 38, "Male", "Dermatologist"));
+        managementStaffList.add(new Management_staff("Evelyn", "Jj.", "King", "Gastroenterology", 88000, 43, "Female", "Gastroenterologist"));
+        managementStaffList.add(new Management_staff("Lucas", "Kk.", "Ward", "Orthopedics", 85000, 40, "Male", "Orthopedic Surgeon"));
+        managementStaffList.add(new Management_staff("Luna", "Ll.", "Richardson", "ENT", 86000, 41, "Female", "ENT Specialist"));
+        managementStaffList.add(new Management_staff("Oliver", "Mm.", "Cox", "Urology", 88000, 45, "Male", "Urologist"));
+        managementStaffList.add(new Management_staff("Ava", "Nn.", "Davis", "Psychiatry", 75000, 38, "Female", "Psychiatrist"));
+        managementStaffList.add(new Management_staff("Jackson", "Oo.", "Clark", "Pathology", 77000, 40, "Male", "Pathologist"));
+        managementStaffList.add(new Management_staff("Evelyn", "Pp.", "Taylor", "Radiology", 87000, 44, "Female", "Radiologist"));
+        managementStaffList.add(new Management_staff("Lucas", "Qq.", "Adams", "Cardiology", 80000, 39, "Male", "Cardiologist"));
+        managementStaffList.add(new Management_staff("Luna", "Rr.", "Young", "Pediatrics", 78000, 35, "Female", "Pediatrician"));
+        managementStaffList.add(new Management_staff("Oliver", "Ss.", "Miller", "Neurology", 87000, 41, "Male", "Neurologist"));
+        managementStaffList.add(new Management_staff("Ava", "Tt.", "Lewis", "Oncology", 83000, 37, "Female", "Oncologist"));
+        managementStaffList.add(new Management_staff("Benjamin", "Uu.", "Harris", "Dermatology", 81000, 38, "Male", "Dermatologist"));
+        managementStaffList.add(new Management_staff("Aria", "Vv.", "King", "Gastroenterology", 89000, 43, "Female", "Gastroenterologist"));
+        managementStaffList.add(new Management_staff("Daniel", "Ww.", "Ward", "Orthopedics", 86000, 40, "Male", "Orthopedic Surgeon"));
+        managementStaffList.add(new Management_staff("Isabella", "Xx.", "Richardson", "ENT", 87000, 41, "Female", "ENT Specialist"));
 
 //        --------------------------------------- insurance data ---------------------------------------------------------------------
 
@@ -2029,79 +2441,6 @@ public class Driver {
         Discharge_List.add(new Discharge("Mason", "Sato", "Yamamoto", 29, "Male", "777 Oak St, Capital City", "555-888-4444", "Friend"));
 
 
-//-----------------------------------------To Print all data--------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-//      To Print  Manage_Accouts data
-//        for(Manage_Accouts Man_Account : Manage_Accouts_Lists){
-//            Man_Account.Manage_Accouts_Info();
-//            System.out.println("=====================================================================================");
-//        }
-
-
-// to Print Departments info
-
-//        for(Departments Dept : DepartmentsList){
-//            Dept.Deptinfo();
-//            System.out.println("=====================================================================================");
-//        }
-
-//        To print Insurance info
-
-//        for(Insurance issues : InsuranceList){
-//            issues.Insurance_Info();
-//            System.out.println("===================================================================================");
-//        }
-
-//        To print Staff info
-
-//        for(Management_staff Manages :managementStaffList){
-//            Manages.Management_staff_Info();
-//            System.out.println("===================================================================================");
-//        }
-
-//      To print Accounts info
-
-//        for (Accounts account : accountsList) {
-//            account.AccountInfo();
-//            System.out.println("================================");
-//        }
-
-//
-
-
-//
-////        To remove account data  data from admit class
-//
-
-//
-
-//
-////        To select / display  data from admit class
-//
-//        for(Admit Ad : Admit_List){
-//            if (Ad.getPatient_First_name().equals(Patient_first_name) && Ad.getPatient_Middle_name().equals(Patient_Middle_name) && Ad.getPatient_Last_name().equals(Patient_Last_name)) {
-//                Ad.AdmitInfo();
-//                System.out.println("====================================================================================================");
-//                break; // Found the matching object, no need to continue the loop.
-//            }
-//        }
-//
-//
-//
-
-//
-////        To store Discharge data
-//
-//
 
 
 //        ----------------------------------------Switch case logic for Admit and Discharge class
@@ -2154,6 +2493,8 @@ public class Driver {
 //                    System.out.println("Enter  Patient_Realtion :");
 //                    String  Patient_Realtion = sc.nextLine();
 //
+//                    System.out.println("=================================================================");
+//
 ////                   ----------------------To add data into admit class ----------------------------------------------------
 //
 //                    for(Admit A : Admit_List){
@@ -2168,6 +2509,7 @@ public class Driver {
 //                        System.out.println("Patient data has been added : "+A.getPatient_First_name());
 //                        break;
 //                    }
+//                    System.out.println("=================================================================");
 //                    break;
 //
 //                case 2:
@@ -2176,7 +2518,7 @@ public class Driver {
 //                    for(Admit Ad : Admit_List){
 //                        Ad.AdmitInfo();
 //                        System.out.println("===========================================================================================");
-//                        break;
+//
 //                    }
 //                    break;
 //
@@ -2194,6 +2536,8 @@ public class Driver {
 //                    System.out.println("Enter Patient_Last_name : ");
 //                    String Patient_Last_name = sc.nextLine();
 //
+//                    System.out.println("=================================================================");
+//
 ////                    To checkk and remove specified object
 //
 ////                    To Select what to remove From admit class
@@ -2201,9 +2545,13 @@ public class Driver {
 //                    Admit objectToRemove = null;
 //
 //                    for (Admit Ad : Admit_List) {
-//                        if (Ad.getPatient_First_name().equals(Patient_first_name) && Ad.getPatient_Middle_name().equals(Patient_Middle_name) && Ad.getPatient_Last_name().equals(Patient_Last_name)) {
+//                        if (Ad.getPatient_First_name().equals(Patient_first_name)
+//                                && Ad.getPatient_Middle_name().equals(Patient_Middle_name)
+//                                && Ad.getPatient_Last_name().equals(Patient_Last_name))
+//                        {
 //                            objectToRemove = Ad;
 //                            System.out.println("data found");
+//                            System.out.println("=================================================================");
 //                            break; // Found the matching object, no need to continue the loop.
 //                        }
 //                    }
@@ -2220,6 +2568,7 @@ public class Driver {
 //                    } else {
 //                        System.out.println("No matching object found.");
 //                    }
+//                    System.out.println("=================================================================");
 //
 //                    break;
 //
@@ -2235,14 +2584,20 @@ public class Driver {
 //                    String Admit_Patient_Last_name = sc.nextLine();
 ////                     To select / display specific Admit data from admit class
 //
+//                    System.out.println("=================================================================");
+//
 //                    for (Admit Ad : Admit_List){
-//                        if (Ad.getPatient_First_name().equals(Admit_Patient_first_name) && Ad.getPatient_Middle_name().equals(Admit_Patient_Middle_name) && Ad.getPatient_Last_name().equals(Admit_Patient_Last_name)) {
+//                        if (Ad.getPatient_First_name().equals(Admit_Patient_first_name)
+//                                && Ad.getPatient_Middle_name().equals(Admit_Patient_Middle_name)
+//                                && Ad.getPatient_Last_name().equals(Admit_Patient_Last_name))
+//                        {
 //                            Ad.Admit_add(Ad.getPatient_First_name(),Ad.getPatient_Middle_name(),Ad.getPatient_Last_name(),Ad.getPatient_Age(),Ad.getPatient_Sex(),Ad.getPatient_Address(),Ad.getPatient_MbNo(),Ad.getPatient_Realtion());
 //                            Ad.AdmitInfo();
 //                            System.out.println("====================================================================================================================");
 //                            break; // Found the matching object, no need to continue the loop.
 //                        }
 //                    }
+//                    System.out.println("=================================================================");
 //
 //                    break;
 //
@@ -2275,6 +2630,8 @@ public class Driver {
 //                    System.out.println("Enter  Discharge_Patient_Realtion :");
 //                    String  discharge_Patient_Realtion = sc.nextLine();
 //
+//                    System.out.println("=================================================================");
+//
 ////                    Add data into dischare class
 //                    for(Discharge diS : Discharge_List){
 //                        diS.setDischarge_Patient_First_name(discharge_patient_first_name);
@@ -2286,7 +2643,9 @@ public class Driver {
 //                        diS.setDischarge_Patient_MbNo(discharge_Patient_MbNo);
 //                        diS.setDischarge_Patient_Realtion(discharge_Patient_Realtion);
 //                        diS.Discharge_Info();
+//                        System.out.println("=================================================================");
 //                        System.out.println("Data is added for : "+diS.Discharge_getPatient_First_name());
+//                        System.out.println("=================================================================");
 //                        break;
 //                    }
 //
@@ -2317,26 +2676,34 @@ public class Driver {
 //                    System.out.println("Enter Patient_Last_name : ");
 //                    String discharge_Patient_Last_name = sc.nextLine();
 //
+//                    System.out.println("=================================================================");
+//
 ////                    object declare to remove
 //
 //                    Discharge ObjectToremove = null;
 ////  ---------------------------------to select specific data from Discharge class to remove
 //                    for(Discharge di : Discharge_List){
-//                        if(di.Discharge_getPatient_First_name().equals(discharge_Patient_first_name) && di.Discharge_getPatient_Middle_name().equals(discharge_Patient_Middle_name) && di.Discharge_getPatient_Last_name().equals(discharge_Patient_Last_name)){
+//                        if(di.Discharge_getPatient_First_name().equals(discharge_Patient_first_name)
+//                                && di.Discharge_getPatient_Middle_name().equals(discharge_Patient_Middle_name)
+//                                && di.Discharge_getPatient_Last_name().equals(discharge_Patient_Last_name))
+//                        {
 //                            ObjectToremove = di;
 //                            System.out.println("data found");
+//                            System.out.println("=================================================================");
+//
 //                            break;
 //                        }
 //                    }
 ////----------------------------To remove specific data from discharge table
 //                    if (ObjectToremove != null) {
 //                        Admit_List.remove(ObjectToremove);
-//                        System.out.println("Data for following patient is removed " + ObjectToremove.Discharge_getPatient_First_name());
+//                        System.out.println("Data for following patient is removed : " + ObjectToremove.Discharge_getPatient_First_name());
 //                        // At this point, the object "John Doe Smith "  is no longer accessible,
 //                        // and the garbage collector will eventually reclaim its memory.
 //                    } else {
 //                        System.out.println("No matching object found.");
 //                    }
+//                    System.out.println("=================================================================");
 //
 //                    break;
 //
@@ -2354,10 +2721,15 @@ public class Driver {
 //                    String Discharge_Patient_Last_name = sc.nextLine();
 ////                     To select / display specific discharge data from admit class
 //
+//                    System.out.println("=================================================================");
+//
 //                    for (Discharge Di : Discharge_List){
 //
 //
-//                        if (Di.Discharge_getPatient_First_name().equals(Discharge_Patient_first_name) && Di.Discharge_getPatient_Middle_name().equals(Discharge_Patient_Middle_name) && Di.Discharge_getPatient_Last_name().equals(Discharge_Patient_Last_name)) {
+//                        if (Di.Discharge_getPatient_First_name().equals(Discharge_Patient_first_name)
+//                                && Di.Discharge_getPatient_Middle_name().equals(Discharge_Patient_Middle_name)
+//                                && Di.Discharge_getPatient_Last_name().equals(Discharge_Patient_Last_name))
+//                        {
 //                            Di.Discharge_add(Di.Discharge_getPatient_First_name(), Di.Discharge_getPatient_Middle_name(), Di.Discharge_getPatient_Last_name(), Di.Discharge_getPatient_Age(), Di.Discharge_getPatient_Sex(),Di.Discharge_getPatient_Address(),Di.Discharge_getPatient_MbNo(),Di.Discharge_getPatient_Realtion());
 //                            Di.Discharge_Info();
 //                            System.out.println("====================================================================================================================");
@@ -2394,6 +2766,37 @@ public class Driver {
 //            switch (choice){
 //                case 1:
 ////                    Add Pharmacy_Staff
+//
+////                    tO TAKE user INput
+//                    System.out.println("Enter Pharmacy_Staff_Name : ");
+//                    String Pharmacy_Staff_Name = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Staff_sal : ");
+//                    double Pharmacy_Staff_sal = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Staff_Designation : ");
+//                    String Pharmacy_Staff_Designation = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Staff_Experiance : ");
+//                    double Pharmacy_Staff_Experiance = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("=================================================================");
+//
+////                  To add info inside
+//
+//                    for(Pharmacy_Staff PS : Pharmacy_Staff_List){
+//                        PS.setPharmacy_Staff_name(Pharmacy_Staff_Name);
+//                        PS.setPharmacy_Staff_sal(Pharmacy_Staff_sal);
+//                        PS.setPharmacy_Staff_Designation(Pharmacy_Staff_Designation);
+//                        PS.setPharmacy_Staff_Experiance(Pharmacy_Staff_Experiance);
+//                        System.out.println("=================================================================");
+//                        System.out.println("Data  has been added for : "+PS.getPharmacy_Staff_name());
+//                        System.out.println("=================================================================");
+//                        break;
+//
+//                    }
 //                    break;
 //
 //                case 2:
@@ -2408,10 +2811,94 @@ public class Driver {
 //
 //                case 3:
 ////                    To get specific data from Pharmacy_Staff class
+//
+////                    tO TAKE user INput
+//
+//                    System.out.println("Enter Pharmacy_Staff_Name : ");
+//                    String Pharmacy_Staff_name = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Staff_sal : ");
+//                    double Pharmacy_Staff_Sal = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Staff_Designation : ");
+//                    String Pharmacy_Staff_designation = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Staff_Experiance : ");
+//                    double Pharmacy_Staff_experiance = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("=================================================================");
+//
+////                    To add specific data into the class
+//
+//                    for(Pharmacy_Staff Ps : Pharmacy_Staff_List){
+//                        if(Ps.getPharmacy_Staff_name().equals(Pharmacy_Staff_name)
+//                                && Ps.getPharmacy_Staff_sal() == Pharmacy_Staff_Sal
+//                                && Ps.getPharmacy_Staff_Designation().equals(Pharmacy_Staff_designation)
+//                                && Ps.getPharmacy_Staff_Experiance() == Pharmacy_Staff_experiance)
+//                        {
+//                            Ps.Pharmacy_Staff_Info();
+//                            System.out.println("=================================================================");
+//
+//                        }
+//                    }
+//                    System.out.println("=================================================================");
 //                    break;
 //
 //                case 4:
 ////                    To Remove specific data from Pharmacy_Staff class
+//
+////                    To take user input
+//
+//                    System.out.println("Enter Pharmacy_Staff_Name : ");
+//                    String Pharmacy_staff_name = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Staff_sal : ");
+//                    double Pharmacy_staff_Sal = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Staff_Designation : ");
+//                    String Pharmacy_staff_designation = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Staff_Experiance : ");
+//                    double Pharmacy_staff_experiance = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("=================================================================");
+//
+////                  to select specific data
+//
+//                    Pharmacy_Staff objectToRemove = null;
+//
+//                    for(Pharmacy_Staff pS : Pharmacy_Staff_List){
+//                        if(pS.getPharmacy_Staff_name().equals(Pharmacy_staff_name)
+//                                && pS.getPharmacy_Staff_sal() == Pharmacy_staff_Sal
+//                                && pS.getPharmacy_Staff_Designation().equals(Pharmacy_staff_designation)
+//                                && pS.getPharmacy_Staff_Experiance() == Pharmacy_staff_experiance)
+//                        {
+//                            objectToRemove = pS;
+//                            System.out.println("=================================================================");
+//                            System.out.println("Data Found");
+//                            System.out.println("=================================================================");
+//
+//                        }
+//                    }
+//
+////                    to delete specific data
+//
+////                     To remove data
+//                    if (objectToRemove != null) {
+//                        Pharmacy_Medicine_List.remove(objectToRemove);
+//                        System.out.println("Data for the following Pharmacy Medicine Staff is removed: " + objectToRemove.getPharmacy_Staff_name());
+//                        // At this point, the object "Pharmacy_Medicine" is no longer accessible,
+//                        // and the garbage collector will eventually reclaim its memory.
+//                    } else {
+//                        System.out.println("No matching object found.");
+//                    }
+//
+//                    System.out.println("=================================================================");
+//
 //                    break;
 //
 //                case 0:
@@ -2437,9 +2924,41 @@ public class Driver {
 //            System.out.println("Enter your choice: ");
 //            choice = sc.nextInt();
 //            sc.nextLine(); // Consume the newline left by nextInt()
+//
 //            switch (choice){
 //                case 1:
 ////                    Add Pharmacy Medicine dealer
+//
+////                    To take user input
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Dealer_name : ");
+//                    String Pharmacy_medicine_dealer_name = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Price : ");
+//                    double Pharmacy_medicine_price = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Dealer_Loc : ");
+//                    String Pharmacy_medicine_dealer_Loc = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Dealer_Experiance : ");
+//                    double Pharmacy_medicine_dealer_Experiance = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("=================================================================");
+//
+//                    for(Pharmacy_Medicine pM : Pharmacy_Medicine_List){
+//                        pM.setPharmacy_Medicine_Dealer_name(Pharmacy_medicine_dealer_name);
+//                        pM.setPharmacy_Medicine_Price(Pharmacy_medicine_price);
+//                        pM.setPharmacy_Medicine_Dealer_Loc(Pharmacy_medicine_dealer_Loc);
+//                        pM.setPharmacy_Medicine_Dealer_Experiance(Pharmacy_medicine_dealer_Experiance);
+//                        System.out.println("=================================================================");
+//                        System.out.println("Data has been added for : "+pM.getPharmacy_Medicine_Dealer_name());
+//                        System.out.println("=================================================================");
+//
+//                        break;
+//                    }
+//                    System.out.println("=================================================================");
 //                    break;
 //
 //                case 2:
@@ -2455,10 +2974,89 @@ public class Driver {
 //
 //                case 3:
 ////                    To get specific data from Pharmacy Medicine dealer class
+//
+////                    To take user input
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Dealer_name : ");
+//                    String Pharmacy_Medicine_Dealer_name = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Price : ");
+//                    double Pharmacy_Medicine_Price = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Dealer_Loc : ");
+//                    String Pharmacy_Medicine_Dealer_Loc = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Dealer_Experiance : ");
+//                    double Pharmacy_Medicine_Dealer_Experiance = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("=================================================================");
+//
+////                    To get specific data from Pharmacy_Medicine_Dealer class
+//
+//                    for(Pharmacy_Medicine PM : Pharmacy_Medicine_List){
+//                        if(PM.getPharmacy_Medicine_Dealer_name().equals(Pharmacy_Medicine_Dealer_name)
+//                                && PM.getPharmacy_Medicine_Price()==(Pharmacy_Medicine_Price)
+//                                && PM.getPharmacy_Medicine_Dealer_Loc().equals(Pharmacy_Medicine_Dealer_Loc)
+//                                && PM.getPharmacy_Medicine_Dealer_Experiance()==(Pharmacy_Medicine_Dealer_Experiance))
+//                        {
+//                            PM.Pharmacy_Medicine_Info();
+//                            System.out.println("=================================================================");
+//                            System.out.println("Data found for : "+PM.getPharmacy_Medicine_Dealer_name());
+//                            System.out.println("=================================================================");
+//
+//                        }
+//                    }
 //                    break;
 //
 //                case 4:
-////                    To Remove specific data from Pharmacy Medicine dealer class
+//                    // To Remove specific data from Pharmacy Medicine dealer class
+//                    // To take input from the user
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Dealer_name : ");
+//                    String Pharmacy_Medicine_dealer_name = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Price : ");
+//                    double Pharmacy_Medicine_dealer_Price = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Dealer_Loc : ");
+//                    String Pharmacy_Medicine_dealer_Loc = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Dealer_Experiance : ");
+//                    double Pharmacy_Medicine_dealer_Experiance = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("=================================================================");
+//
+//                    // To find data to be deleted
+//
+//                    Pharmacy_Medicine objectToremove = null;
+//
+//                    for (Pharmacy_Medicine Pm : Pharmacy_Medicine_List) {
+//                        if (Pm.getPharmacy_Medicine_Dealer_name().equals(Pharmacy_Medicine_dealer_name) &&
+//                                Pm.getPharmacy_Medicine_Price() == Pharmacy_Medicine_dealer_Price &&
+//                                Pm.getPharmacy_Medicine_Dealer_Loc().equals(Pharmacy_Medicine_dealer_Loc) &&
+//                                Pm.getPharmacy_Medicine_Dealer_Experiance() == Pharmacy_Medicine_dealer_Experiance) {
+//                            objectToremove = Pm;
+//                            System.out.println("=================================================================");
+//                            System.out.println("Data Found");
+//                            System.out.println("=================================================================");
+//                            break; // Exit the loop once data is found
+//                        }
+//                    }
+//
+//                    // To remove data
+//                    if (objectToremove != null) {
+//                        Pharmacy_Medicine_List.remove(objectToremove);
+//                        System.out.println("Data for the following Pharmacy Medicine dealer is removed: " + objectToremove.getPharmacy_Medicine_Dealer_name());
+//                        // At this point, the object "Pharmacy_Medicine" is no longer accessible,
+//                        // and the garbage collector will eventually reclaim its memory.
+//                    } else {
+//                        System.out.println("No matching object found.");
+//                    }
+//                    System.out.println("=================================================================");
 //                    break;
 //
 //                case 0:
@@ -2558,10 +3156,14 @@ public class Driver {
 //                    String Pharmacy_Medicine_branded_use = sc.nextLine();
 //
 //                    for(Medicene_Branded Mb : Medicene_Branded_List){
-//                        if(Mb.getMedicene_Branded_Name().equals(Pharmacy_Medicine_branded_name) && Mb.getMedicene_Branded_Manufracture().equals(Pharmacy_Branded_branded_manufracture) && Mb.getMedicene_Branded_Use().equals(Pharmacy_Medicine_branded_use) ){
+//                        if(Mb.getMedicene_Branded_Name().equals(Pharmacy_Medicine_branded_name)
+//                                && Mb.getMedicene_Branded_Manufracture().equals(Pharmacy_Branded_branded_manufracture)
+//                                && Mb.getMedicene_Branded_Use().equals(Pharmacy_Medicine_branded_use) )
+//                        {
 //                            Mb.Medicene_Branded_info();
 //
 //                        }
+//                        System.out.println("=================================================================");
 //                    }
 //                    break;
 //
@@ -2578,15 +3180,21 @@ public class Driver {
 //
 //                    System.out.println("Enter Pharmacy_Medicine_Branded_Use : ");
 //                    String Pharmacy_Medicine_Branded_use = sc.nextLine();
+
+//                    System.out.println("=================================================================");
 //
 ////                    To find specific data to remove
 //
 //                    Medicene_Branded Objecttoremove = null;
 //
 //                    for(Medicene_Branded MB : Medicene_Branded_List){
-//                        if(MB.getMedicene_Branded_Name().equals(Pharmacy_Medicine_Branded_name) && MB.getMedicene_Branded_Manufracture().equals(Pharmacy_Medicine_Branded_manufracture) && MB.getMedicene_Branded_Use().equals(Pharmacy_Medicine_Branded_use)){
+//                        if(MB.getMedicene_Branded_Name().equals(Pharmacy_Medicine_Branded_name)
+//                                && MB.getMedicene_Branded_Manufracture().equals(Pharmacy_Medicine_Branded_manufracture)
+//                                && MB.getMedicene_Branded_Use().equals(Pharmacy_Medicine_Branded_use))
+//                        {
 //                            Objecttoremove = MB;
 //                            System.out.println("Data found");
+//                            System.out.println("=================================================================");
 //                        }
 //                    }
 //
@@ -2600,6 +3208,7 @@ public class Driver {
 //                    } else {
 //                        System.out.println("No matching object found.");
 //                    }
+//                     System.out.println("=================================================================");
 //                    break;
 //
 //                case 0:
@@ -2612,133 +3221,1977 @@ public class Driver {
 
 //        ------------------------------------ Switch case logic for Pharmacy Medicine Generic--------------------------------------
 
-        int choice;
+//        int choice;
+//        do{
+//            System.out.println("========= Menu =========");
+//            System.out.println("1. Add Pharmacy Medicine Generic");
+//            System.out.println("2. Display Pharmacy Medicine Generic");
+//            System.out.println("3. To get specific data from Pharmacy Medicine Generic class");
+//            System.out.println("4. To Remove specific data from Pharmacy Medicine Generic class");
+//            System.out.println("0. Exit");
+//            System.out.println("========================");
+//            System.out.println("Enter your choice: ");
+//            choice = sc.nextInt();
+//            sc.nextLine(); // Consume the newline left by nextInt()
+//            switch (choice){
+//                case 1:
+////                    Add Pharmacy Medicine Generic
+//
+////                    To take user input
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Generic_Name : ");
+//                    String Pharmacy_Medicine_Generic_Name = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Generic_Manufracture : ");
+//                    String Pharmacy_Medicine_Generic_Manufracture = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Generic_Use : ");
+//                    String Pharmacy_Medicine_Generic_Use = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Generic_MfgNO : ");
+//                    double Pharmacy_Medicine_Generic_MfgNO = sc.nextInt();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Generic_MfgDate : ");
+//                    String Pharmacy_Medicine_Generic_MfgDate = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Generic_Mfg_Loc : ");
+//                    String Pharmacy_Medicine_Generic_Mfg_Loc = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Generic_price : ");
+//                    double Pharmacy_Medicine_Generic_price = sc.nextInt();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Generic_power : ");
+//                    double Pharmacy_Medicine_Generic_power = sc.nextInt();
+//                    sc.nextLine();
+
+//                    System.out.println("=================================================================");
+//
+//                    for(Medicine_Generic Mg : Medicine_Generic_List){
+//                        Mg.setMedicine_Generic_Name(Pharmacy_Medicine_Generic_Name);
+//                        Mg.setMedicine_Generic_Manufracture(Pharmacy_Medicine_Generic_Manufracture);
+//                        Mg.setMedicine_Generic_Use(Pharmacy_Medicine_Generic_Use);
+//                        Mg.setMedicine_Generic_MfgNO(Pharmacy_Medicine_Generic_MfgNO);
+//                        Mg.setMedicine_Generic_MfgDate(Pharmacy_Medicine_Generic_MfgDate);
+//                        Mg.setMedicine_Generic_Mfg_Loc(Pharmacy_Medicine_Generic_Mfg_Loc);
+//                        Mg.setMedicine_Generic_price(Pharmacy_Medicine_Generic_price);
+//                        Mg.setMMedicine_Generic_Power(Pharmacy_Medicine_Generic_power);
+//                        System.out.println("Medicine_Generic Data has been added for : "+Mg.getMedicine_Generic_Name());
+//
+//                    }
+//                        System.out.println("=================================================================");
+//                    break;
+//
+//                case 2:
+////                    Display Pharmacy Medicine Generic
+//
+//                    //  To print Medicene_Generic data
+//
+//                    for(Medicine_Generic MG : Medicine_Generic_List){
+//                        MG.Medicine_Generic_info();
+//                        System.out.println("=====================================================================================");
+//
+//                    }
+//                    break;
+//
+//                case 3:
+////                    To get specific data from Pharmacy Medicine Generic class
+//
+////                    Take user input
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Generic_Name : ");
+//                    String Pharmacy_Medicine_Generic_name = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Generic_Manufracture : ");
+//                    String Pharmacy_Medicine_Generic_manufracture = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Generic_Use : ");
+//                    String Pharmacy_Medicine_Generic_use = sc.nextLine();
+//                    System.out.println("=================================================================");
+//
+//                    for(Medicine_Generic mG : Medicine_Generic_List){
+//                        if(mG.getMedicine_Generic_Name().equals(Pharmacy_Medicine_Generic_name)
+//                                && mG.getMedicine_Generic_Manufracture().equals(Pharmacy_Medicine_Generic_manufracture)
+//                                && mG.getMedicine_Generic_Use().equals(Pharmacy_Medicine_Generic_use))
+//                        {
+//                            mG.Medicine_Generic_info();
+//                        }
+//                        System.out.println("=================================================================");
+//                    }
+//                    break;
+//
+//                case 4:
+////                    To Remove specific data from Pharmacy Medicine Generic class
+//
+////                    Take user input
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Generic_Name : ");
+//                    String Pharmacy_Medicine_generic_name = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Generic_Manufracture : ");
+//                    String Pharmacy_Medicine_generic_manufracture = sc.nextLine();
+//
+//                    System.out.println("Enter Pharmacy_Medicine_Generic_Use : ");
+//                    String Pharmacy_Medicine_generic_use = sc.nextLine();
+
+//                    System.out.println("=================================================================");
+////                    -------------To search speecific data into database
+//
+//                    Medicine_Generic Objecttoremove = null;
+//
+//                    for(Medicine_Generic mg : Medicine_Generic_List){
+//                        if(mg.getMedicine_Generic_Name().equals(Pharmacy_Medicine_generic_name)
+//                                && mg.getMedicine_Generic_Manufracture().equals(Pharmacy_Medicine_generic_manufracture)
+//                                && mg.getMedicine_Generic_Use().equals(Pharmacy_Medicine_generic_use))
+//                        {
+//                            Objecttoremove = mg;
+//                            System.out.println("data found");
+//                            System.out.println("=================================================================");
+//
+//                        }
+//                    }
+////                    -----------------to remove specific data from generic table ----------------------------------
+//
+//                    if (Objecttoremove != null) {
+//                        Medicine_Generic_List.remove(Objecttoremove);
+//                        System.out.println("Data for following patient is removed " + Objecttoremove.getMedicine_Generic_Name());
+//                        // At this point, the object "generic medicine  "  is no longer accessible,
+//                        // and the garbage collector will eventually reclaim its memory.
+//                    } else {
+//                        System.out.println("No matching object found.");
+//                    }
+//                      System.out.println("=================================================================");
+//                    break;
+//
+//                case 0:
+//                    System.out.println("Exiting the program. Goodbye!");
+//                    break;
+//                default:
+//                    System.out.println("Invalid choice. Please try again.");
+//            }
+//        }while(choice !=0);
+
+//        -----------------------------------------Switch case logic for accounts--------------------------------
+
+//        int choice;
+//        do{
+//            System.out.println("========= Menu =========");
+//            System.out.println("1. Add Accounts details");
+//            System.out.println("2. Display Accounts details");
+//            System.out.println("3. To get specific data from Accounts class");
+//            System.out.println("4. To Remove specific data from Accounts class");
+//            System.out.println("0. Exit");
+//            System.out.println("========================");
+//            System.out.println("Enter your choice: ");
+//            choice = sc.nextInt();
+//            sc.nextLine(); // Consume the newline left by nextInt()
+//            switch (choice){
+//                case 1:
+////                    To Add Accounts details
+//
+////                    To take user input
+//                    System.out.println("Enter Patient_name :");
+//                    String Patient_name = sc.nextLine();
+//
+//                    System.out.println("Enter Account_money :");
+//                    double Account_money = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Name :");
+//                    String Dept_Name = sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Degree :");
+//                    String Dept_Degree = sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Exp :");
+//                    double Dept_Exp = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Specialization :");
+//                    String Dept_Specialization = sc.nextLine();
+//
+//                    System.out.println("=================================================================");
+//
+//
+//                    for(Accounts Account : accountsList){
+//                        Account.setPatient_name(Patient_name);
+//                        Account.setAccount_money(Account_money);
+//                        Account.setDept_Name(Dept_Name);
+//                        Account.setDept_Degree(Dept_Degree);
+//                        Account.setDept_Exp(Dept_Exp);
+//                        Account.setDept_Specialization(Dept_Specialization);
+//                        System.out.println("data has been added for : "+Account.getPatient_name());
+//                        System.out.println("=================================================================");
+//                        break;
+//                    }
+//
+//
+//                    break;
+//
+//                case 2:
+////                    To Display Accounts details
+//
+//                    //      To print Accounts info
+//
+//                    for (Accounts account : accountsList) {
+//                        account.AccountInfo();
+//                        System.out.println("================================");
+//                    }
+//                    System.out.println("=================================================================");
+//                    break;
+//
+//                case 3:
+////                   To get specific data from Accounts class
+//
+////                    To take user input
+//
+//                    System.out.println("Enter Patient_name :");
+//                    String patient_name = sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Name :");
+//                    String dept_Name = sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Degree :");
+//                    String dept_Degree = sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Exp :");
+//                    double dept_Exp = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Specialization :");
+//                    String dept_Specialization = sc.nextLine();
+//
+//                    System.out.println("=================================================================");
+//
+//                    for(Accounts Ac : accountsList){
+//                        if(Ac.getPatient_name().equals(patient_name)
+//                                && Ac.getDept_Name().equals(dept_Name)
+//                                && Ac.getDept_Degree().equals(dept_Degree)
+//                                && Ac.getDept_Exp()==dept_Exp
+//                                && Ac.getDept_Specialization().equals(dept_Specialization)){
+//                            System.out.println("Data found : "+Ac.getPatient_name());
+//                            Ac.AccountInfo();
+//                            System.out.println("=================================================================");
+//
+//                        }
+//                    }
+//                    break;
+//
+//                case 4:
+////                   To Remove specific data from Accounts class
+//
+////                    To take user input
+//
+//                    System.out.println("Enter Patient_name :");
+//                    String patient_Name = sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Name :");
+//                    String dept_name = sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Degree :");
+//                    String dept_degree = sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Exp :");
+//                    double dept_exp = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Specialization :");
+//                    String dept_specialization = sc.nextLine();
+//
+//                    System.out.println("=================================================================");
+//
+//                    Accounts object_To_remove = null;
+//
+////                    To access data
+//
+//                    for(Accounts Ac : accountsList){
+//                        if(Ac.getPatient_name().equals(patient_Name)
+//                                && Ac.getDept_Name().equals(dept_name)
+//                                && Ac.getDept_Degree().equals(dept_degree)
+//                                && Ac.getDept_Exp()==dept_exp
+//                                && Ac.getDept_Specialization().equals(dept_specialization))
+//                        {
+//                            System.out.println("Data found : "+Ac.getPatient_name());
+//                            System.out.println("=================================================================");
+//                            object_To_remove = Ac;
+//
+//                        }
+//                    }
+//
+////                   To remove specific data from account class
+//
+//                    if (object_To_remove != null) {
+//                        accountsList.remove(object_To_remove);
+//                        System.out.println("Data for following patient is removed " + object_To_remove.getPatient_name());
+//                        // At this point, the object "generic medicine  "  is no longer accessible,
+//                        // and the garbage collector will eventually reclaim its memory.
+//                    } else {
+//                        System.out.println("No matching object found.");
+//                    }
+//                    System.out.println("=================================================================");
+//
+//                    break;
+//
+//                case 0:
+//                    System.out.println("Exiting the program. Goodbye!");
+//                    break;
+//                default:
+//                    System.out.println("Invalid choice. Please try again.");
+//            }
+//        }while(choice !=0);
+
+        // --------------------------Switch case logic for departments class
+
+//        int choice;
+//        do{
+//            System.out.println("========= Menu =========");
+//            System.out.println("1. Add Departments details");
+//            System.out.println("2. Display Departments details");
+//            System.out.println("3. To get specific data from Departments class");
+//            System.out.println("4. To Remove specific data from Departments class");
+//            System.out.println("0. Exit");
+//            System.out.println("========================");
+//            System.out.println("Enter your choice: ");
+//            choice = sc.nextInt();
+//            sc.nextLine(); // Consume the newline left by nextInt()
+//            switch (choice){
+//                case 1:
+////                    To Add Departments details
+//
+////                    To take user input
+//
+//                    System.out.println("Enter Dept_Name :");
+//                    String Dept_Name = sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Degree :");
+//                    String Dept_Degree = sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Exp :");
+//                    double Dept_Exp = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Specialization :");
+//                    String Dept_Specialization = sc.nextLine();
+//
+//                    System.out.println("=====================================================================================");
+//
+//
+////                    To add data into departments class
+//
+//                    for(Departments De : DepartmentsList){
+//                        De.setDept_Name(Dept_Name);
+//                        De.setDept_Degree(Dept_Degree);
+//                        De.setDept_Exp(Dept_Exp);
+//                        De.setDept_Specialization(Dept_Specialization);
+//                        System.out.println("=====================================================================================");
+//                        System.out.println("Data has been added for : "+De.getDept_Name());
+//                        System.out.println("=====================================================================================");
+//                        break;
+//
+//                    }
+//
+//                    break;
+//
+//                case 2:
+////                    To Display Departments details
+//
+//                    // to Print Departments info
+//                    for(Departments Dept : DepartmentsList){
+//                        Dept.Deptinfo();
+//                        System.out.println("=====================================================================================");
+//                    }
+//                    System.out.println("=====================================================================================");
+//                    break;
+//
+//                case 3:
+////                   To get specific data from Departments class
+//
+////                    To take user input
+//
+//                    System.out.println("Enter Dept_Name :");
+//                    String dept_Name = sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Degree :");
+//                    String dept_Degree = sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Exp :");
+//                    double dept_Exp = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Specialization :");
+//                    String dept_Specialization = sc.nextLine();
+//
+//                    System.out.println("=====================================================================================");
+//
+////                    To search specific data into departments class
+//
+//                    for(Departments dE : DepartmentsList){
+//                        if(dE.getDept_Name().equals(dept_Name)
+//                                && dE.getDept_Degree().equals(dept_Degree)
+//                                && dE.getDept_Exp()==dept_Exp
+//                                && dE.getDept_Specialization().equals(dept_Specialization))
+//                        {
+//                            System.out.println("=====================================================================================");
+//                            dE.Deptinfo();
+//                            System.out.println("=====================================================================================");
+//
+//                        }
+//                    }
+//
+//                    break;
+//
+//                case 4:
+////                   To Remove specific data from Departments class
+//
+////                    To take user input
+//
+//                    System.out.println("Enter Dept_Name :");
+//                    String dept_name = sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Degree :");
+//                    String dept_degree = sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Exp :");
+//                    double dept_exp = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Dept_Specialization :");
+//                    String dept_specialization = sc.nextLine();
+//
+//                    System.out.println("=====================================================================================");
+//
+////                    To remove data initialized null first
+//
+//                    Departments object_To_Remove = null;
+//
+////                    To search specific data into departments class
+//
+//
+//                    for(Departments de : DepartmentsList){
+//                        if(de.getDept_Name().equals(dept_name)
+//                                && de.getDept_Degree().equals(dept_degree)
+//                                && de.getDept_Exp()==dept_exp
+//                                && de.getDept_Specialization().equals(dept_specialization)){
+//
+//                            object_To_Remove = de;
+//
+//                        }
+//                    }
+////                    To remove data from dept table
+//
+//                    if (object_To_Remove != null) {
+//                        accountsList.remove(object_To_Remove);
+//                        System.out.println("=================================================================");
+//                        System.out.println("Data for following patient is removed : " + object_To_Remove.getDept_Name());
+//                        System.out.println("=================================================================");
+//                        // At this point, the object "departments "  is no longer accessible,
+//                        // and the garbage collector will eventually reclaim its memory.
+//                    } else {
+//                        System.out.println("No matching object found.");
+//                    }
+//
+//
+//                    break;
+//
+//                case 0:
+//                    System.out.println("Exiting the program. Goodbye!");
+//                    break;
+//                default:
+//                    System.out.println("Invalid choice. Please try again.");
+//            }
+//        }while(choice !=0);
+
+//        ---------------------- switch case logic for Manage_Account -----------------------------------
+
+//        int choice;
+//        do{
+//            System.out.println("========= Menu =========");
+//            System.out.println("1. Add Departments details");
+//            System.out.println("2. Display Departments details");
+//            System.out.println("3. To get specific data from Departments class");
+//            System.out.println("4. To Remove specific data from Departments class");
+//            System.out.println("0. Exit");
+//            System.out.println("========================");
+//            System.out.println("Enter your choice: ");
+//            choice = sc.nextInt();
+//            sc.nextLine(); // Consume the newline left by nextInt()
+//            switch (choice){
+//                case 1:
+////                    To Add DManage_Accouts  details
+//
+////                    To take user input
+//
+//                    System.out.println("Enter Payment_Name : ");
+//                    String Payment_Name = sc.nextLine();
+//
+//                    System.out.println("Enter Payment_Type : ");
+//                    String Payment_Type = sc.nextLine();
+//
+//                    System.out.println("Enter Payment_Amount : ");
+//                    double Payment_Amount = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Payment_Dept_name : ");
+//                    String Payment_Dept_name = sc.nextLine();
+//
+//                    System.out.println("Enter Payee name : ");
+//                    String Payee = sc.nextLine();
+//
+//                    System.out.println("=================================================================");
+//
+//                    for(Manage_Accouts MA : Manage_Accouts_Lists){
+//                        MA.setPayment_Name(Payment_Name);
+//                        MA.setPayment_Type(Payment_Type);
+//                        MA.setPayment_Amount(Payment_Amount);
+//                        MA.setPayment_Dept_name(Payment_Dept_name);
+//                        MA.setPayee(Payee);
+//                        System.out.println("=================================================================");
+//                        System.out.println("Data has been added for : "+MA.getPayee());
+//                        System.out.println("=================================================================");
+//
+//                    }
+//
+//                    break;
+//
+//                case 2:
+////                    To Display Manage_Accouts  details
+//
+//                    //      To Print  Manage_Accouts data
+//
+//                    for(Manage_Accouts Man_Account : Manage_Accouts_Lists){
+//                        Man_Account.Manage_Accouts_Info();
+//                        System.out.println("=====================================================================================");
+//                    }
+//
+//
+//                    break;
+//
+//                case 3:
+////                   To get specific data from Manage_Accouts  class
+//
+////                    To take user input
+//
+//
+//                    System.out.println("Enter Payment_Name : ");
+//                    String payment_Name = sc.nextLine();
+//
+//                    System.out.println("Enter Payment_Type : ");
+//                    String payment_Type = sc.nextLine();
+//
+//                    System.out.println("Enter Payment_Amount : ");
+//                    double payment_Amount = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Payment_Dept_name : ");
+//                    String payment_Dept_name = sc.nextLine();
+//
+//                    System.out.println("Enter Payee name : ");
+//                    String payee = sc.nextLine();
+//
+//                    System.out.println("=================================================================");
+//
+//                    for(Manage_Accouts mac : Manage_Accouts_Lists){
+//                        if(mac.getPayment_Name().equals(payment_Name)
+//                                && mac.getPayment_Type().equals(payment_Type)
+//                                && mac.getPayment_Amount()==payment_Amount
+//                                && mac.getPayment_Dept_name().equals(payment_Dept_name)
+//                                && mac.getPayee().equals(payee))
+//                        {
+//                            System.out.println("=====================================================================================");
+//                            mac.Manage_Accouts_Info();
+//                            System.out.println("=====================================================================================");
+//                            break;
+//                        }
+//                    }
+//                    break;
+//
+//                case 4:
+////                   To Remove specific data from Manage_Accouts  class
+//
+////                    To take user input
+//
+//                    System.out.println("Enter Payment_Name : ");
+//                    String payment_name = sc.nextLine();
+//
+//                    System.out.println("Enter Payment_Type : ");
+//                    String payment_type = sc.nextLine();
+//
+//                    System.out.println("Enter Payment_Amount : ");
+//                    double payment_amount = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Payment_Dept_name : ");
+//                    String payment_dept_name = sc.nextLine();
+//
+//                    System.out.println("Enter Payee name : ");
+//                    String paYee = sc.nextLine();
+//
+//                    System.out.println("=================================================================");
+//
+//                    Manage_Accouts removed_object = null;
+//
+//                    for(Manage_Accouts maca : Manage_Accouts_Lists){
+//                        if(maca.getPayment_Name().equals(payment_name)
+//                                && maca.getPayment_Type().equals(payment_type)
+//                                && maca.getPayment_Amount()==payment_amount
+//                                && maca.getPayment_Dept_name().equals(payment_dept_name)
+//                                && maca.getPayee().equals(paYee))
+//                        {
+//                            System.out.println("=====================================================================================");
+//                            System.out.println("data found ......................");
+//                            removed_object = maca;
+//
+//                            break;
+//                        }
+//                    }
+//// To remove data from manage_account table
+//                    if (removed_object != null) {
+//                        Manage_Accouts_Lists.remove(removed_object);
+//                        System.out.println("=================================================================");
+//                        System.out.println("Data for following patient is removed: " + removed_object.getPayee());
+//                        System.out.println("=================================================================");
+//                    } else {
+//                        System.out.println("No matching object found.");
+//                    }
+//                    break;
+//
+//
+//
+//
+//                case 0:
+//                    System.out.println("Exiting the program. Goodbye!");
+//                    break;
+//                default:
+//                    System.out.println("Invalid choice. Please try again.");
+//            }
+//        }while(choice !=0);
+
+//        -----------------------Switch case logic for insurance list---------------------------------------------
+
+//        int choice;
+//        do{
+//            System.out.println("========= Menu =========");
+//            System.out.println("1. Add Insurance details");
+//            System.out.println("2. Display Insurance details");
+//            System.out.println("3. To get specific data from Insurance class");
+//            System.out.println("4. To Remove specific data from Insurance class");
+//            System.out.println("0. Exit");
+//            System.out.println("========================");
+//            System.out.println("Enter your choice: ");
+//            choice = sc.nextInt();
+//            sc.nextLine(); // Consume the newline left by nextInt()
+//            switch (choice){
+//                case 1:
+////                    To Add Insurance  details
+//
+////                    To take user input
+//
+//                    System.out.println("Enter Patient_name : ");
+//                    String Patient_name = sc.nextLine();
+//
+//                    System.out.println("Enter Patient_gender : ");
+//                    String Patient_gender = sc.nextLine();
+//
+//                    System.out.println("Enter Patient_age : ");
+//                    int Patient_age = sc.nextInt();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Patient_disease : ");
+//                    String Patient_disease = sc.nextLine();
+//
+//                    System.out.println("Enter Patient_claimAmount : ");
+//                    double Patient_claimAmount = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("=================================================================");
+////
+//
+////                    To add data into Insurance
+//
+//                    for(Insurance I : InsuranceList){
+//                        I.setPatient_name(Patient_name);
+//                        I.setPatient_gender(Patient_gender);
+//                        I.setPatient_age(Patient_age);
+//                        I.setPatient_disease(Patient_disease);
+//                        I.setPatient_claimAmount(Patient_claimAmount);
+//                        System.out.println("Data has been added for : " +I.getPatient_name());
+//                        System.out.println("=================================================================");
+//
+//                        break;
+//                    }
+//
+//
+//                    break;
+//
+//                case 2:
+////                    To Display Insurance  details
+//
+////                    To print Insurance info
+//
+//                    for(Insurance issues : InsuranceList){
+//                        issues.Insurance_Info();
+//                        System.out.println("===================================================================================");
+//                    }
+//
+//                    break;
+//
+//                case 3:
+////                   To get specific data from Insurance  class
+//
+////                    To take user input
+//
+//                    System.out.println("Enter Patient_name : ");
+//                    String patient_name = sc.nextLine();
+//
+//                    System.out.println("Enter Patient_gender : ");
+//                    String patient_gender = sc.nextLine();
+//
+//                    System.out.println("Enter Patient_age : ");
+//                    int patient_age = sc.nextInt();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Patient_disease : ");
+//                    String patient_disease = sc.nextLine();
+//
+//                    System.out.println("Enter Patient_claimAmount : ");
+//                    double patient_claimAmount = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("=================================================================");
+//
+////                    To get specific data from insurance list
+//
+//                    for(Insurance i : InsuranceList){
+//                        if(i.getPatient_name().equals(patient_name)
+//                                && i.getPatient_gender().equals(patient_gender)
+//                                && i.getPatient_age()==patient_age
+//                                && i.getPatient_disease().equals(patient_disease)
+//                                && i.getPatient_claimAmount()==patient_claimAmount)
+//                        {
+//
+//                            i.Insurance_Info();
+//                            System.out.println("=================================================================");
+//                        }
+//                    }
+//
+//                    break;
+//
+//                case 4:
+////                   To Remove specific data from Insurance  class
+//
+////                    To take user input
+//
+//                    System.out.println("Enter Patient_name : ");
+//                    String pAtient_name = sc.nextLine();
+//
+//                    System.out.println("Enter Patient_gender : ");
+//                    String pAtient_gender = sc.nextLine();
+//
+//                    System.out.println("Enter Patient_age : ");
+//                    int pAtient_age = sc.nextInt();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Patient_disease : ");
+//                    String pAtient_disease = sc.nextLine();
+//
+//                    System.out.println("Enter Patient_claimAmount : ");
+//                    double pAtient_claimAmount = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("=================================================================");
+//
+////                    to find data into insurance list
+//
+////                    to remove data intialize null first
+//
+//                    Insurance To_remove = null;
+//
+//                    for(Insurance in : InsuranceList){
+//                        if(in.getPatient_name().equals(pAtient_name)
+//                                && in.getPatient_gender().equals(pAtient_gender)
+//                                && in.getPatient_age()==pAtient_age
+//                                && in.getPatient_disease().equals(pAtient_disease)
+//                                && in.getPatient_claimAmount()==pAtient_claimAmount)
+//                        {
+//                            System.out.println("data found ...............");
+//                            To_remove = in;
+//                            System.out.println("=================================================================");
+//                            break;
+//                        }
+//                    }
+//
+//                    if(To_remove != null){
+//                        InsuranceList.remove(To_remove);
+//                        System.out.println(" Data has been removed :  "+ To_remove.getPatient_name());
+//                        System.out.println("=================================================================");
+//
+//                    }
+//                    else {
+//                        System.out.println("data not found .........................");
+//                        System.out.println("=================================================================");
+//                    }
+//
+//                    break;
+//
+//
+//
+//
+//                case 0:
+//                    System.out.println("Exiting the program. Goodbye!");
+//                    break;
+//                default:
+//                    System.out.println("Invalid choice. Please try again.");
+//            }
+//        }while(choice !=0);
+
+//        -------------switch logic for management staff -----------------------------------
+
+//        int choice;
+//        do{
+//            System.out.println("========= Menu =========");
+//            System.out.println("1. Add management staff details");
+//            System.out.println("2. Display management staff details");
+//            System.out.println("3. To get specific data from management staff class");
+//            System.out.println("4. To Remove specific data from management staff class");
+//            System.out.println("0. Exit");
+//            System.out.println("========================");
+//            System.out.println("Enter your choice: ");
+//            choice = sc.nextInt();
+//            sc.nextLine(); // Consume the newline left by nextInt()
+//            switch (choice){
+//                case 1:
+////                    To Add Insurance  details
+//
+////                    To take user input
+//
+//                    System.out.println("Enter Staff_First_Name : ");
+//                    String Staff_First_Name = sc.nextLine();
+//
+//                    System.out.println("Enter Staff_Middle_Name : ");
+//                    String Staff_Middle_Name = sc.nextLine();
+//
+//                    System.out.println("Enter Staff_Last_Name : ");
+//                    String Staff_Last_Name = sc.nextLine();
+//
+//                    System.out.println("Enter Staff_Dept_Name : ");
+//                    String Staff_Dept_Name = sc.nextLine();
+//
+//                    System.out.println("Enter Staff_sal : ");
+//                    double Staff_sal = sc.nextDouble();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Staff_age : ");
+//                    int Staff_age = sc.nextInt();
+//                    sc.nextLine();
+//
+//                    System.out.println("Enter Staff_gender : ");
+//                    String Staff_gender = sc.nextLine();
+//
+//                    System.out.println("Enter Staff_Designation : ");
+//                    String Staff_Designation = sc.nextLine();
+//
+//                    System.out.println("===================================================================================");
+//
+//
+////                    To add data into the table
+//
+//                    for(Management_staff M : managementStaffList){
+//                        M.setStaff_First_Name(Staff_First_Name);
+//                        M.setStaff_Middle_Name(Staff_Middle_Name);
+//                        M.setStaff_Last_Name(Staff_Last_Name);
+//                        M.setStaff_Dept_name(Staff_Dept_Name);
+//                        M.setStaff_sal(Staff_sal);
+//                        M.setStaff_age(Staff_age);
+//                        M.setStaff_gender(Staff_gender);
+//                        M.setStaff_Designation(Staff_Designation);
+//
+//                        System.out.println("data has been added for : "+M.getStaff_First_Name());
+//                        System.out.println("===================================================================================");
+//                        break;
+//
+//                    }
+//
+//                    break;
+//
+//                case 2:
+////                    To Display Insurance  details
+//
+//                    //        To print Staff info
+//
+//                    for(Management_staff Manages :managementStaffList){
+//                        Manages.Staff_info();
+//                        System.out.println("===================================================================================");
+//                    }
+//                    break;
+//
+//                case 3:
+////                   To get specific data from Insurance  class
+//
+////                    To take user input
+//
+//                    System.out.println("Enter Staff_First_Name : ");
+//                    String Staff_First_name = sc.nextLine();
+//
+//                    System.out.println("Enter Staff_Middle_Name : ");
+//                    String Staff_Middle_name = sc.nextLine();
+//
+//                    System.out.println("Enter Staff_Last_Name : ");
+//                    String Staff_Last_name = sc.nextLine();
+//
+//                    System.out.println("Enter Staff_Dept_Name : ");
+//                    String Staff_Dept_name = sc.nextLine();
+//
+//                    System.out.println("Enter Staff_gender : ");
+//                    String Staff_Gender = sc.nextLine();
+//
+//                    System.out.println("Enter Staff_Designation : ");
+//                    String Staff_designation = sc.nextLine();
+//
+//                    System.out.println("===================================================================================");
+//
+//
+////                    To get specific data from table
+//
+//                    for(Management_staff m : managementStaffList){
+//                        if(m.getStaff_First_Name().equals(Staff_First_name)
+//                        && m.getStaff_Middle_Name().equals(Staff_Middle_name)
+//                        && m.getStaff_Last_Name().equals(Staff_Last_name)
+//                        && m.getStaff_Dept_name().equals(Staff_Dept_name)
+//                        && m.getStaff_gender().equals(Staff_Gender)
+//                        && m.getStaff_Designation().equals(Staff_designation))
+//                        {
+//                            System.out.println("Data found for : "+m.getStaff_First_Name());
+//                            System.out.println("===================================================================================");
+//                            m.Staff_info();
+//                            System.out.println("===================================================================================");
+//                            break;
+//
+//                        }
+//                    }
+//
+//
+//
+//                    break;
+//
+//                case 4:
+////                   To Remove specific data from Insurance  class
+//
+////                    To take user input
+//
+//                    System.out.println("Enter Staff_First_Name : ");
+//                    String staff_first_name = sc.nextLine();
+//
+//                    System.out.println("Enter Staff_Middle_Name : ");
+//                    String staff_Middle_name = sc.nextLine();
+//
+//                    System.out.println("Enter Staff_Last_Name : ");
+//                    String staff_Last_name = sc.nextLine();
+//
+//                    System.out.println("Enter Staff_Dept_Name : ");
+//                    String staff_Dept_name = sc.nextLine();
+//
+//                    System.out.println("Enter Staff_gender : ");
+//                    String staff_Gender = sc.nextLine();
+//
+//                    System.out.println("Enter Staff_Designation : ");
+//                    String staff_designation = sc.nextLine();
+//
+//                    System.out.println("===================================================================================");
+//
+////                    To remove data first initialize data to null
+//
+//                    Management_staff RemovedData = null;
+//
+////                    To select specific data from manage_staff list
+//
+//                    for(Management_staff ms : managementStaffList){
+//                        if(ms.getStaff_First_Name().equals(staff_first_name)
+//                                && ms.getStaff_Middle_Name().equals(staff_Middle_name)
+//                                && ms.getStaff_Last_Name().equals(staff_Last_name)
+//                                && ms.getStaff_Dept_name().equals(staff_Dept_name)
+//                                && ms.getStaff_gender().equals(staff_Gender)
+//                                && ms.getStaff_Designation().equals(staff_designation))
+//                        {
+//                            System.out.println("Data found for : "+ms.getStaff_First_Name());
+//                            System.out.println("===================================================================================");
+//                            RemovedData = ms;
+//                            break;
+//
+//                        }
+//                    }
+//
+//                    if(RemovedData != null){
+//                        managementStaffList.remove(RemovedData);
+//                        System.out.println(" Data has been removed :  "+ RemovedData.getStaff_First_Name());
+//                        System.out.println("=================================================================");
+//
+//                    }
+//                    else {
+//                        System.out.println("data not found .........................");
+//                        System.out.println("=================================================================");
+//                    }
+//
+//                    break;
+//
+//
+//
+//
+//                case 0:
+//                    System.out.println("Exiting the program. Goodbye!");
+//                    break;
+//                default:
+//                    System.out.println("Invalid choice. Please try again.");
+//            }
+//        }while(choice !=0);
+
+//        -----------------------------------Switch case logic for admin class------------------------------
+
+        int Admin_Choice;
         do{
             System.out.println("========= Menu =========");
-            System.out.println("1. Add Pharmacy Medicine Generic");
-            System.out.println("2. Display Pharmacy Medicine Generic");
-            System.out.println("3. To get specific data from Pharmacy Medicine Generic class");
-            System.out.println("4. To Remove specific data from Pharmacy Medicine Generic class");
+            System.out.println("1. Admin Login ");
+            System.out.println("2. Admin Sign-up");
             System.out.println("0. Exit");
             System.out.println("========================");
             System.out.println("Enter your choice: ");
-            choice = sc.nextInt();
+            Admin_Choice = sc.nextInt();
             sc.nextLine(); // Consume the newline left by nextInt()
-            switch (choice){
+            switch (Admin_Choice) {
                 case 1:
-//                    Add Pharmacy Medicine Generic
+//                    Admin Log-in
+
+                    System.out.println("Enter User Name :");
+                    String username = sc.nextLine();
+
+                    System.out.println("Enter Password : ");
+                    String password = sc.nextLine();
+
+                    for(Admin A : Admin_List){
+                        if(A.getUser_name().equals(username)
+                        && A.getPassword().equals(password)){
+                            System.out.println("Welcome : "+A.getFirst_name());
+                            System.out.println("===================================================");
+
+                            int Admin_choice_Menu;
+                            do{
+                                System.out.println("========= Menu =========");
+                                System.out.println("1. Departments");
+                                System.out.println("2. Accounts");
+                                System.out.println("3. Admissions");
+                                System.out.println("4. Insurance ");
+                                System.out.println("5. Management_Staff ");
+                                System.out.println("6. Manages_Account ");
+                                System.out.println("7. Pharmacy");
+                                System.out.println("0. Exit");
+                                System.out.println("========================");
+                                System.out.println("Enter your choice: ");
+                                Admin_choice_Menu = sc.nextInt();
+                                sc.nextLine();
+                                switch (Admin_choice_Menu){
+                                    case 1:
+//                                        Departments
+                                        // --------------------------Switch case logic for departments class
+                                        int Departments_Choice_Menu;
+                                        do{
+                                            System.out.println("========= Menu =========");
+                                            System.out.println("1. Add Departments details");
+                                            System.out.println("2. Display Departments details");
+                                            System.out.println("3. To get specific data from Departments class");
+                                            System.out.println("4. To Remove specific data from Departments class");
+                                            System.out.println("0. Exit");
+                                            System.out.println("========================");
+                                            System.out.println("Enter your choice: ");
+                                            Departments_Choice_Menu = sc.nextInt();
+                                            sc.nextLine(); // Consume the newline left by nextInt()
+                                            switch (Departments_Choice_Menu){
+                                                case 1:
+//                    To Add Departments details
 
 //                    To take user input
 
-                    System.out.println("Enter Pharmacy_Medicine_Generic_Name : ");
-                    String Pharmacy_Medicine_Generic_Name = sc.nextLine();
+                                                    System.out.println("Enter Dept_Name :");
+                                                    String Dept_Name = sc.nextLine();
 
-                    System.out.println("Enter Pharmacy_Medicine_Generic_Manufracture : ");
-                    String Pharmacy_Medicine_Generic_Manufracture = sc.nextLine();
+                                                    System.out.println("Enter Dept_Degree :");
+                                                    String Dept_Degree = sc.nextLine();
 
-                    System.out.println("Enter Pharmacy_Medicine_Generic_Use : ");
-                    String Pharmacy_Medicine_Generic_Use = sc.nextLine();
+                                                    System.out.println("Enter Dept_Exp :");
+                                                    double Dept_Exp = sc.nextDouble();
+                                                    sc.nextLine();
 
-                    System.out.println("Enter Pharmacy_Medicine_Generic_MfgNO : ");
-                    double Pharmacy_Medicine_Generic_MfgNO = sc.nextInt();
-                    sc.nextLine();
+                                                    System.out.println("Enter Dept_Specialization :");
+                                                    String Dept_Specialization = sc.nextLine();
 
-                    System.out.println("Enter Pharmacy_Medicine_Generic_MfgDate : ");
-                    String Pharmacy_Medicine_Generic_MfgDate = sc.nextLine();
+                                                    System.out.println("=====================================================================================");
 
-                    System.out.println("Enter Pharmacy_Medicine_Generic_Mfg_Loc : ");
-                    String Pharmacy_Medicine_Generic_Mfg_Loc = sc.nextLine();
 
-                    System.out.println("Enter Pharmacy_Medicine_Generic_price : ");
-                    double Pharmacy_Medicine_Generic_price = sc.nextInt();
-                    sc.nextLine();
+//                    To add data into departments class
 
-                    System.out.println("Enter Pharmacy_Medicine_Generic_power : ");
-                    double Pharmacy_Medicine_Generic_power = sc.nextInt();
-                    sc.nextLine();
+                                                    for(Departments De : DepartmentsList){
+                                                        De.setDept_Name(Dept_Name);
+                                                        De.setDept_Degree(Dept_Degree);
+                                                        De.setDept_Exp(Dept_Exp);
+                                                        De.setDept_Specialization(Dept_Specialization);
+                                                        System.out.println("=====================================================================================");
+                                                        System.out.println("Data has been added for : "+De.getDept_Name());
+                                                        System.out.println("=====================================================================================");
+                                                        break;
 
-                    for(Medicine_Generic Mg : Medicine_Generic_List){
-                        Mg.setMedicine_Generic_Name(Pharmacy_Medicine_Generic_Name);
-                        Mg.setMedicine_Generic_Manufracture(Pharmacy_Medicine_Generic_Manufracture);
-                        Mg.setMedicine_Generic_Use(Pharmacy_Medicine_Generic_Use);
-                        Mg.setMedicine_Generic_MfgNO(Pharmacy_Medicine_Generic_MfgNO);
-                        Mg.setMedicine_Generic_MfgDate(Pharmacy_Medicine_Generic_MfgDate);
-                        Mg.setMedicine_Generic_Mfg_Loc(Pharmacy_Medicine_Generic_Mfg_Loc);
-                        Mg.setMedicine_Generic_price(Pharmacy_Medicine_Generic_price);
-                        Mg.setMMedicine_Generic_Power(Pharmacy_Medicine_Generic_power);
-                        System.out.println("Medicine_Generic Data has been added for : "+Mg.getMedicine_Generic_Name());
+                                                    }
 
+                                                    break;
+
+                                                case 2:
+//                    To Display Departments details
+
+                                                    // to Print Departments info
+                                                    for(Departments Dept : DepartmentsList){
+                                                        Dept.Deptinfo();
+                                                        System.out.println("=====================================================================================");
+                                                    }
+                                                    System.out.println("=====================================================================================");
+                                                    break;
+
+                                                case 3:
+//                   To get specific data from Departments class
+
+//                    To take user input
+
+                                                    System.out.println("Enter Dept_Name :");
+                                                    String dept_Name = sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Degree :");
+                                                    String dept_Degree = sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Exp :");
+                                                    double dept_Exp = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Specialization :");
+                                                    String dept_Specialization = sc.nextLine();
+
+                                                    System.out.println("=====================================================================================");
+
+//                    To search specific data into departments class
+
+                                                    for(Departments dE : DepartmentsList){
+                                                        if(dE.getDept_Name().equals(dept_Name)
+                                                                && dE.getDept_Degree().equals(dept_Degree)
+                                                                && dE.getDept_Exp()==dept_Exp
+                                                                && dE.getDept_Specialization().equals(dept_Specialization))
+                                                        {
+                                                            System.out.println("=====================================================================================");
+                                                            dE.Deptinfo();
+                                                            System.out.println("=====================================================================================");
+
+                                                        }
+                                                    }
+
+                                                    break;
+
+                                                case 4:
+//                   To Remove specific data from Departments class
+
+//                    To take user input
+
+                                                    System.out.println("Enter Dept_Name :");
+                                                    String dept_name = sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Degree :");
+                                                    String dept_degree = sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Exp :");
+                                                    double dept_exp = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Specialization :");
+                                                    String dept_specialization = sc.nextLine();
+
+                                                    System.out.println("=====================================================================================");
+
+//                    To remove data initialized null first
+
+                                                    Departments object_To_Remove = null;
+
+//                    To search specific data into departments class
+
+
+                                                    for(Departments de : DepartmentsList){
+                                                        if(de.getDept_Name().equals(dept_name)
+                                                                && de.getDept_Degree().equals(dept_degree)
+                                                                && de.getDept_Exp()==dept_exp
+                                                                && de.getDept_Specialization().equals(dept_specialization)){
+
+                                                            object_To_Remove = de;
+
+                                                        }
+                                                    }
+//                    To remove data from dept table
+
+                                                    if (object_To_Remove != null) {
+                                                        accountsList.remove(object_To_Remove);
+                                                        System.out.println("=================================================================");
+                                                        System.out.println("Data for following patient is removed : " + object_To_Remove.getDept_Name());
+                                                        System.out.println("=================================================================");
+                                                        // At this point, the object "departments "  is no longer accessible,
+                                                        // and the garbage collector will eventually reclaim its memory.
+                                                    } else {
+                                                        System.out.println("No matching object found.");
+                                                    }
+
+
+                                                    break;
+
+                                                case 0:
+                                                    System.out.println("Exiting the program. Goodbye!");
+                                                    break;
+                                                default:
+                                                    System.out.println("Invalid choice. Please try again.");
+                                            }
+                                        }while(Departments_Choice_Menu !=0);
+                                        break;
+                                    case 2:
+//                                        Accounts
+
+                                        //        -----------------------------------------Switch case logic for accounts-------------------------------
+                                        int Account_Menu_Choice;
+                                        do{
+                                            System.out.println("========= Menu =========");
+                                            System.out.println("1. Add Accounts details");
+                                            System.out.println("2. Display Accounts details");
+                                            System.out.println("3. To get specific data from Accounts class");
+                                            System.out.println("4. To Remove specific data from Accounts class");
+                                            System.out.println("0. Exit");
+                                            System.out.println("========================");
+                                            System.out.println("Enter your choice: ");
+                                            Account_Menu_Choice = sc.nextInt();
+                                            sc.nextLine(); // Consume the newline left by nextInt()
+                                            switch (Account_Menu_Choice){
+                                                case 1:
+//                    To Add Accounts details
+
+//                    To take user input
+                                                    System.out.println("Enter Patient_name :");
+                                                    String Patient_name = sc.nextLine();
+
+                                                    System.out.println("Enter Account_money :");
+                                                    double Account_money = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Name :");
+                                                    String Dept_Name = sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Degree :");
+                                                    String Dept_Degree = sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Exp :");
+                                                    double Dept_Exp = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Specialization :");
+                                                    String Dept_Specialization = sc.nextLine();
+
+                                                    System.out.println("=================================================================");
+
+
+                                                    for(Accounts Account : accountsList){
+                                                        Account.setPatient_name(Patient_name);
+                                                        Account.setAccount_money(Account_money);
+                                                        Account.setDept_Name(Dept_Name);
+                                                        Account.setDept_Degree(Dept_Degree);
+                                                        Account.setDept_Exp(Dept_Exp);
+                                                        Account.setDept_Specialization(Dept_Specialization);
+                                                        System.out.println("data has been added for : "+Account.getPatient_name());
+                                                        System.out.println("=================================================================");
+                                                        break;
+                                                    }
+
+
+                                                    break;
+
+                                                case 2:
+//                    To Display Accounts details
+
+                                                    //      To print Accounts info
+
+                                                    for (Accounts account : accountsList) {
+                                                        account.AccountInfo();
+                                                        System.out.println("================================");
+                                                    }
+                                                    System.out.println("=================================================================");
+                                                    break;
+
+                                                case 3:
+//                   To get specific data from Accounts class
+
+//                    To take user input
+
+                                                    System.out.println("Enter Patient_name :");
+                                                    String patient_name = sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Name :");
+                                                    String dept_Name = sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Degree :");
+                                                    String dept_Degree = sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Exp :");
+                                                    double dept_Exp = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Specialization :");
+                                                    String dept_Specialization = sc.nextLine();
+
+                                                    System.out.println("=================================================================");
+
+                                                    for(Accounts Ac : accountsList){
+                                                        if(Ac.getPatient_name().equals(patient_name)
+                                                                && Ac.getDept_Name().equals(dept_Name)
+                                                                && Ac.getDept_Degree().equals(dept_Degree)
+                                                                && Ac.getDept_Exp()==dept_Exp
+                                                                && Ac.getDept_Specialization().equals(dept_Specialization)){
+                                                            System.out.println("Data found : "+Ac.getPatient_name());
+                                                            Ac.AccountInfo();
+                                                            System.out.println("=================================================================");
+
+                                                        }
+                                                    }
+                                                    break;
+
+                                                case 4:
+//                   To Remove specific data from Accounts class
+
+//                    To take user input
+
+                                                    System.out.println("Enter Patient_name :");
+                                                    String patient_Name = sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Name :");
+                                                    String dept_name = sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Degree :");
+                                                    String dept_degree = sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Exp :");
+                                                    double dept_exp = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Specialization :");
+                                                    String dept_specialization = sc.nextLine();
+
+                                                    System.out.println("=================================================================");
+
+                                                    Accounts object_To_remove = null;
+
+//                    To access data
+
+                                                    for(Accounts Ac : accountsList){
+                                                        if(Ac.getPatient_name().equals(patient_Name)
+                                                                && Ac.getDept_Name().equals(dept_name)
+                                                                && Ac.getDept_Degree().equals(dept_degree)
+                                                                && Ac.getDept_Exp()==dept_exp
+                                                                && Ac.getDept_Specialization().equals(dept_specialization))
+                                                        {
+                                                            System.out.println("Data found : "+Ac.getPatient_name());
+                                                            System.out.println("=================================================================");
+                                                            object_To_remove = Ac;
+
+                                                        }
+                                                    }
+
+//                   To remove specific data from account class
+
+                                                    if (object_To_remove != null) {
+                                                        accountsList.remove(object_To_remove);
+                                                        System.out.println("Data for following patient is removed " + object_To_remove.getPatient_name());
+                                                        // At this point, the object "generic medicine  "  is no longer accessible,
+                                                        // and the garbage collector will eventually reclaim its memory.
+                                                    } else {
+                                                        System.out.println("No matching object found.");
+                                                    }
+                                                    System.out.println("=================================================================");
+
+                                                    break;
+
+                                                case 0:
+                                                    System.out.println("Exiting the program. Goodbye!");
+                                                    break;
+                                                default:
+                                                    System.out.println("Invalid choice. Please try again.");
+                                            }
+                                        }while(Account_Menu_Choice !=0);
+                                        break;
+                                    case 3:
+//                                        Admission
+                                        break;
+                                    case 4:
+//                                        Insurance
+
+//                               -----------------------Switch case logic for insurance list---------------------------------------------
+                                        int Switch_choice_Menu;
+                                        do{
+                                            System.out.println("========= Menu =========");
+                                            System.out.println("1. Add Insurance details");
+                                            System.out.println("2. Display Insurance details");
+                                            System.out.println("3. To get specific data from Insurance class");
+                                            System.out.println("4. To Remove specific data from Insurance class");
+                                            System.out.println("0. Exit");
+                                            System.out.println("========================");
+                                            System.out.println("Enter your choice: ");
+                                            Switch_choice_Menu = sc.nextInt();
+                                            sc.nextLine(); // Consume the newline left by nextInt()
+                                            switch (Switch_choice_Menu){
+                                                case 1:
+//                    To Add Insurance  details
+
+//                    To take user input
+
+                                                    System.out.println("Enter Patient_name : ");
+                                                    String Patient_name = sc.nextLine();
+
+                                                    System.out.println("Enter Patient_gender : ");
+                                                    String Patient_gender = sc.nextLine();
+
+                                                    System.out.println("Enter Patient_age : ");
+                                                    int Patient_age = sc.nextInt();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Patient_disease : ");
+                                                    String Patient_disease = sc.nextLine();
+
+                                                    System.out.println("Enter Patient_claimAmount : ");
+                                                    double Patient_claimAmount = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("=================================================================");
+//
+
+//                    To add data into Insurance
+
+                                                    for(Insurance I : InsuranceList){
+                                                        I.setPatient_name(Patient_name);
+                                                        I.setPatient_gender(Patient_gender);
+                                                        I.setPatient_age(Patient_age);
+                                                        I.setPatient_disease(Patient_disease);
+                                                        I.setPatient_claimAmount(Patient_claimAmount);
+                                                        System.out.println("Data has been added for : " +I.getPatient_name());
+                                                        System.out.println("=================================================================");
+
+                                                        break;
+                                                    }
+
+
+                                                    break;
+
+                                                case 2:
+//                    To Display Insurance  details
+
+//                    To print Insurance info
+
+                                                    for(Insurance issues : InsuranceList){
+                                                        issues.Insurance_Info();
+                                                        System.out.println("===================================================================================");
+                                                    }
+
+                                                    break;
+
+                                                case 3:
+//                   To get specific data from Insurance  class
+
+//                    To take user input
+
+                                                    System.out.println("Enter Patient_name : ");
+                                                    String patient_name = sc.nextLine();
+
+                                                    System.out.println("Enter Patient_gender : ");
+                                                    String patient_gender = sc.nextLine();
+
+                                                    System.out.println("Enter Patient_age : ");
+                                                    int patient_age = sc.nextInt();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Patient_disease : ");
+                                                    String patient_disease = sc.nextLine();
+
+                                                    System.out.println("Enter Patient_claimAmount : ");
+                                                    double patient_claimAmount = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("=================================================================");
+
+//                    To get specific data from insurance list
+
+                                                    for(Insurance i : InsuranceList){
+                                                        if(i.getPatient_name().equals(patient_name)
+                                                                && i.getPatient_gender().equals(patient_gender)
+                                                                && i.getPatient_age()==patient_age
+                                                                && i.getPatient_disease().equals(patient_disease)
+                                                                && i.getPatient_claimAmount()==patient_claimAmount)
+                                                        {
+
+                                                            i.Insurance_Info();
+                                                            System.out.println("=================================================================");
+                                                        }
+                                                    }
+
+                                                    break;
+
+                                                case 4:
+//                   To Remove specific data from Insurance  class
+
+//                    To take user input
+
+                                                    System.out.println("Enter Patient_name : ");
+                                                    String pAtient_name = sc.nextLine();
+
+                                                    System.out.println("Enter Patient_gender : ");
+                                                    String pAtient_gender = sc.nextLine();
+
+                                                    System.out.println("Enter Patient_age : ");
+                                                    int pAtient_age = sc.nextInt();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Patient_disease : ");
+                                                    String pAtient_disease = sc.nextLine();
+
+                                                    System.out.println("Enter Patient_claimAmount : ");
+                                                    double pAtient_claimAmount = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("=================================================================");
+
+//                    to find data into insurance list
+
+//                    to remove data intialize null first
+
+                                                    Insurance To_remove = null;
+
+                                                    for(Insurance in : InsuranceList){
+                                                        if(in.getPatient_name().equals(pAtient_name)
+                                                                && in.getPatient_gender().equals(pAtient_gender)
+                                                                && in.getPatient_age()==pAtient_age
+                                                                && in.getPatient_disease().equals(pAtient_disease)
+                                                                && in.getPatient_claimAmount()==pAtient_claimAmount)
+                                                        {
+                                                            System.out.println("data found ...............");
+                                                            To_remove = in;
+                                                            System.out.println("=================================================================");
+                                                            break;
+                                                        }
+                                                    }
+
+                                                    if(To_remove != null){
+                                                        InsuranceList.remove(To_remove);
+                                                        System.out.println(" Data has been removed :  "+ To_remove.getPatient_name());
+                                                        System.out.println("=================================================================");
+
+                                                    }
+                                                    else {
+                                                        System.out.println("data not found .........................");
+                                                        System.out.println("=================================================================");
+                                                    }
+
+                                                    break;
+
+
+
+
+                                                case 0:
+                                                    System.out.println("Exiting the program. Goodbye!");
+                                                    break;
+                                                default:
+                                                    System.out.println("Invalid choice. Please try again.");
+                                            }
+                                        }while(Switch_choice_Menu !=0);
+                                        break;
+                                    case 5:
+//                                        Management_Staff
+//                                        -------------switch logic for management staff -----------------------------------
+
+                                        int Management_Staff_menu_Choice;
+                                        do{
+                                            System.out.println("========= Menu =========");
+                                            System.out.println("1. Add management staff details");
+                                            System.out.println("2. Display management staff details");
+                                            System.out.println("3. To get specific data from management staff class");
+                                            System.out.println("4. To Remove specific data from management staff class");
+                                            System.out.println("0. Exit");
+                                            System.out.println("========================");
+                                            System.out.println("Enter your choice: ");
+                                            Management_Staff_menu_Choice = sc.nextInt();
+                                            sc.nextLine(); // Consume the newline left by nextInt()
+                                            switch (Management_Staff_menu_Choice){
+                                                case 1:
+//                    To Add Insurance  details
+
+//                    To take user input
+
+                                                    System.out.println("Enter Staff_First_Name : ");
+                                                    String Staff_First_Name = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_Middle_Name : ");
+                                                    String Staff_Middle_Name = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_Last_Name : ");
+                                                    String Staff_Last_Name = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_Dept_Name : ");
+                                                    String Staff_Dept_Name = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_sal : ");
+                                                    double Staff_sal = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Staff_age : ");
+                                                    int Staff_age = sc.nextInt();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Staff_gender : ");
+                                                    String Staff_gender = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_Designation : ");
+                                                    String Staff_Designation = sc.nextLine();
+
+                                                    System.out.println("===================================================================================");
+
+
+//                    To add data into the table
+
+                                                    for(Management_staff M : managementStaffList){
+                                                        M.setStaff_First_Name(Staff_First_Name);
+                                                        M.setStaff_Middle_Name(Staff_Middle_Name);
+                                                        M.setStaff_Last_Name(Staff_Last_Name);
+                                                        M.setStaff_Dept_name(Staff_Dept_Name);
+                                                        M.setStaff_sal(Staff_sal);
+                                                        M.setStaff_age(Staff_age);
+                                                        M.setStaff_gender(Staff_gender);
+                                                        M.setStaff_Designation(Staff_Designation);
+
+                                                        System.out.println("data has been added for : "+M.getStaff_First_Name());
+                                                        System.out.println("===================================================================================");
+                                                        break;
+
+                                                    }
+
+                                                    break;
+
+                                                case 2:
+//                    To Display Insurance  details
+
+                                                    //        To print Staff info
+
+                                                    for(Management_staff Manages :managementStaffList){
+                                                        Manages.Staff_info();
+                                                        System.out.println("===================================================================================");
+                                                    }
+                                                    break;
+
+                                                case 3:
+//                   To get specific data from Insurance  class
+
+//                    To take user input
+
+                                                    System.out.println("Enter Staff_First_Name : ");
+                                                    String Staff_First_name = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_Middle_Name : ");
+                                                    String Staff_Middle_name = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_Last_Name : ");
+                                                    String Staff_Last_name = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_Dept_Name : ");
+                                                    String Staff_Dept_name = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_gender : ");
+                                                    String Staff_Gender = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_Designation : ");
+                                                    String Staff_designation = sc.nextLine();
+
+                                                    System.out.println("===================================================================================");
+
+
+//                    To get specific data from table
+
+                                                    for(Management_staff m : managementStaffList){
+                                                        if(m.getStaff_First_Name().equals(Staff_First_name)
+                                                                && m.getStaff_Middle_Name().equals(Staff_Middle_name)
+                                                                && m.getStaff_Last_Name().equals(Staff_Last_name)
+                                                                && m.getStaff_Dept_name().equals(Staff_Dept_name)
+                                                                && m.getStaff_gender().equals(Staff_Gender)
+                                                                && m.getStaff_Designation().equals(Staff_designation))
+                                                        {
+                                                            System.out.println("Data found for : "+m.getStaff_First_Name());
+                                                            System.out.println("===================================================================================");
+                                                            m.Staff_info();
+                                                            System.out.println("===================================================================================");
+                                                            break;
+
+                                                        }
+                                                    }
+
+
+
+                                                    break;
+
+                                                case 4:
+//                   To Remove specific data from Insurance  class
+
+//                    To take user input
+
+                                                    System.out.println("Enter Staff_First_Name : ");
+                                                    String staff_first_name = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_Middle_Name : ");
+                                                    String staff_Middle_name = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_Last_Name : ");
+                                                    String staff_Last_name = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_Dept_Name : ");
+                                                    String staff_Dept_name = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_gender : ");
+                                                    String staff_Gender = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_Designation : ");
+                                                    String staff_designation = sc.nextLine();
+
+                                                    System.out.println("===================================================================================");
+
+//                    To remove data first initialize data to null
+
+                                                    Management_staff RemovedData = null;
+
+//                    To select specific data from manage_staff list
+
+                                                    for(Management_staff ms : managementStaffList){
+                                                        if(ms.getStaff_First_Name().equals(staff_first_name)
+                                                                && ms.getStaff_Middle_Name().equals(staff_Middle_name)
+                                                                && ms.getStaff_Last_Name().equals(staff_Last_name)
+                                                                && ms.getStaff_Dept_name().equals(staff_Dept_name)
+                                                                && ms.getStaff_gender().equals(staff_Gender)
+                                                                && ms.getStaff_Designation().equals(staff_designation))
+                                                        {
+                                                            System.out.println("Data found for : "+ms.getStaff_First_Name());
+                                                            System.out.println("===================================================================================");
+                                                            RemovedData = ms;
+                                                            break;
+
+                                                        }
+                                                    }
+
+                                                    if(RemovedData != null){
+                                                        managementStaffList.remove(RemovedData);
+                                                        System.out.println(" Data has been removed :  "+ RemovedData.getStaff_First_Name());
+                                                        System.out.println("=================================================================");
+
+                                                    }
+                                                    else {
+                                                        System.out.println("data not found .........................");
+                                                        System.out.println("=================================================================");
+                                                    }
+
+                                                    break;
+
+
+
+
+                                                case 0:
+                                                    System.out.println("Exiting the program. Goodbye!");
+                                                    break;
+                                                default:
+                                                    System.out.println("Invalid choice. Please try again.");
+                                            }
+                                        }while(Management_Staff_menu_Choice !=0);
+
+                                        break;
+                                    case 6:
+//                                        MAnages_account
+
+                                        //        ---------------------- switch case logic for Manage_Account -----------------------------------
+
+                                        int MAnages_account_Choice_Menu;
+                                        do{
+                                            System.out.println("========= Menu =========");
+                                            System.out.println("1. Add Departments details");
+                                            System.out.println("2. Display Departments details");
+                                            System.out.println("3. To get specific data from Departments class");
+                                            System.out.println("4. To Remove specific data from Departments class");
+                                            System.out.println("0. Exit");
+                                            System.out.println("========================");
+                                            System.out.println("Enter your choice: ");
+                                            MAnages_account_Choice_Menu = sc.nextInt();
+                                            sc.nextLine(); // Consume the newline left by nextInt()
+                                            switch (MAnages_account_Choice_Menu){
+                                                case 1:
+//                    To Add DManage_Accouts  details
+
+//                    To take user input
+
+                                                    System.out.println("Enter Payment_Name : ");
+                                                    String Payment_Name = sc.nextLine();
+
+                                                    System.out.println("Enter Payment_Type : ");
+                                                    String Payment_Type = sc.nextLine();
+
+                                                    System.out.println("Enter Payment_Amount : ");
+                                                    double Payment_Amount = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Payment_Dept_name : ");
+                                                    String Payment_Dept_name = sc.nextLine();
+
+                                                    System.out.println("Enter Payee name : ");
+                                                    String Payee = sc.nextLine();
+
+                                                    System.out.println("=================================================================");
+
+                                                    for(Manage_Accouts MA : Manage_Accouts_Lists){
+                                                        MA.setPayment_Name(Payment_Name);
+                                                        MA.setPayment_Type(Payment_Type);
+                                                        MA.setPayment_Amount(Payment_Amount);
+                                                        MA.setPayment_Dept_name(Payment_Dept_name);
+                                                        MA.setPayee(Payee);
+                                                        System.out.println("=================================================================");
+                                                        System.out.println("Data has been added for : "+MA.getPayee());
+                                                        System.out.println("=================================================================");
+
+                                                    }
+
+                                                    break;
+
+                                                case 2:
+//                    To Display Manage_Accouts  details
+
+                                                    //      To Print  Manage_Accouts data
+
+                                                    for(Manage_Accouts Man_Account : Manage_Accouts_Lists){
+                                                        Man_Account.Manage_Accouts_Info();
+                                                        System.out.println("=====================================================================================");
+                                                    }
+
+
+                                                    break;
+
+                                                case 3:
+//                   To get specific data from Manage_Accouts  class
+
+//                    To take user input
+
+
+                                                    System.out.println("Enter Payment_Name : ");
+                                                    String payment_Name = sc.nextLine();
+
+                                                    System.out.println("Enter Payment_Type : ");
+                                                    String payment_Type = sc.nextLine();
+
+                                                    System.out.println("Enter Payment_Amount : ");
+                                                    double payment_Amount = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Payment_Dept_name : ");
+                                                    String payment_Dept_name = sc.nextLine();
+
+                                                    System.out.println("Enter Payee name : ");
+                                                    String payee = sc.nextLine();
+
+                                                    System.out.println("=================================================================");
+
+                                                    for(Manage_Accouts mac : Manage_Accouts_Lists){
+                                                        if(mac.getPayment_Name().equals(payment_Name)
+                                                                && mac.getPayment_Type().equals(payment_Type)
+                                                                && mac.getPayment_Amount()==payment_Amount
+                                                                && mac.getPayment_Dept_name().equals(payment_Dept_name)
+                                                                && mac.getPayee().equals(payee))
+                                                        {
+                                                            System.out.println("=====================================================================================");
+                                                            mac.Manage_Accouts_Info();
+                                                            System.out.println("=====================================================================================");
+                                                            break;
+                                                        }
+                                                    }
+                                                    break;
+
+                                                case 4:
+//                   To Remove specific data from Manage_Accouts  class
+
+//                    To take user input
+
+                                                    System.out.println("Enter Payment_Name : ");
+                                                    String payment_name = sc.nextLine();
+
+                                                    System.out.println("Enter Payment_Type : ");
+                                                    String payment_type = sc.nextLine();
+
+                                                    System.out.println("Enter Payment_Amount : ");
+                                                    double payment_amount = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Payment_Dept_name : ");
+                                                    String payment_dept_name = sc.nextLine();
+
+                                                    System.out.println("Enter Payee name : ");
+                                                    String paYee = sc.nextLine();
+
+                                                    System.out.println("=================================================================");
+
+                                                    Manage_Accouts removed_object = null;
+
+                                                    for(Manage_Accouts maca : Manage_Accouts_Lists){
+                                                        if(maca.getPayment_Name().equals(payment_name)
+                                                                && maca.getPayment_Type().equals(payment_type)
+                                                                && maca.getPayment_Amount()==payment_amount
+                                                                && maca.getPayment_Dept_name().equals(payment_dept_name)
+                                                                && maca.getPayee().equals(paYee))
+                                                        {
+                                                            System.out.println("=====================================================================================");
+                                                            System.out.println("data found ......................");
+                                                            removed_object = maca;
+
+                                                            break;
+                                                        }
+                                                    }
+// To remove data from manage_account table
+                                                    if (removed_object != null) {
+                                                        Manage_Accouts_Lists.remove(removed_object);
+                                                        System.out.println("=================================================================");
+                                                        System.out.println("Data for following patient is removed: " + removed_object.getPayee());
+                                                        System.out.println("=================================================================");
+                                                    } else {
+                                                        System.out.println("No matching object found.");
+                                                    }
+                                                    break;
+
+
+
+
+                                                case 0:
+                                                    System.out.println("Exiting the program. Goodbye!");
+                                                    break;
+                                                default:
+                                                    System.out.println("Invalid choice. Please try again.");
+                                            }
+                                        }while(MAnages_account_Choice_Menu !=0);
+                                        break;
+                                    case 7:
+//                                        Pharmacy
+                                        break;
+                                    case 0:
+                                        System.out.println("Exiting the program. Goodbye!");
+                                        break;
+                                    default:
+                                        System.out.println("Invalid choice. Please try again.");
+                                }
+
+                            }while(Admin_choice_Menu !=0);
+                        }
                     }
                     break;
 
                 case 2:
-//                    Display Pharmacy Medicine Generic
-
-                    //  To print Medicene_Generic data
-
-                    for(Medicine_Generic MG : Medicine_Generic_List){
-                        MG.Medicine_Generic_info();
-                        System.out.println("=====================================================================================");
-
-                    }
-                    break;
-
-                case 3:
-//                    To get specific data from Pharmacy Medicine Generic class
-
-//                    Take user input
-
-                    System.out.println("Enter Pharmacy_Medicine_Generic_Name : ");
-                    String Pharmacy_Medicine_Generic_name = sc.nextLine();
-
-                    System.out.println("Enter Pharmacy_Medicine_Generic_Manufracture : ");
-                    String Pharmacy_Medicine_Generic_manufracture = sc.nextLine();
-
-                    System.out.println("Enter Pharmacy_Medicine_Generic_Use : ");
-                    String Pharmacy_Medicine_Generic_use = sc.nextLine();
-
-                    for(Medicine_Generic mG : Medicine_Generic_List){
-                        if(mG.getMedicine_Generic_Name().equals(Pharmacy_Medicine_Generic_name) && mG.getMedicine_Generic_Manufracture().equals(Pharmacy_Medicine_Generic_manufracture) && mG.getMedicine_Generic_Use().equals(Pharmacy_Medicine_Generic_use)){
-                            mG.Medicine_Generic_info();
-                        }
-                    }
-                    break;
-
-                case 4:
-//                    To Remove specific data from Pharmacy Medicine Generic class
-
-//                    Take user input
-
-                    System.out.println("Enter Pharmacy_Medicine_Generic_Name : ");
-                    String Pharmacy_Medicine_generic_name = sc.nextLine();
-
-                    System.out.println("Enter Pharmacy_Medicine_Generic_Manufracture : ");
-                    String Pharmacy_Medicine_generic_manufracture = sc.nextLine();
-
-                    System.out.println("Enter Pharmacy_Medicine_Generic_Use : ");
-                    String Pharmacy_Medicine_generic_use = sc.nextLine();
-
-//                    -------------To search speecific data into database
-
-                    Medicine_Generic Objecttoremove = null;
-
-                    for(Medicine_Generic mg : Medicine_Generic_List){
-                        if(mg.getMedicine_Generic_Name().equals(Pharmacy_Medicine_generic_name) && mg.getMedicine_Generic_Manufracture().equals(Pharmacy_Medicine_generic_manufracture) && mg.getMedicine_Generic_Use().equals(Pharmacy_Medicine_generic_use)){
-                            Objecttoremove = mg;
-                            System.out.println("data found");
-
-                        }
-                    }
-//                    -----------------to remove specific data from generic table ----------------------------------
-
-                    if (Objecttoremove != null) {
-                        Medicine_Generic_List.remove(Objecttoremove);
-                        System.out.println("Data for following patient is removed " + Objecttoremove.getMedicine_Generic_Name());
-                        // At this point, the object "generic medicine  "  is no longer accessible,
-                        // and the garbage collector will eventually reclaim its memory.
-                    } else {
-                        System.out.println("No matching object found.");
-                    }
                     break;
 
                 case 0:
@@ -2747,7 +5200,8 @@ public class Driver {
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
-        }while(choice !=0);
+        }while(Admin_Choice !=0);
+
     }
 }
 
