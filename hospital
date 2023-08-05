@@ -58,12 +58,14 @@ class Hospital{
 
 //    To print Hospital info
 
-    public void Hospital_info(){
+    @Override
+    public String toString(){
         System.out.println("Hospital_name : "+Hospital_name);
         System.out.println("Hospital_address : "+Hospital_address);
         System.out.println("Hospital_staff : "+Hospital_staff);
         System.out.println("Hospital_money : "+ getHospital_money());
         System.out.println("Hospital_Insurance_Amount : "+getHospital_Insurance_Amount());
+        return "";
     }
 }
 //=====================================================================================================
@@ -130,13 +132,14 @@ class Admin{
 
     }
 
-    public void AdminInfo(){
+    @Override
+    public String toString(){
         System.out.println("Admin First name : "+First_name);
         System.out.println("Admin Middle name : "+Middle_name);
         System.out.println("Admin Last name : "+Last_name);
         System.out.println("Admin username : "+User_name);
         System.out.println("Admin Password : "+Password);
-
+        return "";
     }
 
 
@@ -327,7 +330,8 @@ class Doctor{
 
 //    --------------------------------- To print details ----------------------------------------------
 
-    public void Docter_Info(){
+    @Override
+    public String toString(){
         System.out.println("Patient Name : "+getDocter_Patient_name());
         System.out.println("Patient Gender : "+getDocter_Patient_gender());
         System.out.println("Patient_Age : "+getDocter_Patient_age());
@@ -338,6 +342,7 @@ class Doctor{
         System.out.println("Patient_Address : "+getDocter_Patient_Address());
         System.out.println("Patient_weight : "+getDocter_Patient_weight());
         System.out.println("Patient_allergies : "+getDocter_Patient_allergies());
+        return "";
     }
 }
 
@@ -402,12 +407,16 @@ class Departments extends Hospital{
         return Dept_Name;
     }
 
-    public void Deptinfo(){
+    @Override
+    public String toString(){
         System.out.println("Dept_Name : "+Dept_Name);
         System.out.println("Dept_Degree : "+Dept_Degree);
         System.out.println("Dept_Exp : "+Dept_Exp);
         System.out.println("Dept_Specialization : "+Dept_Specialization);
+        return "";
     }
+
+
 
 }
 
@@ -495,13 +504,15 @@ class Accounts extends Departments{
         this.money();
     }
 
-    public void AccountInfo(){
+    @Override
+    public String toString(){
         System.out.println("Patient_name : "+Patient_name);
         System.out.println("Account_money : "+Account_money);
         System.out.println("Dept_Name : "+Dept_Name);
         System.out.println("Dept_Degree :"+Dept_Degree);
         System.out.println("Dept_Exp : "+Dept_Exp);
         System.out.println("Dept_Specialization : "+Dept_Specialization);
+        return "";
     }
 
 }
@@ -618,26 +629,10 @@ class Admit extends Admission{
     }
 
 
-// To get specific data
-
-//    Admission Ad = new Admission();
-//    Admit(String patient_First_name, String patient_Middle_name, String patient_Last_name, int patient_Age, String patient_Sex, String patient_Address, String patient_MbNo, String patient_Realtion){
-//        this.patient_First_name = Ad.getPatient_First_name();
-//        this.patient_Middle_name = Ad.getPatient_Middle_name();
-//        this.patient_Last_name = Ad.getPatient_Last_name();
-//        this.patient_Age = Ad.getPatient_Age();
-//        this.patient_Sex = Ad.getPatient_Sex();
-//        this.patient_Address = Ad.getPatient_Address();
-//        this.patient_MbNo = Ad.getpatient_MbNo();
-//        this.patient_Realtion = Ad.getpatient_Realtion();
-//
-//    }
-
-
-
 //    ----------------------------To print admit info------------------------------------------------------------------------------
 
-    public void AdmitInfo(){
+    @Override
+    public String toString(){
         System.out.println("Patient_First_name : "+getPatient_First_name());
         System.out.println("Patient_Middle_name : "+getPatient_Middle_name());
         System.out.println("Patient_Last_name : "+getPatient_Last_name());
@@ -646,6 +641,7 @@ class Admit extends Admission{
         System.out.println("Patient_Address : "+getPatient_Address());
         System.out.println("Patient_MbNo : "+getPatient_MbNo());
         System.out.println("Patient_Realtion : "+getPatient_Realtion());
+        return "";
     }
 }
 //===========================================================================================================================
@@ -749,7 +745,8 @@ class Discharge {
         this.Discharge_Patient_Realtion = Discharge_Patient_Realtion;
     }
 
-    public void Discharge_Info() {
+    @Override
+    public String toString() {
         System.out.println("Discharge_Patient_First_name : " + Discharge_Patient_First_name);
         System.out.println("Discharge_Patient_Middle_name : " + Discharge_Patient_Middle_name);
         System.out.println("Discharge_Patient_Last_name : " + Discharge_Patient_Last_name);
@@ -758,6 +755,7 @@ class Discharge {
         System.out.println("Discharge_Patient_Address : " + Discharge_Patient_Address);
         System.out.println("Discharge_Patient_MbNo : " + Discharge_Patient_MbNo);
         System.out.println("Discharge_Patient_Realtion : " + Discharge_Patient_Realtion);
+        return "";
     }
 
 }
@@ -832,12 +830,14 @@ class Insurance extends Departments {
 //        this.moneyDeduct();
     }
 
-    public void Insurance_Info(){
+    @Override
+    public String toString(){
         System.out.println("Patient_name : "+Patient_name);
         System.out.println("Patient_gender : "+Patient_gender);
         System.out.println("Patient_age : "+Patient_age);
         System.out.println("Patient_disease : "+Patient_disease);
         System.out.println("Patient_claimAmount : "+Patient_claimAmount);
+        return "";
     }
 
 }
@@ -924,7 +924,9 @@ class Management_staff extends Departments{
         Management_staff(){
 
     }
-    public void Staff_info(){
+
+    @Override
+    public String toString(){
         System.out.println("Staff_First_Name : "+Staff_First_Name);
         System.out.println("Staff_Middle_Name : "+Staff_Middle_Name);
         System.out.println("Staff_Last_Name : "+Staff_Last_Name);
@@ -933,6 +935,7 @@ class Management_staff extends Departments{
         System.out.println("Staff_age : "+Staff_age);
         System.out.println("Staff_gender : "+Staff_gender);
         System.out.println("Staff_spealization : "+Staff_Designation);
+        return "";
     }
 
     Management_staff(String Staff_First_Name,String Staff_Middle_Name,String Staff_Last_Name,String Staff_Dept_name ,double Staff_sal,int Staff_age,String Staff_gender,String Staff_Designation){
@@ -1010,12 +1013,16 @@ class Manage_Accouts extends Management_staff{
         this.Payee = Payee;
     }
 
-    public void Manage_Accouts_Info(){
+
+    @Override
+    public String toString(){
         System.out.println("Payment_Name : "+Payment_Name);
         System.out.println("Payment_Type  : "+Payment_Type);
         System.out.println("Payment_Amount : "+Payment_Amount);
         System.out.println("Payment_Dept_name : "+Payment_Dept_name);
         System.out.println("Payment Payee : "+Payee);
+        return "";
+
     }
 }
 
@@ -1043,10 +1050,12 @@ class Pharmacy extends Hospital{
         this.Pharmacy_Money = Pharmacy_Money;
     }
 
-    public void Pharmacy_info(){
+    @Override
+    public String toString(){
         System.out.println("Pharmacy_Name : "+Pharmacy_Name);
         System.out.println("Pharmacy_Address : "+Pharmacy_Address);
         System.out.println("Pharmacy_Money : "+Pharmacy_Money);
+        return "";
     }
 }
 // ===================================================================================================================================
@@ -1104,11 +1113,14 @@ class Pharmacy_Staff extends Pharmacy{
     }
 
 //    To Print Pharmacy_Staff Info
-    public  void  Pharmacy_Staff_Info(){
+
+    @Override
+    public  String toString(){
         System.out.println("Pharmacy_Staff_name : "+Pharmacy_Staff_name);
         System.out.println("Pharmacy_Staff_sal : "+Pharmacy_Staff_sal);
         System.out.println("Pharmacy_Staff_Designation : "+Pharmacy_Staff_Designation);
         System.out.println("Pharmacy_Staff_Experiance : "+Pharmacy_Staff_Experiance);
+        return"";
     }
 
 }
@@ -1173,11 +1185,13 @@ class Pharmacy_Medicine extends  Pharmacy{
     }
 
 //    ---------------------------------------- To print Medicine info --------------------------------------------------
-    public void Pharmacy_Medicine_Info(){
+    public String toString(){
         System.out.println("Pharmacy_Medicine_Dealer_name : "+Pharmacy_Medicine_Dealer_name);
         System.out.println("Pharmacy_Medicine_Price : "+Pharmacy_Medicine_Price);
         System.out.println("Pharmacy_Medicine_Dealer_Loc : "+Pharmacy_Medicine_Dealer_Loc);
         System.out.println("Pharmacy_Medicine_Dealer_Experiance : "+Pharmacy_Medicine_Dealer_Experiance);
+        return "";
+
     }
 
 }
@@ -1282,7 +1296,8 @@ class Medicene_Branded extends Pharmacy_Medicine{
 
 //    To print Medicene_Branded info
 
-    public void Medicene_Branded_info(){
+    @Override
+    public String toString(){
         System.out.println("Medicene_Branded_Name : "+Medicene_Branded_Name);
         System.out.println("Medicene_Branded_Manufracture : "+Medicene_Branded_Manufracture);
         System.out.println("Medicene_Branded_Use : "+Medicene_Branded_Use);
@@ -1291,6 +1306,8 @@ class Medicene_Branded extends Pharmacy_Medicine{
         System.out.println("Medicene_Branded_Mfg_Loc : "+Medicene_Branded_Mfg_Loc);
         System.out.println("Medicene_Branded_price : "+Medicene_Branded_price);
         System.out.println("Medicene_Branded_Power : "+Medicene_Branded_Power);
+        return "";
+
     }
 }
 //=================================================================================================================================================
@@ -1386,7 +1403,8 @@ class Medicine_Generic extends Pharmacy_Medicine{
 
 //    To print Medicine_Generic info
 
-    public void Medicine_Generic_info(){
+    @Override
+    public String toString(){
         System.out.println("Medicine_Generic_Name : "+Medicine_Generic_Name);
         System.out.println("Medicine_Generic_Manufracture : "+Medicine_Generic_Manufracture);
         System.out.println("Medicine_Generic_Use : "+Medicine_Generic_Use);
@@ -1395,6 +1413,7 @@ class Medicine_Generic extends Pharmacy_Medicine{
         System.out.println("Medicine_Generic_Mfg_Loc : "+Medicine_Generic_Mfg_Loc);
         System.out.println("Medicine_Generic_price : "+Medicine_Generic_price);
         System.out.println("Medicine_Generic_Power : "+Medicine_Generic_Power);
+        return "";
     }
 
 }
@@ -1405,16 +1424,6 @@ public class Driver {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-//      Hospital object
-//        Hospital H = new Hospital("Life-care","Thane",2000000.0,4522122.222);
-//
-////        To print Hospital info
-//
-//        H.Hospital_info();
-////
-//        Pharmacy P = new Pharmacy("Life-Care","Thane",4555555.25);
-////      To print Pharmacy details
-//        P.Pharmacy_info();
 
 //        ------------------------------------------ Dotor data ------------------------------------------------------------------------
 
@@ -2848,14 +2857,9 @@ public class Driver {
         Doctor_Lists.add(new Doctor("Ethan Rodriguez", "Male", 42, "Stomach Ulcer", "Antacid", "Gastritis", "+61 123456789", "345 Elm Blvd", 79.7, "None"));
         Doctor_Lists.add(new Doctor("Olivia Baker", "Female", 23, "Common Cold", "Cold Medicine", "None", "+91 9876543210", "123 Oak Rd", 65.2, "Dust"));
 
-//          ---------------------------------- for printing docter list-------------------------------------------------
+//          ---------------------------------- for printing docter list--------------------------=---------------------------------
 
 
-
-
-
-//        -----------------------------------Switch case logic for admin class------------------------------
-//
         Hospital H = new Hospital();
 
         int Admin_Choice;
@@ -2886,7 +2890,7 @@ public class Driver {
 
                     for(Admin A : Admin_List){
                         if(A.getUser_name().equals(username)
-                        && A.getPassword().equals(password)){
+                                && A.getPassword().equals(password)){
                             System.out.println("Welcome : "+A.getFirst_name());
                             System.out.println("===================================================");
 
@@ -2965,7 +2969,7 @@ public class Driver {
 
                                                     // to Print Departments info
                                                     for(Departments Dept : DepartmentsList){
-                                                        Dept.Deptinfo();
+                                                        Dept.toString();
                                                         System.out.println("=====================================================================================");
                                                     }
                                                     System.out.println("=====================================================================================");
@@ -3000,7 +3004,7 @@ public class Driver {
                                                                 && dE.getDept_Exp() == dept_Exp
                                                                 && dE.getDept_Specialization().toLowerCase().equals(dept_Specialization.toLowerCase())) {
                                                             System.out.println("=====================================================================================");
-                                                            dE.Deptinfo();
+                                                            dE.toString();
                                                             System.out.println("=====================================================================================");
                                                             found = true;
                                                             break;
@@ -3145,7 +3149,7 @@ public class Driver {
                                                     //      To print Accounts info
 
                                                     for (Accounts account : accountsList) {
-                                                        account.AccountInfo();
+                                                        account.toString();
                                                         System.out.println("================================");
                                                     }
                                                     System.out.println("=================================================================");
@@ -3183,7 +3187,7 @@ public class Driver {
                                                                 && Ac.getDept_Exp() == dept_Exp
                                                                 && Ac.getDept_Specialization().toLowerCase().equals(dept_Specialization.toLowerCase())) {
                                                             System.out.println("Data found : " + Ac.getPatient_name());
-                                                            Ac.AccountInfo();
+                                                            Ac.toString();
                                                             Account_Found = true;
                                                             System.out.println("=================================================================");
                                                             break;
@@ -3343,7 +3347,7 @@ public class Driver {
 //                    Display Admit data
 //                    To print All Admit Patient data
                                                                 for(Admit Ad : Admit_List){
-                                                                    Ad.AdmitInfo();
+                                                                    Ad.toString();
                                                                     System.out.println("===========================================================================================");
 
                                                                 }
@@ -3411,7 +3415,7 @@ public class Driver {
                                                                             && Ad.getPatient_Middle_name().toLowerCase().equals(Admit_Patient_Middle_name)
                                                                             && Ad.getPatient_Last_name().toLowerCase().equals(Admit_Patient_Last_name)) {
                                                                         Ad.Admit_add(Ad.getPatient_First_name(), Ad.getPatient_Middle_name(), Ad.getPatient_Last_name(), Ad.getPatient_Age(), Ad.getPatient_Sex(), Ad.getPatient_Address(), Ad.getPatient_MbNo(), Ad.getPatient_Realtion());
-                                                                        Ad.AdmitInfo();
+                                                                        Ad.toString();
                                                                         System.out.println("====================================================================================================================");
                                                                         AdmitdataFound = true;
                                                                         break; // Found the matching object, no need to continue the loop.
@@ -3496,7 +3500,7 @@ public class Driver {
                                                                     diS.setDischarge_Patient_Address(discharge_Patient_Address);
                                                                     diS.setDischarge_Patient_MbNo(discharge_Patient_MbNo);
                                                                     diS.setDischarge_Patient_Realtion(discharge_Patient_Realtion);
-                                                                    diS.Discharge_Info();
+                                                                    diS.toString();
                                                                     System.out.println("=================================================================");
                                                                     System.out.println("Data is added for : "+diS.Discharge_getPatient_First_name());
                                                                     System.out.println("=================================================================");
@@ -3508,7 +3512,7 @@ public class Driver {
 //                                                                Display Discharge data
                                                                 //        ---------------------------------To print all discharge data ---------------------------------------------------------------
                                                                 for(Discharge Dis : Discharge_List){
-                                                                    Dis.Discharge_Info();
+                                                                    Dis.toString();
                                                                     System.out.println("===========================================================");
                                                                 }
                                                                 break;
@@ -3579,7 +3583,7 @@ public class Driver {
                                                                             && Di.Discharge_getPatient_Last_name().toLowerCase().equals(Discharge_Patient_Last_name.toLowerCase()))
                                                                     {
                                                                         Di.Discharge_add(Di.Discharge_getPatient_First_name(), Di.Discharge_getPatient_Middle_name(), Di.Discharge_getPatient_Last_name(), Di.Discharge_getPatient_Age(), Di.Discharge_getPatient_Sex(),Di.Discharge_getPatient_Address(),Di.Discharge_getPatient_MbNo(),Di.Discharge_getPatient_Realtion());
-                                                                        Di.Discharge_Info();
+                                                                        Di.toString();
                                                                         System.out.println("====================================================================================================================");
                                                                         break; // Found the matching object, no need to continue the loop.
                                                                     }else{
@@ -3677,7 +3681,7 @@ public class Driver {
 //                    To print Insurance info
 
                                                     for(Insurance issues : InsuranceList){
-                                                        issues.Insurance_Info();
+                                                        issues.toString();
                                                         System.out.println("===================================================================================");
                                                     }
 
@@ -3718,7 +3722,7 @@ public class Driver {
                                                                 && i.getPatient_disease().toLowerCase().equals(patient_disease.toLowerCase())
                                                                 && i.getPatient_claimAmount() == patient_claimAmount) {
 
-                                                            i.Insurance_Info();
+                                                            i.toString();
                                                             System.out.println("=================================================================");
                                                             found = true;
                                                             break; // Exit the loop once a match is found
@@ -3876,7 +3880,7 @@ public class Driver {
                                                     //        To print Staff info
 
                                                     for(Management_staff Manages :managementStaffList){
-                                                        Manages.Staff_info();
+                                                        Manages.toString();
                                                         System.out.println("===================================================================================");
                                                     }
                                                     break;
@@ -3917,7 +3921,7 @@ public class Driver {
                                                                 && m.getStaff_Designation().equalsIgnoreCase(staff_designation)) {
                                                             System.out.println("Data found for : " + m.getStaff_First_Name());
                                                             System.out.println("===================================================================================");
-                                                            m.Staff_info();
+                                                            m.toString();
                                                             System.out.println("===================================================================================");
                                                             dataFound = true;
                                                             break;
@@ -4063,7 +4067,7 @@ public class Driver {
                                                     //      To Print  Manage_Accouts data
 
                                                     for(Manage_Accouts Man_Account : Manage_Accouts_Lists){
-                                                        Man_Account.Manage_Accouts_Info();
+                                                        Man_Account.toString();
                                                         System.out.println("=====================================================================================");
                                                     }
 
@@ -4103,7 +4107,7 @@ public class Driver {
                                                                 && mac.getPayment_Dept_name().equalsIgnoreCase(payment_Dept_name)
                                                                 && mac.getPayee().equalsIgnoreCase(payee)) {
                                                             System.out.println("=====================================================================================");
-                                                            mac.Manage_Accouts_Info();
+                                                            mac.toString();
                                                             System.out.println("=====================================================================================");
                                                             dataFound = true;
                                                             break;
@@ -4257,7 +4261,7 @@ public class Driver {
 //                    Display Pharmacy_Staff
                                                                 //        To print Pharmacy_staff data
                                                                 for(Pharmacy_Staff Pharma : Pharmacy_Staff_List){
-                                                                    Pharma.Pharmacy_Staff_Info();
+                                                                    Pharma.toString();
                                                                     System.out.println("=====================================================================================");
 
                                                                 }
@@ -4292,7 +4296,7 @@ public class Driver {
                                                                             && ps.getPharmacy_Staff_sal() == pharmacy_Staff_Sal
                                                                             && ps.getPharmacy_Staff_Designation().equalsIgnoreCase(pharmacy_Staff_designation)
                                                                             && ps.getPharmacy_Staff_Experiance() == pharmacy_Staff_experiance) {
-                                                                        ps.Pharmacy_Staff_Info();
+                                                                        ps.toString();
                                                                         System.out.println("=================================================================");
                                                                         dataFound = true;
                                                                         break;
@@ -4426,7 +4430,7 @@ public class Driver {
 
                                                                 // To print Pharmacy Medicine dealer
                                                                 for(Pharmacy_Medicine Pharma_Med : Pharmacy_Medicine_List){
-                                                                    Pharma_Med.Pharmacy_Medicine_Info();
+                                                                    Pharma_Med.toString();
                                                                     System.out.println("=====================================================================================");
 
                                                                 }
@@ -4460,7 +4464,7 @@ public class Driver {
                                                                             && PM.getPharmacy_Medicine_Price() == pharmacy_Medicine_Price
                                                                             && PM.getPharmacy_Medicine_Dealer_Loc().equalsIgnoreCase(pharmacy_Medicine_Dealer_Loc)
                                                                             && PM.getPharmacy_Medicine_Dealer_Experiance() == pharmacy_Medicine_Dealer_Experiance) {
-                                                                        PM.Pharmacy_Medicine_Info();
+                                                                        PM.toString();
                                                                         System.out.println("=================================================================");
                                                                         System.out.println("Data found for : " + PM.getPharmacy_Medicine_Dealer_name());
                                                                         System.out.println("=================================================================");
@@ -4539,7 +4543,7 @@ public class Driver {
 
                                                     //         ------------------------ switch case logic for Pharmacy Medicine Branded -------------------------------------
 
-                                                            int Pharmacy_Medicine_Branded;
+                                                    int Pharmacy_Medicine_Branded;
                                                     do{
                                                         System.out.println("========= Menu =========");
                                                         System.out.println("1. Add Pharmacy Medicine Branded");
@@ -4605,7 +4609,7 @@ public class Driver {
 
                                                                 //  To print Medicene_Branded data
                                                                 for(Medicene_Branded MB : Medicene_Branded_List){
-                                                                    MB.Medicene_Branded_info();
+                                                                    MB.toString();
                                                                     System.out.println("=====================================================================================");
 
                                                                 }
@@ -4633,7 +4637,7 @@ public class Driver {
                                                                     if (Mb.getMedicene_Branded_Name().equalsIgnoreCase(pharmacy_Medicine_branded_name)
                                                                             && Mb.getMedicene_Branded_Manufracture().equalsIgnoreCase(pharmacy_Medicine_branded_manufacture)
                                                                             && Mb.getMedicene_Branded_Use().equalsIgnoreCase(pharmacy_Medicine_branded_use)) {
-                                                                        Mb.Medicene_Branded_info();
+                                                                        Mb.toString();
                                                                         System.out.println("=================================================================");
                                                                         dataFound = true;
                                                                         break;
@@ -4776,7 +4780,7 @@ public class Driver {
                                                                 //  To print Medicene_Generic data
 
                                                                 for(Medicine_Generic MG : Medicine_Generic_List){
-                                                                    MG.Medicine_Generic_info();
+                                                                    MG.toString();
                                                                     System.out.println("=====================================================================================");
 
                                                                 }
@@ -4808,7 +4812,7 @@ public class Driver {
                                                                         objectToFind = mG;
                                                                         System.out.println("Data found");
                                                                         System.out.println("=================================================================");
-                                                                        mG.Medicine_Generic_info();
+                                                                        mG.toString();
                                                                         break;
                                                                     }
                                                                 }
@@ -4963,7 +4967,7 @@ public class Driver {
 //                    Display patient details
 
                                                     for(Doctor D : Doctor_Lists){
-                                                        D.Docter_Info();
+                                                        D.toString();
                                                         System.out.println("====================================================================");
 
                                                     }
@@ -4994,7 +4998,7 @@ public class Driver {
 
                                                             System.out.println("Data found");
                                                             System.out.println("=====================================================");
-                                                            d.Docter_Info();
+                                                            d.toString();
                                                             System.out.println("===================================================");
                                                             dataFound = true;
                                                             break;
@@ -5071,7 +5075,7 @@ public class Driver {
                             System.out.println("===================================================================");
 
                             break;
-                            }
+                        }
                     }
                     break;
 
@@ -5130,7 +5134,7 @@ public class Driver {
 
                     for(Doctor_Login DL : Doctor_Login_List){
                         if(DL.getD_Username().equals(D_username)
-                        && DL.getD_Password().equals(D_Password)){
+                                && DL.getD_Password().equals(D_Password)){
                             System.out.println("Welcome Doctor : "+DL.getDoctor_First_Name());
                             System.out.println("===================================================================");
                             int Docter_Menu_Choice_Log;
@@ -5212,7 +5216,7 @@ public class Driver {
 //                    Display patient details
 
                                         for(Doctor D : Doctor_Lists){
-                                            D.Docter_Info();
+                                            D.toString();
                                             System.out.println("====================================================================");
 
                                         }
@@ -5243,7 +5247,7 @@ public class Driver {
 
                                                 System.out.println("Data found");
                                                 System.out.println("=====================================================");
-                                                d.Docter_Info();
+                                                d.toString();
                                                 System.out.println("===================================================");
                                                 dataFound = true;
                                                 break;
@@ -5364,7 +5368,6 @@ public class Driver {
                     System.out.println("Invalid choice. Please try again.");
             }
         }while(Admin_Choice !=0);
-
     }
 }
 
