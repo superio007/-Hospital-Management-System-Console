@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -48,7 +49,7 @@ class Hospital{
 
     }
 
-//    Hospital constructor
+    //    Hospital constructor
     Hospital(String Hospital_name,String Hospital_address,double Hospital_money,double Hospital_Insurance_Amount){
         this.Hospital_name = Hospital_name;
         this.Hospital_address = Hospital_address;
@@ -150,7 +151,7 @@ class Admin{
 // ------------------------------------------ Doctor Login ------------------------------------------------------------------------------------
 
 class Doctor_Login{
-    private String Doctor_First_Name;
+    private String Doctor_LFirst_Name;
 
     private String Doctor_Middle_Name;
 
@@ -164,8 +165,8 @@ class Doctor_Login{
         return D_Password;
     }
 
-    public String getDoctor_First_Name() {
-        return Doctor_First_Name;
+    public String getDoctor_LFirst_Name() {
+        return Doctor_LFirst_Name;
     }
 
     public String getDoctor_Last_Name() {
@@ -184,8 +185,8 @@ class Doctor_Login{
         D_Password = d_Password;
     }
 
-    public void setDoctor_First_Name(String doctor_First_Name) {
-        Doctor_First_Name = doctor_First_Name;
+    public void setDoctor_LFirst_Name(String doctor_First_Name) {
+        Doctor_LFirst_Name = doctor_First_Name;
     }
 
     public void setDoctor_Last_Name(String doctor_Last_Name) {
@@ -200,19 +201,21 @@ class Doctor_Login{
         D_Username = d_Username;
     }
 
-    Doctor_Login(String Doctor_First_Name,String Doctor_Middle_Name,String Doctor_Last_Name,String D_Username,String D_Password){
-        this.Doctor_First_Name = Doctor_First_Name;
-        this.Doctor_Middle_Name = Doctor_Middle_Name;
-        this.Doctor_Last_Name = Doctor_Last_Name;
-        this.D_Username = D_Username;
-        this.D_Password = D_Password;
+    Doctor_Login(String Doctor_LFirst_Name,String Doctor_Middle_Name,String Doctor_Last_Name,String D_Username,String D_Password){
+        this.setDoctor_LFirst_Name(Doctor_LFirst_Name);
+        this.setDoctor_Middle_Name(Doctor_Middle_Name);
+        this.setDoctor_Last_Name(Doctor_Last_Name);
+        this.setD_Username(D_Username);
+        this.setD_Password(D_Password);
     }
 }
 
 
 //========================================Docter class=========================================================================================
 
-class Doctor{
+class Doctor {
+
+    private String Doctor_First_Name;
     private String Docter_Patient_name;
 
     private String Docter_Patient_gender;
@@ -232,6 +235,16 @@ class Doctor{
     private double Docter_Patient_weight;
 
     private String Docter_Patient_allergies;
+
+
+    public void setDoctor_First_Name(String doctor_First_Name) {
+        Doctor_First_Name = doctor_First_Name;
+    }
+
+
+    public String getDoctor_First_Name() {
+        return Doctor_First_Name;
+    }
 
     public String getDocter_Patient_name() {
         return Docter_Patient_name;
@@ -315,7 +328,8 @@ class Doctor{
 
 //    ----------------------------To take details constructor-----------------------------------
 
-    Doctor(String Docter_Patient_name,String Docter_Patient_gender,double Docter_Patient_age,String Docter_Patient_suffering,String Docter_Patient_presciption,String Docter_Patient_medical_history,String Docter_Patient_Contact_details,String Docter_Patient_Address,double Docter_Patient_weight,String Docter_Patient_allergies){
+    Doctor(String Doctor_First_Name ,String Docter_Patient_name,String Docter_Patient_gender,double Docter_Patient_age,String Docter_Patient_suffering,String Docter_Patient_presciption,String Docter_Patient_medical_history,String Docter_Patient_Contact_details,String Docter_Patient_Address,double Docter_Patient_weight,String Docter_Patient_allergies){
+        this.Doctor_First_Name = Doctor_First_Name;
         this.Docter_Patient_name = Docter_Patient_name;
         this.Docter_Patient_gender = Docter_Patient_gender;
         this.Docter_Patient_age = Docter_Patient_age;
@@ -332,6 +346,7 @@ class Doctor{
 
     @Override
     public String toString(){
+        System.out.println("Doctor name "+getDoctor_First_Name());
         System.out.println("Patient Name : "+getDocter_Patient_name());
         System.out.println("Patient Gender : "+getDocter_Patient_gender());
         System.out.println("Patient_Age : "+getDocter_Patient_age());
@@ -344,6 +359,9 @@ class Doctor{
         System.out.println("Patient_allergies : "+getDocter_Patient_allergies());
         return "";
     }
+
+
+
 }
 
 //============================================================================================================================================
@@ -415,7 +433,6 @@ class Departments extends Hospital{
         System.out.println("Dept_Specialization : "+Dept_Specialization);
         return "";
     }
-
 
 
 }
@@ -921,7 +938,7 @@ class Management_staff extends Departments{
         Staff_Designation = staff_Designation;
     }
 
-        Management_staff(){
+    Management_staff(){
 
     }
 
@@ -1104,7 +1121,7 @@ class Pharmacy_Staff extends Pharmacy{
         this.setPharmacy_Staff_Designation(Pharmacy_Staff_Designation);
         this.setPharmacy_Staff_Experiance(Pharmacy_Staff_Experiance);
     }
-//    ----------------------Constructor for adding data manually --------------------------
+    //    ----------------------Constructor for adding data manually --------------------------
     Pharmacy_Staff(String Pharmacy_Staff_name,double Pharmacy_Staff_sal,String Pharmacy_Staff_Designation,double Pharmacy_Staff_Experiance){
         this.Pharmacy_Staff_name = Pharmacy_Staff_name;
         this.Pharmacy_Staff_sal = Pharmacy_Staff_sal;
@@ -1163,7 +1180,7 @@ class Pharmacy_Medicine extends  Pharmacy{
     public void setPharmacy_Medicine_Dealer_Experiance(double pharmacy_Medicine_Dealer_Experiance) {
         Pharmacy_Medicine_Dealer_Experiance = pharmacy_Medicine_Dealer_Experiance;
     }
-//    ------------------------------- default constructor for sub class(inheritance)
+    //    ------------------------------- default constructor for sub class(inheritance)
     Pharmacy_Medicine(){
 
     }
@@ -1176,15 +1193,15 @@ class Pharmacy_Medicine extends  Pharmacy{
         this.setPharmacy_Medicine_Dealer_Experiance(Pharmacy_Medicine_Dealer_Experianc);
     }
 
-//    --------------------------------------- To add/load data manually --------------------------------------
-     Pharmacy_Medicine(String Pharmacy_Medicine_Dealer_name,double Pharmacy_Medicine_Price,String Pharmacy_Medicine_Dealer_Loc,double Pharmacy_Medicine_Dealer_Experiance){
+    //    --------------------------------------- To add/load data manually --------------------------------------
+    Pharmacy_Medicine(String Pharmacy_Medicine_Dealer_name,double Pharmacy_Medicine_Price,String Pharmacy_Medicine_Dealer_Loc,double Pharmacy_Medicine_Dealer_Experiance){
         this.Pharmacy_Medicine_Dealer_name = Pharmacy_Medicine_Dealer_name;
         this.Pharmacy_Medicine_Price = Pharmacy_Medicine_Price;
         this.Pharmacy_Medicine_Dealer_Loc = Pharmacy_Medicine_Dealer_Loc;
         this.Pharmacy_Medicine_Dealer_Experiance = Pharmacy_Medicine_Dealer_Experiance;
     }
 
-//    ---------------------------------------- To print Medicine info --------------------------------------------------
+    //    ---------------------------------------- To print Medicine info --------------------------------------------------
     public String toString(){
         System.out.println("Pharmacy_Medicine_Dealer_name : "+Pharmacy_Medicine_Dealer_name);
         System.out.println("Pharmacy_Medicine_Price : "+Pharmacy_Medicine_Price);
@@ -1282,7 +1299,7 @@ class Medicene_Branded extends Pharmacy_Medicine{
 
     }
 
-//  --------------------------------------- constructor to load data Manually ------------------------------------------------
+    //  --------------------------------------- constructor to load data Manually ------------------------------------------------
     Medicene_Branded(String Medicene_Branded_Name,String Medicene_Branded_Manufracture,String Medicene_Branded_Use,double Medicene_Branded_MfgNO,String Medicene_Branded_MfgDate,String Medicene_Branded_Mfg_Loc,double Medicene_Branded_price,double Medicene_Branded_Power){
         this.Medicene_Branded_Name = Medicene_Branded_Name;
         this.Medicene_Branded_Manufracture = Medicene_Branded_Manufracture;
@@ -1389,7 +1406,7 @@ class Medicine_Generic extends Pharmacy_Medicine{
 
 
 
-//    -------------------------------- to load data manually ----------------------------------------------------
+    //    -------------------------------- to load data manually ----------------------------------------------------
     Medicine_Generic(String Medicine_Generic_Name,String Medicine_Generic_Manufracture,String Medicine_Generic_Use,double Medicine_Generic_MfgNO,String Medicine_Generic_MfgDate,String Medicine_Generic_Mfg_Loc,double Medicine_Generic_price,double Medicine_Generic_Power){
         this.Medicine_Generic_Name = Medicine_Generic_Name;
         this.Medicine_Generic_Manufracture = Medicine_Generic_Manufracture;
@@ -1427,14 +1444,18 @@ public class Driver {
 
 //        ------------------------------------------ Dotor data ------------------------------------------------------------------------
 
-        List<Doctor_Login> Doctor_Login_List = new ArrayList<>();
+        List<Doctor_Login> Doctor_Login_List = new LinkedList<>();
 
         Doctor_Login_List.add(new Doctor_Login("Kiran","Pramod","Dhoke","Kiran@123","123456"));
-        Doctor_Login_List.add(new Doctor_Login("Mayur","Prabhakar","Devadiga","Mayur@123","123456"));
+        Doctor_Login_List.add(new Doctor_Login("Mayur","Prabhakar","Devadiga","Mayur@123","1234"));
+        Doctor_Login_List.add(new Doctor_Login("Geetanjali","Pramod","Dhoke","Geetu@1234","123456"));
+        Doctor_Login_List.add(new Doctor_Login("Chinmay","Rajpanni","Surve","Chinmay@123","123"));
+        Doctor_Login_List.add(new Doctor_Login("Rohit","Jamkhande","Pajpanne","Rohit@123","12"));
+        Doctor_Login_List.add(new Doctor_Login("Vaibhav","Rajpatil","Sane","Vaibhav@123","1234"));
 
 //        ------------------------------- Admin Data ---------------------------------------------------
 
-        List<Admin> Admin_List = new ArrayList<>();
+        List<Admin> Admin_List = new LinkedList<>();
 
         Admin_List.add(new Admin("Kiran","Pramod","Dhoke","Kiran@123","123456"));
         Admin_List.add(new Admin("Mayur","Prabhakar","Devadiga","Mayur@123","987057"));
@@ -1442,7 +1463,7 @@ public class Driver {
 
 //        --------------------------------accounts data -----------------------------------------------------------------------------
 
-        List<Accounts> accountsList = new ArrayList<>();
+        List<Accounts> accountsList = new LinkedList<>();
 
         accountsList.add(new Accounts("John Doe", 5000, "Cardiology", "MD", 5.0, "Heart"));
         accountsList.add(new Accounts("Jane Smith", 7500, "Neurology", "MD", 7.5, "Brain"));
@@ -1500,7 +1521,7 @@ public class Driver {
 
 //----------------------------------- Hospital staff data ---------------------------------------------------------------
 
-        List<Management_staff> managementStaffList = new ArrayList<>();
+        List<Management_staff> managementStaffList = new LinkedList<>();
 
         managementStaffList.add(new Management_staff("Kiran","Pramod","Dhoke","Cardiology",50000,35,"Male","Surgen"));
         managementStaffList.add(new Management_staff("John", "D.", "Smith", "Cardiology", 60000, 40, "Male", "Cardiologist"));
@@ -1704,9 +1725,10 @@ public class Driver {
         managementStaffList.add(new Management_staff("Daniel", "Ww.", "Ward", "Orthopedics", 86000, 40, "Male", "Orthopedic Surgeon"));
         managementStaffList.add(new Management_staff("Isabella", "Xx.", "Richardson", "ENT", 87000, 41, "Female", "ENT Specialist"));
 
+
 //        --------------------------------------- insurance data ---------------------------------------------------------------------
 
-        List<Insurance> InsuranceList = new ArrayList<>();
+        List<Insurance> InsuranceList = new LinkedList<>();
 
         InsuranceList.add(new Insurance("John Doe", "Male", 35, "Heart Disease", 5000));
         InsuranceList.add(new Insurance("Jane Smith", "Female", 28, "Cancer", 7500));
@@ -1761,7 +1783,7 @@ public class Driver {
 
 //      ----------------------------------------------------Departments data ------------------------------------------------------
 
-        List <Departments> DepartmentsList = new ArrayList<>();
+        List <Departments> DepartmentsList = new LinkedList<>();
 
         DepartmentsList.add(new Departments("Cardiology", "MD", 5.0, "Heart"));
         DepartmentsList.add(new Departments("Neurology", "MD", 7.5, "Brain"));
@@ -1819,7 +1841,7 @@ public class Driver {
 
 //---------------------------------------------------Manage_Accouts_data(deparment expenses)-------------------------------------------------------------------------------
 
-        List<Manage_Accouts> Manage_Accouts_Lists = new ArrayList<>();
+        List<Manage_Accouts> Manage_Accouts_Lists = new LinkedList<>();
 
         Manage_Accouts_Lists.add(new Manage_Accouts("Medicine","UPI",20000,"cardio","Kiran"));
         Manage_Accouts_Lists.add(new Manage_Accouts("Medicine", "UPI", 20000, "cardio", "Kiran"));
@@ -1882,7 +1904,7 @@ public class Driver {
 
 //      --------------------------------------------------Pharmacy staff data-------------------------------------------------------------
 
-        List<Pharmacy_Staff>Pharmacy_Staff_List = new ArrayList<>();
+        List<Pharmacy_Staff>Pharmacy_Staff_List = new LinkedList<>();
 
         Pharmacy_Staff_List.add(new Pharmacy_Staff("Kiran",45200,"Pharmist",4.0));
         Pharmacy_Staff_List.add(new Pharmacy_Staff("John", 50000, "Pharmacist", 5.5));
@@ -1901,7 +1923,7 @@ public class Driver {
 
 //        -----------------------------------------------------Pharmacy medicine/dealer  list-----------------------------------------------------------
 
-        List<Pharmacy_Medicine> Pharmacy_Medicine_List = new ArrayList<>();
+        List<Pharmacy_Medicine> Pharmacy_Medicine_List = new LinkedList<>();
 
         Pharmacy_Medicine_List.add(new Pharmacy_Medicine("Aghrawal",50000,"Mumbai",4.0));
         Pharmacy_Medicine_List.add(new Pharmacy_Medicine("PharmaWorld", 55000, "New York", 4.5));
@@ -1957,7 +1979,7 @@ public class Driver {
 
 //        -------------------------------------------Medicine Branded data --------------------------------
 
-        List<Medicene_Branded> Medicene_Branded_List = new ArrayList<>();
+        List<Medicene_Branded> Medicene_Branded_List = new LinkedList<>();
 
         Medicene_Branded_List.add(new Medicene_Branded("Panadol", "ABC Pharmaceuticals", "Painkiller", 73529174, "2023-08-15", "New York", 30, 250));
         Medicene_Branded_List.add(new Medicene_Branded("Advil", "XYZ Pharmaceuticals", "Painkiller", 82913756, "2023-09-01", "London", 60, 400));
@@ -2164,7 +2186,7 @@ public class Driver {
 
 //        -------------------------------- Medicine Generic Data ------------------------------------------------------
 
-        List<Medicine_Generic> Medicine_Generic_List = new ArrayList<>();
+        List<Medicine_Generic> Medicine_Generic_List = new LinkedList<>();
 
         Medicine_Generic_List.add(new Medicine_Generic("Dolo", "Neo-Pharma", "Pain-Killer", 15422417, "01-01-24", "Thane", 20, 500));
         Medicine_Generic_List.add(new Medicine_Generic("Cetirizine", "XYZ Labs", "Antihistamine", 2837265, "02-01-24", "Mumbai", 50, 200));
@@ -2282,7 +2304,7 @@ public class Driver {
 
 //        ----------------------------------------------------Admit patient data ------------------------------------------------------------------------------
 
-        List<Admit>Admit_List = new ArrayList<>();
+        List<Admit>Admit_List = new LinkedList<>();
 
         Admit_List.add(new Admit("Mayur","Prabhakar","Devadiga",21,"Male","Cosmos Road,W","8475485454","Friend"));
         Admit_List.add(new Admit("John", "Doe", "Smith", 30, "Male", "123 Main St", "123-456-7890", "Friend"));
@@ -2438,7 +2460,7 @@ public class Driver {
 
 //        ------------------------------------To store all detail data --------------------------------------------------------------------------------
 
-        List<Discharge>  Discharge_List = new ArrayList<>();
+        List<Discharge>  Discharge_List = new LinkedList<>();
 
         Discharge_List.add(new Discharge("Kiran","Pramod","Dhoke",21,"Male","Shastri road,Thane","809-797-2852","Friend"));
         Discharge_List.add(new Discharge("John", "Doe", "Smith", 30, "Male", "123 Main St, Anytown", "555-123-4567", "Family"));
@@ -2649,215 +2671,272 @@ public class Driver {
 
 //        -------------------------------- Data for Docter class --------------------------------------------------------------------------
 
-        List<Doctor> Doctor_Lists = new ArrayList<>();
+        List<Doctor> Doctor_Lists = new LinkedList<>();
 
-        Doctor_Lists.add(new Doctor("Kiran Dhoke","Male",21,"Headache","Dolo-95","Hypertension","+91 8097972852","Shastri,Road",75,"Penuts"));
-        Doctor_Lists.add(new Doctor("John Doe", "Male", 35, "Fever", "Paracetamol", "None", "+1 123-456-7890", "123 Main St", 70.5, "None"));
-        Doctor_Lists.add(new Doctor("Jane Smith", "Female", 28, "Cold", "Tylenol", "Asthma", "+44 987654321", "456 Park Ave", 55.2, "Dust"));
-        Doctor_Lists.add(new Doctor("Michael Johnson", "Male", 45, "Back Pain", "Ibuprofen", "Diabetes", "+61 987654321", "789 Maple Rd", 85.0, "None"));
-        Doctor_Lists.add(new Doctor("Emily Chen", "Female", 22, "Cough", "Cough Syrup", "None", "+91 9876543210", "987 Oak Blvd", 60.1, "Pollen"));
-        Doctor_Lists.add(new Doctor("John Smith", "Male", 45, "Fever", "Paracetamol", "None", "+1 123-456-7890", "123 Main St", 70.5, "None"));
-        Doctor_Lists.add(new Doctor("Alice Johnson", "Female", 30, "Cold", "Tylenol", "Asthma", "+44 987654321", "456 Park Ave", 55.2, "Dust"));
-        Doctor_Lists.add(new Doctor("Michael Brown", "Male", 35, "Back Pain", "Ibuprofen", "Diabetes", "+61 987654321", "789 Maple Rd", 85.0, "None"));
-        Doctor_Lists.add(new Doctor("Emma White", "Female", 25, "Cough", "Cough Syrup", "None", "+91 9876543210", "987 Oak Blvd", 60.1, "Pollen"));
-        Doctor_Lists.add(new Doctor("David Lee", "Male", 50, "Headache", "Aspirin", "Hypertension", "+1 987-654-3210", "567 Elm St", 78.3, "None"));
-        Doctor_Lists.add(new Doctor("Olivia Wilson", "Female", 18, "Sore Throat", "Throat Lozenges", "None", "+44 123456789", "789 Oak Ave", 52.7, "Dust"));
-        Doctor_Lists.add(new Doctor("James Johnson", "Male", 40, "Stomachache", "Antacid", "Indigestion", "+61 123456789", "345 Pine Rd", 68.2, "Lactose"));
-        Doctor_Lists.add(new Doctor("Sophia Martin", "Female", 28, "Flu", "Flu Shot", "None", "+91 9876543210", "123 Cedar Blvd", 57.4, "None"));
-        Doctor_Lists.add(new Doctor("Daniel Clark", "Male", 32, "Allergies", "Antihistamine", "Hay Fever", "+1 987-654-3210", "567 Birch St", 71.8, "Pollen"));
-        Doctor_Lists.add(new Doctor("Isabella Hill", "Female", 60, "Arthritis", "Pain Reliever", "Osteoporosis", "+44 123456789", "789 Maple Ave", 63.9, "None"));
-        Doctor_Lists.add(new Doctor("William Martinez", "Male", 55, "Diabetes", "Insulin", "None", "+61 123456789", "345 Elm Rd", 92.1, "None"));
-        Doctor_Lists.add(new Doctor("Ava Davis", "Female", 15, "Sprained Ankle", "Pain Relief Gel", "None", "+91 9876543210", "123 Oak St", 47.5, "None"));
-        Doctor_Lists.add(new Doctor("Alexander Anderson", "Male", 28, "Chest Pain", "Nitroglycerin", "High Blood Pressure", "+1 987-654-3210", "567 Pine Ave", 78.9, "None"));
-        Doctor_Lists.add(new Doctor("Mia Moore", "Female", 42, "Depression", "Antidepressants", "Anxiety", "+44 123456789", "789 Cedar Rd", 61.3, "None"));
-        Doctor_Lists.add(new Doctor("Ethan Taylor", "Male", 20, "Acne", "Acne Cream", "None", "+61 123456789", "345 Birch Blvd", 65.2, "None"));
-        Doctor_Lists.add(new Doctor("Camila Hernandez", "Female", 70, "Hypertension", "Blood Pressure Medication", "None", "+91 9876543210", "123 Maple St", 72.7, "None"));
-        Doctor_Lists.add(new Doctor("James Moore", "Male", 38, "Migraine", "Migraine Relief", "None", "+1 987-654-3210", "567 Elm Ave", 69.1, "None"));
-        Doctor_Lists.add(new Doctor("Luna Garcia", "Female", 19, "Anxiety", "Anti-Anxiety Medication", "None", "+44 123456789", "789 Oak Rd", 51.8, "None"));
-        Doctor_Lists.add(new Doctor("Aiden Rodriguez", "Male", 25, "Fever", "Tylenol", "None", "+61 123456789", "345 Cedar St", 70.3, "None"));
-        Doctor_Lists.add(new Doctor("Sofia Thomas", "Female", 50, "Rheumatoid Arthritis", "Pain Reliever", "Rheumatoid Arthritis", "+91 9876543210", "123 Pine Blvd", 68.5, "None"));
-        Doctor_Lists.add(new Doctor("Benjamin Scott", "Male", 33, "Asthma", "Inhaler", "None", "+1 987-654-3210", "567 Birch Ave", 76.9, "Dust"));
-        Doctor_Lists.add(new Doctor("Aria Lewis", "Female", 27, "Sore Throat", "Throat Lozenges", "None", "+44 123456789", "789 Cedar St", 55.2, "None"));
-        Doctor_Lists.add(new Doctor("Jackson Turner", "Male", 42, "Stomach Ulcer", "Antacid", "Gastritis", "+61 123456789", "345 Elm Blvd", 79.1, "None"));
-        Doctor_Lists.add(new Doctor("Scarlett Ward", "Female", 23, "Common Cold", "Cold Medicine", "None", "+91 9876543210", "123 Oak Rd", 59.4, "Dust"));
-        Doctor_Lists.add(new Doctor("Lucas Cooper", "Male", 29, "Allergies", "Antihistamine", "Hay Fever", "+1 987-654-3210", "567 Pine St", 68.8, "Pollen"));
-        Doctor_Lists.add(new Doctor("Chloe Griffin", "Female", 38, "Flu", "Flu Shot", "None", "+44 123456789", "789 Cedar Ave", 62.7, "None"));
-        Doctor_Lists.add(new Doctor("Mateo Morales", "Male", 65, "Type 2 Diabetes", "Insulin", "Diabetes", "+61 123456789", "345 Birch Rd", 88.3, "None"));
-        Doctor_Lists.add(new Doctor("Zoey Diaz", "Female", 17, "Sprained Wrist", "Pain Relief Gel", "None", "+91 9876543210", "123 Maple Blvd", 45.6, "None"));
-        Doctor_Lists.add(new Doctor("Sebastian Rivera", "Male", 30, "Chest Pain", "Nitroglycerin", "High Blood Pressure", "+1 987-654-3210", "567 Elm St", 79.9, "None"));
-        Doctor_Lists.add(new Doctor("Avery Hamilton", "Female", 45, "Depression", "Antidepressants", "Anxiety", "+44 123456789", "789 Oak Ave", 60.4, "None"));
-        Doctor_Lists.add(new Doctor("Elijah Kim", "Male", 21, "Acne", "Acne Cream", "None", "+61 123456789", "345 Cedar Rd", 68.1, "None"));
-        Doctor_Lists.add(new Doctor("Grace Barnes", "Female", 55, "Hypertension", "Blood Pressure Medication", "None", "+91 9876543210", "123 Maple St", 70.2, "None"));
-        Doctor_Lists.add(new Doctor("Michael Ross", "Male", 40, "Migraine", "Migraine Relief", "None", "+1 987-654-3210", "567 Elm Ave", 65.7, "None"));
-        Doctor_Lists.add(new Doctor("Aurora Phillips", "Female", 31, "Anxiety", "Anti-Anxiety Medication", "None", "+44 123456789", "789 Oak Rd", 50.9, "None"));
-        Doctor_Lists.add(new Doctor("Logan Simmons", "Male", 18, "Fever", "Tylenol", "None", "+61 123456789", "345 Cedar St", 72.5, "None"));
-        Doctor_Lists.add(new Doctor("Lily Cooper", "Female", 60, "Osteoarthritis", "Pain Reliever", "Osteoporosis", "+91 9876543210", "123 Pine Blvd", 66.7, "None"));
-        Doctor_Lists.add(new Doctor("Oliver Murphy", "Male", 29, "Asthma", "Inhaler", "None", "+1 987-654-3210", "567 Birch Ave", 75.2, "Dust"));
-        Doctor_Lists.add(new Doctor("Elizabeth Peterson", "Female", 25, "Sore Throat", "Throat Lozenges", "None", "+44 123456789", "789 Cedar St", 53.8, "None"));
-        Doctor_Lists.add(new Doctor("William Turner", "Male", 43, "Peptic Ulcer", "Antacid", "Gastritis", "+61 123456789", "345 Elm Blvd", 80.6, "None"));
-        Doctor_Lists.add(new Doctor("Ella Watson", "Female", 22, "Common Cold", "Cold Medicine", "None", "+91 9876543210", "123 Oak Rd", 61.2, "Dust"));
-        Doctor_Lists.add(new Doctor("Liam Baker", "Male", 28, "Allergies", "Antihistamine", "Hay Fever", "+1 987-654-3210", "567 Pine St", 69.8, "Pollen"));
-        Doctor_Lists.add(new Doctor("Harper Richardson", "Female", 40, "Flu", "Flu Shot", "None", "+44 123456789", "789 Cedar Ave", 64.3, "None"));
-        Doctor_Lists.add(new Doctor("Noah Reyes", "Male", 60, "Type 2 Diabetes", "Insulin", "Diabetes", "+61 123456789", "345 Birch Rd", 89.0, "None"));
-        Doctor_Lists.add(new Doctor("Avery Foster", "Female", 16, "Sprained Ankle", "Pain Relief Gel", "None", "+91 9876543210", "123 Maple Blvd", 48.9, "None"));
-        Doctor_Lists.add(new Doctor("Matthew Evans", "Male", 35, "Chest Pain", "Nitroglycerin", "High Blood Pressure", "+1 987-654-3210", "567 Elm St", 80.3, "None"));
-        Doctor_Lists.add(new Doctor("Scarlett Cooper", "Female", 50, "Depression", "Antidepressants", "Anxiety", "+44 123456789", "789 Oak Ave", 59.7, "None"));
-        Doctor_Lists.add(new Doctor("Daniel Morgan", "Male", 24, "Acne", "Acne Cream", "None", "+61 123456789", "345 Cedar Rd", 67.5, "None"));
-        Doctor_Lists.add(new Doctor("Aria Allen", "Female", 70, "Hypertension", "Blood Pressure Medication", "None", "+91 9876543210", "123 Maple St", 71.4, "None"));
-        Doctor_Lists.add(new Doctor("Mason Simmons", "Male", 33, "Migraine", "Migraine Relief", "None", "+1 987-654-3210", "567 Elm Ave", 66.2, "None"));
-        Doctor_Lists.add(new Doctor("Ella Griffin", "Female", 39, "Anxiety", "Anti-Anxiety Medication", "None", "+44 123456789", "789 Oak Rd", 52.1, "None"));
-        Doctor_Lists.add(new Doctor("Ethan Campbell", "Male", 19, "Fever", "Tylenol", "None", "+61 123456789", "345 Cedar St", 74.8, "None"));
-        Doctor_Lists.add(new Doctor("Ava Hernandez", "Female", 65, "Osteoarthritis", "Pain Reliever", "Osteoporosis", "+91 9876543210", "123 Pine Blvd", 65.1, "None"));
-        Doctor_Lists.add(new Doctor("Liam Ross", "Male", 28, "Asthma", "Inhaler", "None", "+1 987-654-3210", "567 Birch Ave", 74.0, "Dust"));
-        Doctor_Lists.add(new Doctor("Olivia Foster", "Female", 26, "Sore Throat", "Throat Lozenges", "None", "+44 123456789", "789 Cedar St", 50.3, "None"));
-        Doctor_Lists.add(new Doctor("Noah Stewart", "Male", 42, "Peptic Ulcer", "Antacid", "Gastritis", "+61 123456789", "345 Elm Blvd", 78.2, "None"));
-        Doctor_Lists.add(new Doctor("Emma Watson", "Female", 20, "Common Cold", "Cold Medicine", "None", "+91 9876543210", "123 Oak Rd", 63.7, "Dust"));
-        Doctor_Lists.add(new Doctor("Jackson Lee", "Male", 27, "Allergies", "Antihistamine", "Hay Fever", "+1 987-654-3210", "567 Pine St", 68.3, "Pollen"));
-        Doctor_Lists.add(new Doctor("Isabella Rivera", "Female", 41, "Flu", "Flu Shot", "None", "+44 123456789", "789 Cedar Ave", 62.6, "None"));
-        Doctor_Lists.add(new Doctor("Aiden Evans", "Male", 61, "Type 2 Diabetes", "Insulin", "Diabetes", "+61 123456789", "345 Birch Rd", 88.5, "None"));
-        Doctor_Lists.add(new Doctor("Aria Gray", "Female", 18, "Sprained Ankle", "Pain Relief Gel", "None", "+91 9876543210", "123 Maple Blvd", 49.2, "None"));
-        Doctor_Lists.add(new Doctor("Lucas Miller", "Male", 31, "Chest Pain", "Nitroglycerin", "High Blood Pressure", "+1 987-654-3210", "567 Elm St", 81.7, "None"));
-        Doctor_Lists.add(new Doctor("Grace Kelly", "Female", 46, "Depression", "Antidepressants", "Anxiety", "+44 123456789", "789 Oak Ave", 59.1, "None"));
-        Doctor_Lists.add(new Doctor("Jacob Stewart", "Male", 23, "Acne", "Acne Cream", "None", "+61 123456789", "345 Cedar Rd", 67.0, "None"));
-        Doctor_Lists.add(new Doctor("Evelyn Hill", "Female", 71, "Hypertension", "Blood Pressure Medication", "None", "+91 9876543210", "123 Maple St", 71.8, "None"));
-        Doctor_Lists.add(new Doctor("Michael Murphy", "Male", 34, "Migraine", "Migraine Relief", "None", "+1 987-654-3210", "567 Elm Ave", 67.9, "None"));
-        Doctor_Lists.add(new Doctor("Sophia Adams", "Female", 37, "Anxiety", "Anti-Anxiety Medication", "None", "+44 123456789", "789 Oak Rd", 53.6, "None"));
-        Doctor_Lists.add(new Doctor("Ethan Turner", "Male", 20, "Fever", "Tylenol", "None", "+61 123456789", "345 Cedar St", 75.5, "None"));
-        Doctor_Lists.add(new Doctor("Emily Lopez", "Female", 62, "Osteoarthritis", "Pain Reliever", "Osteoporosis", "+91 9876543210", "123 Pine Blvd", 64.8, "None"));
-        Doctor_Lists.add(new Doctor("Logan Reed", "Male", 30, "Asthma", "Inhaler", "None", "+1 987-654-3210", "567 Birch Ave", 76.1, "Dust"));
-        Doctor_Lists.add(new Doctor("Amelia Collins", "Female", 25, "Sore Throat", "Throat Lozenges", "None", "+44 123456789", "789 Cedar St", 51.3, "None"));
-        Doctor_Lists.add(new Doctor("James Johnson", "Male", 44, "Peptic Ulcer", "Antacid", "Gastritis", "+61 123456789", "345 Elm Blvd", 76.4, "None"));
-        Doctor_Lists.add(new Doctor("Sophia Adams", "Female", 21, "Common Cold", "Cold Medicine", "None", "+91 9876543210", "123 Oak Rd", 64.7, "Dust"));
-        Doctor_Lists.add(new Doctor("Mason Scott", "Male", 26, "Allergies", "Antihistamine", "Hay Fever", "+1 987-654-3210", "567 Pine St", 68.9, "Pollen"));
-        Doctor_Lists.add(new Doctor("Ava Lewis", "Female", 39, "Flu", "Flu Shot", "None", "+44 123456789", "789 Cedar Ave", 60.9, "None"));
-        Doctor_Lists.add(new Doctor("Lucas Ramirez", "Male", 59, "Type 2 Diabetes", "Insulin", "Diabetes", "+61 123456789", "345 Birch Rd", 87.2, "None"));
-        Doctor_Lists.add(new Doctor("Olivia Green", "Female", 19, "Sprained Ankle", "Pain Relief Gel", "None", "+91 9876543210", "123 Maple Blvd", 48.1, "None"));
-        Doctor_Lists.add(new Doctor("Logan Lewis", "Male", 32, "Chest Pain", "Nitroglycerin", "High Blood Pressure", "+1 987-654-3210", "567 Elm St", 82.3, "None"));
-        Doctor_Lists.add(new Doctor("Chloe Carter", "Female", 47, "Depression", "Antidepressants", "Anxiety", "+44 123456789", "789 Oak Ave", 58.5, "None"));
-        Doctor_Lists.add(new Doctor("Noah Scott", "Male", 24, "Acne", "Acne Cream", "None", "+61 123456789", "345 Cedar Rd", 66.5, "None"));
-        Doctor_Lists.add(new Doctor("Mia Robinson", "Female", 72, "Hypertension", "Blood Pressure Medication", "None", "+91 9876543210", "123 Maple St", 72.4, "None"));
-        Doctor_Lists.add(new Doctor("Elijah Green", "Male", 35, "Migraine", "Migraine Relief", "None", "+1 987-654-3210", "567 Elm Ave", 68.5, "None"));
-        Doctor_Lists.add(new Doctor("Avery Reed", "Female", 38, "Anxiety", "Anti-Anxiety Medication", "None", "+44 123456789", "789 Oak Rd", 54.3, "None"));
-        Doctor_Lists.add(new Doctor("Isabella Adams", "Male", 21, "Fever", "Tylenol", "None", "+61 123456789", "345 Cedar St", 76.8, "None"));
-        Doctor_Lists.add(new Doctor("Liam Turner", "Female", 63, "Osteoarthritis", "Pain Reliever", "Osteoporosis", "+91 9876543210", "123 Pine Blvd", 63.7, "None"));
-        Doctor_Lists.add(new Doctor("Aria Brown", "Male", 33, "Asthma", "Inhaler", "None", "+1 987-654-3210", "567 Birch Ave", 76.4, "Dust"));
-        Doctor_Lists.add(new Doctor("Ella Murphy", "Female", 28, "Sore Throat", "Throat Lozenges", "None", "+44 123456789", "789 Cedar St", 52.7, "None"));
-        Doctor_Lists.add(new Doctor("Oliver Phillips", "Male", 45, "Peptic Ulcer", "Antacid", "Gastritis", "+61 123456789", "345 Elm Blvd", 77.9, "None"));
-        Doctor_Lists.add(new Doctor("Chloe Scott", "Female", 22, "Common Cold", "Cold Medicine", "None", "+91 9876543210", "123 Oak Rd", 62.4, "Dust"));
-        Doctor_Lists.add(new Doctor("Michael Robinson", "Male", 29, "Allergies", "Antihistamine", "Hay Fever", "+1 987-654-3210", "567 Pine St", 67.1, "Pollen"));
-        Doctor_Lists.add(new Doctor("Evelyn Davis", "Female", 40, "Flu", "Flu Shot", "None", "+44 123456789", "789 Cedar Ave", 63.2, "None"));
-        Doctor_Lists.add(new Doctor("Ethan Taylor", "Male", 60, "Type 2 Diabetes", "Insulin", "Diabetes", "+61 123456789", "345 Birch Rd", 85.3, "None"));
-        Doctor_Lists.add(new Doctor("Mia Turner", "Female", 17, "Sprained Ankle", "Pain Relief Gel", "None", "+91 9876543210", "123 Maple Blvd", 47.8, "None"));
-        Doctor_Lists.add(new Doctor("Noah Turner", "Male", 36, "Chest Pain", "Nitroglycerin", "High Blood Pressure", "+1 987-654-3210", "567 Elm St", 82.0, "None"));
-        Doctor_Lists.add(new Doctor("Ella Wood", "Female", 48, "Depression", "Antidepressants", "Anxiety", "+44 123456789", "789 Oak Ave", 59.9, "None"));
-        Doctor_Lists.add(new Doctor("Mason Powell", "Male", 25, "Acne", "Acne Cream", "None", "+61 123456789", "345 Cedar Rd", 68.9, "None"));
-        Doctor_Lists.add(new Doctor("Ava Simmons", "Female", 73, "Hypertension", "Blood Pressure Medication", "None", "+91 9876543210", "123 Maple St", 73.1, "None"));
-        Doctor_Lists.add(new Doctor("Logan Brown", "Male", 34, "Migraine", "Migraine Relief", "None", "+1 987-654-3210", "567 Elm Ave", 69.5, "None"));
-        Doctor_Lists.add(new Doctor("Emma Garcia", "Female", 39, "Anxiety", "Anti-Anxiety Medication", "None", "+44 123456789", "789 Oak Rd", 54.7, "None"));
-        Doctor_Lists.add(new Doctor("Liam Adams", "Male", 22, "Fever", "Tylenol", "None", "+61 123456789", "345 Cedar St", 77.5, "None"));
-        Doctor_Lists.add(new Doctor("Sophia Turner", "Female", 64, "Osteoarthritis", "Pain Reliever", "Osteoporosis", "+91 9876543210", "123 Pine Blvd", 64.3, "None"));
-        Doctor_Lists.add(new Doctor("Lucas Watson", "Male", 32, "Asthma", "Inhaler", "None", "+1 987-654-3210", "567 Birch Ave", 72.4, "Dust"));
-        Doctor_Lists.add(new Doctor("Aria Mitchell", "Female", 39, "Stomachache", "Antacid", "Indigestion", "+44 123456789", "789 Oak Rd", 67.5, "None"));
-        Doctor_Lists.add(new Doctor("Logan White", "Male", 26, "Cough", "Cough Syrup", "None", "+61 123456789", "345 Cedar St", 63.8, "Pollen"));
-        Doctor_Lists.add(new Doctor("Ava Cooper", "Female", 60, "Headache", "Aspirin", "Hypertension", "+91 9876543210", "123 Maple Blvd", 68.1, "None"));
-        Doctor_Lists.add(new Doctor("Ethan Bennett", "Male", 25, "Allergies", "Antihistamine", "Hay Fever", "+1 987-654-3210", "567 Pine St", 69.3, "Dust"));
-        Doctor_Lists.add(new Doctor("Emma Phillips", "Female", 32, "Flu", "Flu Shot", "None", "+44 123456789", "789 Cedar Ave", 62.5, "None"));
-        Doctor_Lists.add(new Doctor("Liam Hall", "Male", 65, "Type 2 Diabetes", "Insulin", "Diabetes", "+61 123456789", "345 Birch Rd", 86.4, "None"));
-        Doctor_Lists.add(new Doctor("Ava Adams", "Female", 17, "Sprained Wrist", "Pain Relief Gel", "None", "+91 9876543210", "123 Maple Blvd", 48.7, "None"));
-        Doctor_Lists.add(new Doctor("Noah Gray", "Male", 30, "Chest Pain", "Nitroglycerin", "High Blood Pressure", "+1 987-654-3210", "567 Elm St", 82.2, "None"));
-        Doctor_Lists.add(new Doctor("Ella Martinez", "Female", 47, "Depression", "Antidepressants", "Anxiety", "+44 123456789", "789 Oak Ave", 58.8, "None"));
-        Doctor_Lists.add(new Doctor("Mason Wood", "Male", 24, "Acne", "Acne Cream", "None", "+61 123456789", "345 Cedar Rd", 68.0, "None"));
-        Doctor_Lists.add(new Doctor("Olivia Richardson", "Female", 72, "Hypertension", "Blood Pressure Medication", "None", "+91 9876543210", "123 Maple St", 73.8, "None"));
-        Doctor_Lists.add(new Doctor("Ethan Lee", "Male", 35, "Migraine", "Migraine Relief", "None", "+1 987-654-3210", "567 Elm Ave", 69.8, "None"));
-        Doctor_Lists.add(new Doctor("Avery Baker", "Female", 40, "Anxiety", "Anti-Anxiety Medication", "None", "+44 123456789", "789 Oak Rd", 55.1, "None"));
-        Doctor_Lists.add(new Doctor("Lucas Phillips", "Male", 22, "Fever", "Tylenol", "None", "+61 123456789", "345 Cedar St", 78.7, "None"));
-        Doctor_Lists.add(new Doctor("Aria Adams", "Female", 63, "Osteoarthritis", "Pain Reliever", "Osteoporosis", "+91 9876543210", "123 Pine Blvd", 65.7, "None"));
-        Doctor_Lists.add(new Doctor("Ella Turner", "Male", 33, "Asthma", "Inhaler", "None", "+1 987-654-3210", "567 Birch Ave", 73.1, "Dust"));
-        Doctor_Lists.add(new Doctor("Oliver Hall", "Female", 27, "Sore Throat", "Throat Lozenges", "None", "+44 123456789", "789 Cedar St", 53.9, "None"));
-        Doctor_Lists.add(new Doctor("Chloe Wilson", "Male", 42, "Stomach Ulcer", "Antacid", "Gastritis", "+61 123456789", "345 Elm Blvd", 77.6, "None"));
-        Doctor_Lists.add(new Doctor("Sophia Brown", "Female", 23, "Common Cold", "Cold Medicine", "None", "+91 9876543210", "123 Oak Rd", 63.4, "Dust"));
-        Doctor_Lists.add(new Doctor("Aiden Lewis", "Male", 28, "Allergies", "Antihistamine", "Hay Fever", "+1 987-654-3210", "567 Pine St", 69.4, "Pollen"));
-        Doctor_Lists.add(new Doctor("Emma Rodriguez", "Female", 41, "Flu", "Flu Shot", "None", "+44 123456789", "789 Cedar Ave", 61.2, "None"));
-        Doctor_Lists.add(new Doctor("Liam Flores", "Male", 61, "Type 2 Diabetes", "Insulin", "Diabetes", "+61 123456789", "345 Birch Rd", 87.9, "None"));
-        Doctor_Lists.add(new Doctor("Ava Turner", "Female", 19, "Sprained Ankle", "Pain Relief Gel", "None", "+91 9876543210", "123 Maple Blvd", 48.5, "None"));
-        Doctor_Lists.add(new Doctor("Noah Ward", "Male", 36, "Chest Pain", "Nitroglycerin", "High Blood Pressure", "+1 987-654-3210", "567 Elm St", 81.8, "None"));
-        Doctor_Lists.add(new Doctor("Olivia Powell", "Female", 48, "Depression", "Antidepressants", "Anxiety", "+44 123456789", "789 Oak Ave", 60.6, "None"));
-        Doctor_Lists.add(new Doctor("Mason Adams", "Male", 25, "Acne", "Acne Cream", "None", "+61 123456789", "345 Cedar Rd", 67.5, "None"));
-        Doctor_Lists.add(new Doctor("Evelyn Carter", "Female", 71, "Hypertension", "Blood Pressure Medication", "None", "+91 9876543210", "123 Maple St", 71.6, "None"));
-        Doctor_Lists.add(new Doctor("Elijah Green", "Male", 35, "Migraine", "Migraine Relief", "None", "+1 987-654-3210", "567 Elm Ave", 69.1, "None"));
-        Doctor_Lists.add(new Doctor("Chloe Brown", "Female", 40, "Anxiety", "Anti-Anxiety Medication", "None", "+44 123456789", "789 Oak Rd", 56.4, "None"));
-        Doctor_Lists.add(new Doctor("Emma Scott", "Male", 22, "Fever", "Tylenol", "None", "+61 123456789", "345 Cedar St", 76.2, "None"));
-        Doctor_Lists.add(new Doctor("Aiden Martinez", "Female", 63, "Osteoarthritis", "Pain Reliever", "Osteoporosis", "+91 9876543210", "123 Pine Blvd", 65.8, "None"));
-        Doctor_Lists.add(new Doctor("Oliver Turner", "Male", 33, "Asthma", "Inhaler", "None", "+1 987-654-3210", "567 Birch Ave", 73.9, "Dust"));
-        Doctor_Lists.add(new Doctor("Ava Hill", "Female", 27, "Sore Throat", "Throat Lozenges", "None", "+44 123456789", "789 Cedar St", 54.1, "None"));
-        Doctor_Lists.add(new Doctor("Ethan Rodriguez", "Male", 42, "Stomach Ulcer", "Antacid", "Gastritis", "+61 123456789", "345 Elm Blvd", 78.3, "None"));
-        Doctor_Lists.add(new Doctor("Olivia Baker", "Female", 23, "Common Cold", "Cold Medicine", "None", "+91 9876543210", "123 Oak Rd", 63.8, "Dust"));
-        Doctor_Lists.add(new Doctor("Mason Adams", "Male", 28, "Allergies", "Antihistamine", "Hay Fever", "+1 987-654-3210", "567 Pine St", 69.7, "Pollen"));
-        Doctor_Lists.add(new Doctor("Emma Flores", "Female", 41, "Flu", "Flu Shot", "None", "+44 123456789", "789 Cedar Ave", 61.8, "None"));
-        Doctor_Lists.add(new Doctor("Liam Young", "Male", 61, "Type 2 Diabetes", "Insulin", "Diabetes", "+61 123456789", "345 Birch Rd", 88.1, "None"));
-        Doctor_Lists.add(new Doctor("Ava Mitchell", "Female", 19, "Sprained Ankle", "Pain Relief Gel", "None", "+91 9876543210", "123 Maple Blvd", 48.2, "None"));
-        Doctor_Lists.add(new Doctor("Noah Hall", "Male", 36, "Chest Pain", "Nitroglycerin", "High Blood Pressure", "+1 987-654-3210", "567 Elm St", 82.4, "None"));
-        Doctor_Lists.add(new Doctor("Olivia Powell", "Female", 48, "Depression", "Antidepressants", "Anxiety", "+44 123456789", "789 Oak Ave", 60.4, "None"));
-        Doctor_Lists.add(new Doctor("Mason Adams", "Male", 25, "Acne", "Acne Cream", "None", "+61 123456789", "345 Cedar Rd", 67.1, "None"));
-        Doctor_Lists.add(new Doctor("Evelyn Carter", "Female", 71, "Hypertension", "Blood Pressure Medication", "None", "+91 9876543210", "123 Maple St", 72.1, "None"));
-        Doctor_Lists.add(new Doctor("Elijah Green", "Male", 35, "Migraine", "Migraine Relief", "None", "+1 987-654-3210", "567 Elm Ave", 68.9, "None"));
-        Doctor_Lists.add(new Doctor("Chloe Brown", "Female", 40, "Anxiety", "Anti-Anxiety Medication", "None", "+44 123456789", "789 Oak Rd", 56.8, "None"));
-        Doctor_Lists.add(new Doctor("Emma Scott", "Male", 22, "Fever", "Tylenol", "None", "+61 123456789", "345 Cedar St", 76.4, "None"));
-        Doctor_Lists.add(new Doctor("Aiden Martinez", "Female", 63, "Osteoarthritis", "Pain Reliever", "Osteoporosis", "+91 9876543210", "123 Pine Blvd", 66.2, "None"));
-        Doctor_Lists.add(new Doctor("Oliver Turner", "Male", 33, "Asthma", "Inhaler", "None", "+1 987-654-3210", "567 Birch Ave", 74.3, "Dust"));
-        Doctor_Lists.add(new Doctor("Ava Hill", "Female", 27, "Sore Throat", "Throat Lozenges", "None", "+44 123456789", "789 Cedar St", 54.5, "None"));
-        Doctor_Lists.add(new Doctor("Ethan Rodriguez", "Male", 42, "Stomach Ulcer", "Antacid", "Gastritis", "+61 123456789", "345 Elm Blvd", 78.7, "None"));
-        Doctor_Lists.add(new Doctor("Olivia Baker", "Female", 23, "Common Cold", "Cold Medicine", "None", "+91 9876543210", "123 Oak Rd", 64.1, "Dust"));
-        Doctor_Lists.add(new Doctor("Mason Adams", "Male", 28, "Allergies", "Antihistamine", "Hay Fever", "+1 987-654-3210", "567 Pine St", 69.9, "Pollen"));
-        Doctor_Lists.add(new Doctor("Emma Flores", "Female", 41, "Flu", "Flu Shot", "None", "+44 123456789", "789 Cedar Ave", 61.5, "None"));
-        Doctor_Lists.add(new Doctor("Liam Young", "Male", 61, "Type 2 Diabetes", "Insulin", "Diabetes", "+61 123456789", "345 Birch Rd", 88.5, "None"));
-        Doctor_Lists.add(new Doctor("Ava Mitchell", "Female", 19, "Sprained Ankle", "Pain Relief Gel", "None", "+91 9876543210", "123 Maple Blvd", 48.9, "None"));
-        Doctor_Lists.add(new Doctor("Noah Hall", "Male", 36, "Chest Pain", "Nitroglycerin", "High Blood Pressure", "+1 987-654-3210", "567 Elm St", 82.8, "None"));
-        Doctor_Lists.add(new Doctor("Olivia Powell", "Female", 48, "Depression", "Antidepressants", "Anxiety", "+44 123456789", "789 Oak Ave", 60.2, "None"));
-        Doctor_Lists.add(new Doctor("Mason Adams", "Male", 25, "Acne", "Acne Cream", "None", "+61 123456789", "345 Cedar Rd", 67.9, "None"));
-        Doctor_Lists.add(new Doctor("Evelyn Carter", "Female", 71, "Hypertension", "Blood Pressure Medication", "None", "+91 9876543210", "123 Maple St", 71.9, "None"));
-        Doctor_Lists.add(new Doctor("Elijah Green", "Male", 35, "Migraine", "Migraine Relief", "None", "+1 987-654-3210", "567 Elm Ave", 68.7, "None"));
-        Doctor_Lists.add(new Doctor("Chloe Brown", "Female", 40, "Anxiety", "Anti-Anxiety Medication", "None", "+44 123456789", "789 Oak Rd", 56.9, "None"));
-        Doctor_Lists.add(new Doctor("Emma Scott", "Male", 22, "Fever", "Tylenol", "None", "+61 123456789", "345 Cedar St", 76.8, "None"));
-        Doctor_Lists.add(new Doctor("Aiden Martinez", "Female", 63, "Osteoarthritis", "Pain Reliever", "Osteoporosis", "+91 9876543210", "123 Pine Blvd", 66.5, "None"));
-        Doctor_Lists.add(new Doctor("Oliver Turner", "Male", 33, "Asthma", "Inhaler", "None", "+1 987-654-3210", "567 Birch Ave", 74.6, "Dust"));
-        Doctor_Lists.add(new Doctor("Ava Hill", "Female", 27, "Sore Throat", "Throat Lozenges", "None", "+44 123456789", "789 Cedar St", 54.7, "None"));
-        Doctor_Lists.add(new Doctor("Ethan Rodriguez", "Male", 42, "Stomach Ulcer", "Antacid", "Gastritis", "+61 123456789", "345 Elm Blvd", 79.1, "None"));
-        Doctor_Lists.add(new Doctor("Olivia Baker", "Female", 23, "Common Cold", "Cold Medicine", "None", "+91 9876543210", "123 Oak Rd", 64.5, "Dust"));
-        Doctor_Lists.add(new Doctor("Mason Adams", "Male", 28, "Allergies", "Antihistamine", "Hay Fever", "+1 987-654-3210", "567 Pine St", 70.1, "Pollen"));
-        Doctor_Lists.add(new Doctor("Emma Flores", "Female", 41, "Flu", "Flu Shot", "None", "+44 123456789", "789 Cedar Ave", 61.9, "None"));
-        Doctor_Lists.add(new Doctor("Liam Young", "Male", 61, "Type 2 Diabetes", "Insulin", "Diabetes", "+61 123456789", "345 Birch Rd", 88.9, "None"));
-        Doctor_Lists.add(new Doctor("Ava Mitchell", "Female", 19, "Sprained Ankle", "Pain Relief Gel", "None", "+91 9876543210", "123 Maple Blvd", 49.3, "None"));
-        Doctor_Lists.add(new Doctor("Noah Hall", "Male", 36, "Chest Pain", "Nitroglycerin", "High Blood Pressure", "+1 987-654-3210", "567 Elm St", 83.2, "None"));
-        Doctor_Lists.add(new Doctor("Olivia Powell", "Female", 48, "Depression", "Antidepressants", "Anxiety", "+44 123456789", "789 Oak Ave", 61.0, "None"));
-        Doctor_Lists.add(new Doctor("Mason Adams", "Male", 25, "Acne", "Acne Cream", "None", "+61 123456789", "345 Cedar Rd", 68.3, "None"));
-        Doctor_Lists.add(new Doctor("Evelyn Carter", "Female", 71, "Hypertension", "Blood Pressure Medication", "None", "+91 9876543210", "123 Maple St", 72.7, "None"));
-        Doctor_Lists.add(new Doctor("Elijah Green", "Male", 35, "Migraine", "Migraine Relief", "None", "+1 987-654-3210", "567 Elm Ave", 69.3, "None"));
-        Doctor_Lists.add(new Doctor("Chloe Brown", "Female", 40, "Anxiety", "Anti-Anxiety Medication", "None", "+44 123456789", "789 Oak Rd", 57.2, "None"));
-        Doctor_Lists.add(new Doctor("Emma Scott", "Male", 22, "Fever", "Tylenol", "None", "+61 123456789", "345 Cedar St", 77.2, "None"));
-        Doctor_Lists.add(new Doctor("Aiden Martinez", "Female", 63, "Osteoarthritis", "Pain Reliever", "Osteoporosis", "+91 9876543210", "123 Pine Blvd", 66.8, "None"));
-        Doctor_Lists.add(new Doctor("Oliver Turner", "Male", 33, "Asthma", "Inhaler", "None", "+1 987-654-3210", "567 Birch Ave", 74.9, "Dust"));
-        Doctor_Lists.add(new Doctor("Ava Hill", "Female", 27, "Sore Throat", "Throat Lozenges", "None", "+44 123456789", "789 Cedar St", 54.9, "None"));
-        Doctor_Lists.add(new Doctor("Ethan Rodriguez", "Male", 42, "Stomach Ulcer", "Antacid", "Gastritis", "+61 123456789", "345 Elm Blvd", 79.3, "None"));
-        Doctor_Lists.add(new Doctor("Olivia Baker", "Female", 23, "Common Cold", "Cold Medicine", "None", "+91 9876543210", "123 Oak Rd", 64.9, "Dust"));
-        Doctor_Lists.add(new Doctor("Mason Adams", "Male", 28, "Allergies", "Antihistamine", "Hay Fever", "+1 987-654-3210", "567 Pine St", 70.4, "Pollen"));
-        Doctor_Lists.add(new Doctor("Emma Flores", "Female", 41, "Flu", "Flu Shot", "None", "+44 123456789", "789 Cedar Ave", 62.0, "None"));
-        Doctor_Lists.add(new Doctor("Liam Young", "Male", 61, "Type 2 Diabetes", "Insulin", "Diabetes", "+61 123456789", "345 Birch Rd", 89.3, "None"));
-        Doctor_Lists.add(new Doctor("Ava Mitchell", "Female", 19, "Sprained Ankle", "Pain Relief Gel", "None", "+91 9876543210", "123 Maple Blvd", 49.8, "None"));
-        Doctor_Lists.add(new Doctor("Noah Hall", "Male", 36, "Chest Pain", "Nitroglycerin", "High Blood Pressure", "+1 987-654-3210", "567 Elm St", 83.6, "None"));
-        Doctor_Lists.add(new Doctor("Olivia Powell", "Female", 48, "Depression", "Antidepressants", "Anxiety", "+44 123456789", "789 Oak Ave", 61.4, "None"));
-        Doctor_Lists.add(new Doctor("Mason Adams", "Male", 25, "Acne", "Acne Cream", "None", "+61 123456789", "345 Cedar Rd", 68.7, "None"));
-        Doctor_Lists.add(new Doctor("Evelyn Carter", "Female", 71, "Hypertension", "Blood Pressure Medication", "None", "+91 9876543210", "123 Maple St", 73.0, "None"));
-        Doctor_Lists.add(new Doctor("Elijah Green", "Male", 35, "Migraine", "Migraine Relief", "None", "+1 987-654-3210", "567 Elm Ave", 69.7, "None"));
-        Doctor_Lists.add(new Doctor("Chloe Brown", "Female", 40, "Anxiety", "Anti-Anxiety Medication", "None", "+44 123456789", "789 Oak Rd", 57.5, "None"));
-        Doctor_Lists.add(new Doctor("Emma Scott", "Male", 22, "Fever", "Tylenol", "None", "+61 123456789", "345 Cedar St", 77.6, "None"));
-        Doctor_Lists.add(new Doctor("Aiden Martinez", "Female", 63, "Osteoarthritis", "Pain Reliever", "Osteoporosis", "+91 9876543210", "123 Pine Blvd", 67.2, "None"));
-        Doctor_Lists.add(new Doctor("Oliver Turner", "Male", 33, "Asthma", "Inhaler", "None", "+1 987-654-3210", "567 Birch Ave", 75.1, "Dust"));
-        Doctor_Lists.add(new Doctor("Ava Hill", "Female", 27, "Sore Throat", "Throat Lozenges", "None", "+44 123456789", "789 Cedar St", 55.3, "None"));
-        Doctor_Lists.add(new Doctor("Ethan Rodriguez", "Male", 42, "Stomach Ulcer", "Antacid", "Gastritis", "+61 123456789", "345 Elm Blvd", 79.7, "None"));
-        Doctor_Lists.add(new Doctor("Olivia Baker", "Female", 23, "Common Cold", "Cold Medicine", "None", "+91 9876543210", "123 Oak Rd", 65.2, "Dust"));
 
-//          ---------------------------------- for printing docter list--------------------------=---------------------------------
+//        ----------------------------------------- Data for Doctor "Kiran"----------------------------------------------------------------
+
+        Doctor_Lists.add(new Doctor("Kiran","Geetanjali Dhoke","Female",25,"Headache","Dolo","null","+91 8097545748","Malabar Hills",65,"Penut"));
+        Doctor_Lists.add(new Doctor("Kiran","John Smith","Male",30,"Cold","Nyquil","null","+1 1234567890","Downtown",70,"Banana"));
+        Doctor_Lists.add(new Doctor("Kiran","Emily Johnson","Female",28,"Back Pain","Ibuprofen","null","+44 9876543210","Suburbia",60,"Orange"));
+        Doctor_Lists.add(new Doctor("Kiran","Michael Brown","Male",35,"Stomachache","Pepto-Bismol","null","+61 4567890123","City Center",75,"Grapes"));
+        Doctor_Lists.add(new Doctor("Kiran","Jessica Martinez","Female",32,"Allergy","Zyrtec","null","+33 6789012345","Riverside",55,"Mango"));
+        Doctor_Lists.add(new Doctor("Kiran","Daniel Lee","Male",27,"Sprained Ankle","Icy Hot","null","+81 8901234567","Hillside",68,"Watermelon"));
+        Doctor_Lists.add(new Doctor("Kiran","Sophia Wilson","Female",29,"Cough","Robitussin","null","+61 4321098765","Beachfront",62,"Strawberry"));
+        Doctor_Lists.add(new Doctor("Kiran","William Taylor","Male",40,"Migraine","Excedrin","null","+44 7890123456","Mountainside",80,"Pineapple"));
+        Doctor_Lists.add(new Doctor("Kiran","Olivia Anderson","Female",23,"Fever","Tylenol","null","+1 2345678901","Uptown",50,"Cherry"));
+        Doctor_Lists.add(new Doctor("Kiran","James Miller","Male",45,"Indigestion","Tums","null","+91 9012345678","Countryside",70,"Kiwi"));
+        Doctor_Lists.add(new Doctor("Kiran","Ava Thomas","Female",31,"Sinusitis","Sudafed","null","+33 7654321098","Seaside",58,"Blueberry"));
+        Doctor_Lists.add(new Doctor("Kiran","Robert Jackson","Male",26,"Sore Throat","Cepacol","null","+44 6543210987","Hillslope",63,"Raspberry"));
+        Doctor_Lists.add(new Doctor("Kiran","Mia White","Female",33,"Headache","Advil","null","+61 8901234567","Downtown",54,"Blackberry"));
+        Doctor_Lists.add(new Doctor("Kiran","David Harris","Male",36,"Chest Pain","Aspirin","null","+1 9876543210","Suburbia",72,"Pomegranate"));
+        Doctor_Lists.add(new Doctor("Kiran","Lily Turner","Female",24,"Allergy","Allegra","null","+91 1234567890","City Center",48,"Cranberry"));
+        Doctor_Lists.add(new Doctor("Kiran","Christopher Clark","Male",29,"Fever","Motrin","null","+33 5678901234","Riverside",65,"Guava"));
+        Doctor_Lists.add(new Doctor("Kiran","Ella Rodriguez","Female",37,"Back Pain","Bengay","null","+44 8901234567","Hillside",68,"Passionfruit"));
+        Doctor_Lists.add(new Doctor("Kiran","Matthew Martinez","Male",28,"Cold","DayQuil","null","+61 2345678901","Beachfront",58,"Dragonfruit"));
+        Doctor_Lists.add(new Doctor("Kiran","Scarlett Adams","Female",39,"Stomachache","Rolaids","null","+1 8765432109","Mountainside",76,"Kiwi"));
+        Doctor_Lists.add(new Doctor("Kiran","Andrew Turner","Male",22,"Cough","Halls","null","+33 3456789012","Uptown",52,"Lychee"));
+        Doctor_Lists.add(new Doctor("Kiran","Grace Cooper","Female",34,"Sprained Ankle","Biofreeze","null","+44 9876543210","Countryside",66,"Mango"));
+        Doctor_Lists.add(new Doctor("Kiran","Daniel Foster","Male",30,"Migraine","Maxalt","null","+61 1234567890","Seaside",70,"Pineapple"));
+        Doctor_Lists.add(new Doctor("Kiran","Chloe Murphy","Female",25,"Fever","Equate","null","+91 6789012345","Hillslope",55,"Strawberry"));
+        Doctor_Lists.add(new Doctor("Kiran","Benjamin Kelly","Male",32,"Indigestion","Maalox","null","+33 9012345678","Downtown",68,"Watermelon"));
+        Doctor_Lists.add(new Doctor("Kiran","Zoe Price","Female",27,"Sinusitis","Claritin","null","+1 1234567890","Suburbia",56,"Cherry"));
+        Doctor_Lists.add(new Doctor("Kiran","Henry Brooks","Male",35,"Sore Throat","Ricola","null","+44 2345678901","City Center",74,"Banana"));
+        Doctor_Lists.add(new Doctor("Kiran","Audrey Cook","Female",26,"Headache","Aleve","null","+61 7890123456","Riverside",61,"Apple"));
+        Doctor_Lists.add(new Doctor("Kiran","Owen Nelson","Male",38,"Chest Pain","Nitrostat","null","+33 5678901234","Hillside",78,"Orange"));
+        Doctor_Lists.add(new Doctor("Kiran","Skylar Murphy","Female",21,"Allergy","Clarinex","null","+44 8901234567","Beachfront",46,"Grapes"));
+        Doctor_Lists.add(new Doctor("Kiran","Nathan Rivera","Male",31,"Fever","Aleve","null","+91 1234567890","Mountainside",67,"Pear"));
+        Doctor_Lists.add(new Doctor("Kiran","Sofia Stewart","Female",40,"Back Pain","Tiger Balm","null","+33 3456789012","Uptown",72,"Plum"));
+        Doctor_Lists.add(new Doctor("Kiran","Ethan Bailey","Male",23,"Cold","Mucinex","null","+1 9876543210","Countryside",54,"Melon"));
+        Doctor_Lists.add(new Doctor("Kiran","Madison Butler","Female",33,"Stomachache","Gas-X","null","+61 2345678901","Seaside",64,"Lemon"));
+        Doctor_Lists.add(new Doctor("Kiran","Alexander Reed","Male",29,"Cough","Vicks","null","+44 8765432109","Hillslope",59,"Lime"));
+        Doctor_Lists.add(new Doctor("Kiran","Aria Collins","Female",37,"Sprained Ankle","Salonpas","null","+33 2345678901","Downtown",77,"Coconut"));
+        Doctor_Lists.add(new Doctor("Kiran","Sebastian Ward","Male",24,"Migraine","Butalbital","null","+1 9012345678","Suburbia",53,"Peach"));
+        Doctor_Lists.add(new Doctor("Kiran","Luna Murphy","Female",36,"Indigestion","Pepcid","null","+44 1234567890","City Center",73,"Apricot"));
+        Doctor_Lists.add(new Doctor("Kiran","Mateo Hughes","Male",28,"Sinusitis","Flonase","null","+61 3456789012","Riverside",62,"Berry"));
+        Doctor_Lists.add(new Doctor("Kiran","Hazel Mitchell","Female",22,"Sore Throat","Chloraseptic","null","+91 9876543210","Beachfront",49,"Fig"));
+        Doctor_Lists.add(new Doctor("Kiran","Jack Perez","Male",39,"Headache","Fioricet","null","+33 1234567890","Mountainside",79,"Grapefruit"));
+        Doctor_Lists.add(new Doctor("Kiran","Violet Simmons","Female",25,"Allergy","Xyzal","null","+44 5678901234","Uptown",57,"Kiwi"));
+        Doctor_Lists.add(new Doctor("Kiran","Leo Cox","Male",30,"Fever","Advil","null","+1 8901234567","Countryside",66,"Passionfruit"));
+        Doctor_Lists.add(new Doctor("Kiran","Stella Rivera","Female",27,"Chest Pain","Nitrates","null","+61 9012345678","Seaside",60,"Dragonfruit"));
+        Doctor_Lists.add(new Doctor("Kiran","Julian Peterson","Male",35,"Back Pain","Biofreeze","null","+33 6789012345","Hillslope",75,"Lychee"));
+        Doctor_Lists.add(new Doctor("Kiran","Lucy Simmons","Female",31,"Cold","Zicam","null","+44 3456789012","Downtown",63,"Mango"));
+        Doctor_Lists.add(new Doctor("Kiran","Ryan Brooks","Male",23,"Stomachache","Imodium","null","+91 7890123456","Suburbia",52,"Pineapple"));
+        Doctor_Lists.add(new Doctor("Kiran","Maya King","Female",40,"Migraine","Sumatriptan","null","+1 2345678901","City Center",80,"Strawberry"));
+        Doctor_Lists.add(new Doctor("Kiran","Eli Jenkins","Male",26,"Allergy","Cetirizine","null","+33 9012345678","Riverside",64,"Watermelon"));
+        Doctor_Lists.add(new Doctor("Kiran","Paisley Murphy","Female",32,"Fever","Tylenol","null","+44 6789012345","Beachfront",69,"Cherry"));
+        Doctor_Lists.add(new Doctor("Kiran","Elijah Young","Male",29,"Sinusitis","Claritin","null","+61 1234567890","Mountainside",58,"Banana"));
+        Doctor_Lists.add(new Doctor("Kiran","Emma Allen","Female",27,"Cough","Robitussin","null","+1 9876543210","Hillside",55,"Guava"));
+        Doctor_Lists.add(new Doctor("Kiran","Liam Walker","Male",35,"Sore Throat","Cepacol","null","+44 1234567890","Seaside",73,"Blackberry"));
+        Doctor_Lists.add(new Doctor("Kiran","Avery Wright","Female",31,"Headache","Excedrin","null","+61 5678901234","Uptown",61,"Raspberry"));
+        Doctor_Lists.add(new Doctor("Kiran","Benjamin Turner","Male",29,"Chest Pain","Aspirin","null","+33 8901234567","Countryside",67,"Blueberry"));
+        Doctor_Lists.add(new Doctor("Kiran","Harper Price","Female",38,"Back Pain","Icy Hot","null","+91 2345678901","City Center",74,"Apple"));
+        Doctor_Lists.add(new Doctor("Kiran","Henry Adams","Male",23,"Fever","Motrin","null","+44 7890123456","Riverside",52,"Orange"));
+        Doctor_Lists.add(new Doctor("Kiran","Ella Rodriguez","Female",36,"Stomachache","Pepto-Bismol","null","+61 3456789012","Beachfront",78,"Grapes"));
+        Doctor_Lists.add(new Doctor("Kiran","Jackson Cooper","Male",32,"Allergy","Zyrtec","null","+1 8901234567","Mountainside",64,"Banana"));
+        Doctor_Lists.add(new Doctor("Kiran","Scarlett Parker","Female",28,"Sprained Ankle","Icy Hot","null","+33 5678901234","Hillslope",59,"Pineapple"));
+        Doctor_Lists.add(new Doctor("Kiran","Aiden Murphy","Male",34,"Migraine","Maxalt","null","+44 9012345678","Downtown",68,"Strawberry"));
+        Doctor_Lists.add(new Doctor("Kiran","Chloe Hill","Female",29,"Cough","Halls","null","+61 1234567890","Suburbia",57,"Watermelon"));
+        Doctor_Lists.add(new Doctor("Kiran","Daniel Foster","Male",26,"Sinusitis","Sudafed","null","+91 4567890123","City Center",63,"Cherry"));
+        Doctor_Lists.add(new Doctor("Kiran","Grace Brooks","Female",30,"Indigestion","Tums","null","+33 7890123456","Riverside",65,"Grapes"));
+        Doctor_Lists.add(new Doctor("Kiran","James Adams","Male",37,"Sore Throat","Cepacol","null","+44 1234567890","Hillside",72,"Kiwi"));
+        Doctor_Lists.add(new Doctor("Kiran","Ava Turner","Female",25,"Headache","Advil","null","+61 3456789012","Beachfront",55,"Lychee"));
+        Doctor_Lists.add(new Doctor("Kiran","Liam Martinez","Male",33,"Chest Pain","Nitrostat","null","+1 9012345678","Mountainside",70,"Mango"));
+        Doctor_Lists.add(new Doctor("Kiran","Mia Foster","Female",28,"Fever","Tylenol","null","+33 5678901234","Uptown",58,"Dragonfruit"));
+        Doctor_Lists.add(new Doctor("Kiran","Noah Harris","Male",31,"Back Pain","Bengay","null","+44 8901234567","Countryside",66,"Coconut"));
+        Doctor_Lists.add(new Doctor("Kiran","Olivia Allen","Female",24,"Allergy","Allegra","null","+61 2345678901","Seaside",51,"Peach"));
+        Doctor_Lists.add(new Doctor("Kiran","William Turner","Male",29,"Cough","Vicks","null","+91 9012345678","Hillslope",62,"Plum"));
+        Doctor_Lists.add(new Doctor("Kiran","Sophia King","Female",35,"Sinusitis","Flonase","null","+1 2345678901","Downtown",69,"Melon"));
+        Doctor_Lists.add(new Doctor("Kiran","Ethan Martin","Male",26,"Migraine","Butalbital","null","+33 5678901234","Suburbia",54,"Lemon"));
+        Doctor_Lists.add(new Doctor("Kiran","Isabella Turner","Female",31,"Stomachache","Gas-X","null","+44 9012345678","City Center",66,"Lime"));
+        Doctor_Lists.add(new Doctor("Kiran","Lucas Allen","Male",27,"Headache","Fioricet","null","+61 3456789012","Riverside",59,"Berry"));
+        Doctor_Lists.add(new Doctor("Kiran","Amelia Martinez","Female",32,"Chest Pain","Nitrates","null","+91 7890123456","Hillside",67,"Fig"));
+        Doctor_Lists.add(new Doctor("Kiran","Jackson Adams","Male",28,"Cold","Zicam","null","+33 2345678901","Beachfront",61,"Grapefruit"));
+        Doctor_Lists.add(new Doctor("Kiran","Olivia Murphy","Female",34,"Stomachache","Imodium","null","+44 6789012345","Mountainside",74,"Kiwi"));
+        Doctor_Lists.add(new Doctor("Kiran","Liam White","Male",25,"Fever","Advil","null","+61 1234567890","Uptown",56,"Passionfruit"));
+        Doctor_Lists.add(new Doctor("Kiran","Sophia Turner","Female",39,"Cough","Robitussin","null","+1 5678901234","Countryside",76,"Dragonfruit"));
+        Doctor_Lists.add(new Doctor("Kiran","Jackson Johnson","Male",23,"Allergy","Zyrtec","null","+33 9012345678","Seaside",53,"Lychee"));
+        Doctor_Lists.add(new Doctor("Kiran","Olivia Turner","Female",36,"Sprained Ankle","Icy Hot","null","+44 1234567890","Hillslope",71,"Mango"));
+        Doctor_Lists.add(new Doctor("Kiran","Liam Wilson","Male",30,"Migraine","Maxalt","null","+61 8901234567","Downtown",65,"Pineapple"));
+        Doctor_Lists.add(new Doctor("Kiran","Ava Brown","Female",28,"Sinusitis","Sudafed","null","+91 2345678901","Suburbia",58,"Strawberry"));
+        Doctor_Lists.add(new Doctor("Kiran","Noah Taylor","Male",32,"Indigestion","Tums","null","+33 8901234567","City Center",68,"Watermelon"));
+        Doctor_Lists.add(new Doctor("Kiran","Emma Allen","Female",29,"Sore Throat","Cepacol","null","+44 5678901234","Riverside",56,"Cherry"));
+        Doctor_Lists.add(new Doctor("Kiran","Liam Turner","Male",35,"Headache","Advil","null","+61 9012345678","Beachfront",73,"Orange"));
+        Doctor_Lists.add(new Doctor("Kiran","Olivia Adams","Female",27,"Chest Pain","Nitrostat","null","+1 2345678901","Mountainside",60,"Grapes"));
+        Doctor_Lists.add(new Doctor("Kiran","Noah Walker","Male",33,"Back Pain","Bengay","null","+33 7890123456","Uptown",69,"Banana"));
+        Doctor_Lists.add(new Doctor("Kiran","Emma Martinez","Female",31,"Cold","Vicks","null","+44 9012345678","Countryside",64,"Pineapple"));
+        Doctor_Lists.add(new Doctor("Kiran","Liam Turner","Male",28,"Sinusitis","Flonase","null","+61 2345678901","Seaside",57,"Mango"));
+        Doctor_Lists.add(new Doctor("Kiran","Ava Cooper","Female",25,"Allergy","Claritin","null","+91 5678901234","Hillside",54,"Strawberry"));
+        Doctor_Lists.add(new Doctor("Kiran","Noah Mitchell","Male",34,"Stomachache","Gas-X","null","+33 8901234567","Downtown",70,"Watermelon"));
+        Doctor_Lists.add(new Doctor("Kiran","Emma Turner","Female",29,"Fever","Tylenol","null","+44 1234567890","Suburbia",58,"Cherry"));
+        Doctor_Lists.add(new Doctor("Kiran","Liam Harris","Male",36,"Cough","Robitussin","null","+61 5678901234","City Center",76,"Grapes"));
+        Doctor_Lists.add(new Doctor("Kiran","Olivia Adams","Female",32,"Sprained Ankle","Icy Hot","null","+1 8901234567","Riverside",66,"Banana"));
+        Doctor_Lists.add(new Doctor("Kiran","Ethan Smith","Male",28,"Migraine","Maxalt","null","+33 2345678901","Beachfront",61,"Orange"));
+        Doctor_Lists.add(new Doctor("Kiran","Isabella Turner","Female",30,"Sinusitis","Sudafed","null","+44 5678901234","Mountainside",62,"Grapes"));
+        Doctor_Lists.add(new Doctor("Kiran","Liam Martin","Male",27,"Headache","Advil","null","+61 9012345678","Hillslope",59,"Strawberry"));
+        Doctor_Lists.add(new Doctor("Kiran","Olivia Jackson","Female",35,"Chest Pain","Nitrostat","null","+91 7890123456","Downtown",72,"Watermelon"));
+        Doctor_Lists.add(new Doctor("Kiran","Noah Adams","Male",31,"Back Pain","Bengay","null","+33 9012345678","Seaside",67,"Cherry"));
+
+//        -------------------------------------------- Data for Doctor "Mayur"--------------------------------------------------------------------------------------------------------------------------------------------
+        Doctor_Lists.add(new Doctor("Mayur","Avery Cooper","Female",26,"Indigestion","Pepto-Bismol","null","+33 8901234567","Beachfront",62,"Mango"));
+        Doctor_Lists.add(new Doctor("Mayur","John Smith","Male",30,"Cold","Nyquil","null","+1 1234567890","Downtown",70,"Banana"));
+        Doctor_Lists.add(new Doctor("Mayur","Emily Johnson","Female",28,"Back Pain","Ibuprofen","null","+44 9876543210","Suburbia",60,"Orange"));
+        Doctor_Lists.add(new Doctor("Mayur","Michael Brown","Male",35,"Stomachache","Pepto-Bismol","null","+61 4567890123","City Center",75,"Grapes"));
+        Doctor_Lists.add(new Doctor("Mayur","Jessica Martinez","Female",32,"Allergy","Zyrtec","null","+33 6789012345","Riverside",55,"Mango"));
+        Doctor_Lists.add(new Doctor("Mayur","Daniel Lee","Male",27,"Sprained Ankle","Icy Hot","null","+81 8901234567","Hillside",68,"Watermelon"));
+        Doctor_Lists.add(new Doctor("Mayur","Sophia Wilson","Female",29,"Cough","Robitussin","null","+61 4321098765","Beachfront",62,"Strawberry"));
+        Doctor_Lists.add(new Doctor("Mayur","William Taylor","Male",40,"Migraine","Excedrin","null","+44 7890123456","Mountainside",80,"Pineapple"));
+        Doctor_Lists.add(new Doctor("Mayur","Olivia Anderson","Female",23,"Fever","Tylenol","null","+1 2345678901","Uptown",50,"Cherry"));
+        Doctor_Lists.add(new Doctor("Mayur","James Miller","Male",45,"Indigestion","Tums","null","+91 9012345678","Countryside",70,"Kiwi"));
+        Doctor_Lists.add(new Doctor("Mayur","Ava Thomas","Female",31,"Sinusitis","Sudafed","null","+33 7654321098","Seaside",58,"Blueberry"));
+        Doctor_Lists.add(new Doctor("Mayur","Robert Jackson","Male",26,"Sore Throat","Cepacol","null","+44 6543210987","Hillslope",63,"Raspberry"));
+        Doctor_Lists.add(new Doctor("Mayur","Mia White","Female",33,"Headache","Advil","null","+61 8901234567","Downtown",54,"Blackberry"));
+        Doctor_Lists.add(new Doctor("Mayur","David Harris","Male",36,"Chest Pain","Aspirin","null","+1 9876543210","Suburbia",72,"Pomegranate"));
+        Doctor_Lists.add(new Doctor("Mayur","Lily Turner","Female",24,"Allergy","Allegra","null","+91 1234567890","City Center",48,"Cranberry"));
+        Doctor_Lists.add(new Doctor("Mayur","Christopher Clark","Male",29,"Fever","Motrin","null","+33 5678901234","Riverside",65,"Guava"));
+        Doctor_Lists.add(new Doctor("Mayur","Ella Rodriguez","Female",37,"Back Pain","Bengay","null","+44 8901234567","Hillside",68,"Passionfruit"));
+        Doctor_Lists.add(new Doctor("Mayur","Matthew Martinez","Male",28,"Cold","DayQuil","null","+61 2345678901","Beachfront",58,"Dragonfruit"));
+        Doctor_Lists.add(new Doctor("Mayur","Scarlett Adams","Female",39,"Stomachache","Rolaids","null","+1 8765432109","Mountainside",76,"Kiwi"));
+        Doctor_Lists.add(new Doctor("Mayur","Andrew Turner","Male",22,"Cough","Halls","null","+33 3456789012","Uptown",52,"Lychee"));
+        Doctor_Lists.add(new Doctor("Mayur","Grace Cooper","Female",34,"Sprained Ankle","Biofreeze","null","+44 9876543210","Countryside",66,"Mango"));
+        Doctor_Lists.add(new Doctor("Mayur","Daniel Foster","Male",30,"Migraine","Maxalt","null","+61 1234567890","Seaside",70,"Pineapple"));
+        Doctor_Lists.add(new Doctor("Mayur","Chloe Murphy","Female",25,"Fever","Equate","null","+91 6789012345","Hillslope",55,"Strawberry"));
+        Doctor_Lists.add(new Doctor("Mayur","Benjamin Kelly","Male",32,"Indigestion","Maalox","null","+33 9012345678","Downtown",68,"Watermelon"));
+        Doctor_Lists.add(new Doctor("Mayur","Zoe Price","Female",27,"Sinusitis","Claritin","null","+1 1234567890","Suburbia",56,"Cherry"));
+        Doctor_Lists.add(new Doctor("Mayur","Henry Brooks","Male",35,"Sore Throat","Ricola","null","+44 2345678901","City Center",74,"Banana"));
+        Doctor_Lists.add(new Doctor("Mayur","Audrey Cook","Female",26,"Headache","Aleve","null","+61 7890123456","Riverside",61,"Apple"));
+        Doctor_Lists.add(new Doctor("Mayur","Owen Nelson","Male",38,"Chest Pain","Nitrostat","null","+33 5678901234","Hillside",78,"Orange"));
+        Doctor_Lists.add(new Doctor("Mayur","Skylar Murphy","Female",21,"Allergy","Clarinex","null","+44 8901234567","Beachfront",46,"Grapes"));
+        Doctor_Lists.add(new Doctor("Mayur","Nathan Rivera","Male",31,"Fever","Aleve","null","+91 1234567890","Mountainside",67,"Pear"));
+        Doctor_Lists.add(new Doctor("Mayur","Sofia Stewart","Female",40,"Back Pain","Tiger Balm","null","+33 3456789012","Uptown",72,"Plum"));
+        Doctor_Lists.add(new Doctor("Mayur","Ethan Bailey","Male",23,"Cold","Mucinex","null","+1 9876543210","Countryside",54,"Melon"));
+        Doctor_Lists.add(new Doctor("Mayur","Emma Allen","Female",33,"Stomachache","Gas-X","null","+61 2345678901","Seaside",64,"Lemon"));
+        Doctor_Lists.add(new Doctor("Mayur","Alexander Reed","Male",29,"Cough","Vicks","null","+44 8765432109","Hillslope",59,"Lime"));
+        Doctor_Lists.add(new Doctor("Mayur","Aria Collins","Female",37,"Sprained Ankle","Salonpas","null","+33 2345678901","Downtown",77,"Coconut"));
+        Doctor_Lists.add(new Doctor("Mayur","Sebastian Ward","Male",24,"Migraine","Butalbital","null","+1 9012345678","Suburbia",53,"Peach"));
+        Doctor_Lists.add(new Doctor("Mayur","Luna Murphy","Female",36,"Indigestion","Pepcid","null","+44 1234567890","City Center",73,"Apricot"));
+        Doctor_Lists.add(new Doctor("Mayur","Mateo Hughes","Male",28,"Sinusitis","Flonase","null","+61 3456789012","Riverside",62,"Berry"));
+        Doctor_Lists.add(new Doctor("Mayur","Hazel Mitchell","Female",22,"Sore Throat","Chloraseptic","null","+91 9876543210","Beachfront",49,"Fig"));
+        Doctor_Lists.add(new Doctor("Mayur","Jack Perez","Male",39,"Headache","Fioricet","null","+33 5678901234","Hillside",78,"Grapefruit"));
+        Doctor_Lists.add(new Doctor("Mayur","Violet Simmons","Female",25,"Allergy","Xyzal","null","+44 5678901234","Uptown",57,"Kiwi"));
+        Doctor_Lists.add(new Doctor("Mayur","Leo Cox","Male",30,"Fever","Advil","null","+1 8901234567","Countryside",66,"Passionfruit"));
+        Doctor_Lists.add(new Doctor("Mayur","Stella Rivera","Female",27,"Chest Pain","Nitrates","null","+61 9012345678","Seaside",60,"Dragonfruit"));
+        Doctor_Lists.add(new Doctor("Mayur","Julian Peterson","Male",35,"Back Pain","Biofreeze","null","+33 6789012345","Hillslope",75,"Lychee"));
+        Doctor_Lists.add(new Doctor("Mayur","Lucy Simmons","Female",31,"Cold","Zicam","null","+44 3456789012","Downtown",63,"Mango"));
+        Doctor_Lists.add(new Doctor("Mayur","Ryan Brooks","Male",23,"Stomachache","Imodium","null","+91 7890123456","Suburbia",52,"Pineapple"));
+        Doctor_Lists.add(new Doctor("Mayur","Maya King","Female",40,"Migraine","Sumatriptan","null","+33 3456789012","Uptown",72,"Strawberry"));
+        Doctor_Lists.add(new Doctor("Mayur","Eli Jenkins","Male",26,"Allergy","Cetirizine","null","+1 9012345678","City Center",64,"Watermelon"));
+        Doctor_Lists.add(new Doctor("Mayur","Paisley Murphy","Female",32,"Fever","Tylenol","null","+44 6789012345","Beachfront",69,"Cherry"));
+        Doctor_Lists.add(new Doctor("Mayur","Elijah Young","Male",29,"Sinusitis","Claritin","null","+61 1234567890","Mountainside",58,"Banana"));
+        Doctor_Lists.add(new Doctor("Mayur","Isabella Turner","Female",27,"Sore Throat","Cepacol","null","+61 9012345678","Seaside",56,"Strawberry"));
+        Doctor_Lists.add(new Doctor("Mayur","Caleb Turner","Male",32,"Cold","DayQuil","null","+44 6789012345","Uptown",69,"Blueberry"));
+        Doctor_Lists.add(new Doctor("Mayur","Ella Martinez","Female",28,"Cough","Robitussin","null","+61 2345678901","Mountainside",56,"Raspberry"));
+        Doctor_Lists.add(new Doctor("Mayur","Owen Adams","Male",35,"Stomachache","Gas-X","null","+1 9012345678","Hillslope",73,"Blackberry"));
+        Doctor_Lists.add(new Doctor("Mayur","Sophia Walker","Female",29,"Back Pain","Ibuprofen","null","+33 7890123456","City Center",59,"Kiwi"));
+        Doctor_Lists.add(new Doctor("Mayur","Ethan Clark","Male",26,"Headache","Excedrin","null","+44 5678901234","Riverside",54,"Orange"));
+        Doctor_Lists.add(new Doctor("Mayur","Mia Turner","Female",30,"Allergy","Zyrtec","null","+61 9012345678","Downtown",63,"Grapes"));
+        Doctor_Lists.add(new Doctor("Mayur","Liam Rodriguez","Male",27,"Sprained Ankle","Salonpas","null","+91 3456789012","Suburbia",58,"Strawberry"));
+        Doctor_Lists.add(new Doctor("Mayur","Ava Foster","Female",34,"Migraine","Maxalt","null","+33 1234567890","Seaside",68,"Banana"));
+        Doctor_Lists.add(new Doctor("Mayur","Noah King","Male",28,"Chest Pain","Aspirin","null","+44 9012345678","Beachfront",59,"Pineapple"));
+        Doctor_Lists.add(new Doctor("Mayur","Olivia Turner","Female",31,"Fever","Tylenol","null","+61 5678901234","Hillslope",64,"Apple"));
+        Doctor_Lists.add(new Doctor("Mayur","Liam Murphy","Male",37,"Sinusitis","Sudafed","null","+1 2345678901","City Center",72,"Pear"));
+        Doctor_Lists.add(new Doctor("Mayur","Emma Collins","Female",25,"Sore Throat","Cepacol","null","+33 7890123456","Uptown",55,"Cherry"));
+        Doctor_Lists.add(new Doctor("Mayur","Noah Adams","Male",33,"Indigestion","Tums","null","+44 2345678901","Countryside",69,"Watermelon"));
+        Doctor_Lists.add(new Doctor("Mayur","Olivia Turner","Female",27,"Cough","Halls","null","+61 9012345678","Seaside",58,"Melon"));
+        Doctor_Lists.add(new Doctor("Mayur","Liam Mitchell","Male",29,"Migraine","Advil","null","+91 3456789012","Mountainside",62,"Passionfruit"));
+        Doctor_Lists.add(new Doctor("Mayur","Emma Turner","Female",36,"Sprained Ankle","Salonpas","null","+33 5678901234","Hillside",74,"Dragonfruit"));
+        Doctor_Lists.add(new Doctor("Mayur","Noah Foster","Male",32,"Headache","Fioricet","null","+44 9012345678","Downtown",68,"Lychee"));
+        Doctor_Lists.add(new Doctor("Mayur","Ava Adams","Female",28,"Stomachache","Pepto-Bismol","null","+61 6789012345","Beachfront",57,"Grapefruit"));
+        Doctor_Lists.add(new Doctor("Mayur","Liam Walker","Male",31,"Allergy","Zyrtec","null","+1 1234567890","Mountainside",65,"Kiwi"));
+        Doctor_Lists.add(new Doctor("Mayur","Emma Turner","Female",29,"Fever","Tylenol","null","+33 8901234567","Uptown",56,"Mango"));
+        Doctor_Lists.add(new Doctor("Mayur","Noah Harris","Male",34,"Back Pain","Ibuprofen","null","+44 6789012345","Countryside",71,"Peach"));
+        Doctor_Lists.add(new Doctor("Mayur","Olivia Miller","Female",26,"Cold","Nyquil","null","+61 3456789012","Seaside",53,"Lemon"));
+        Doctor_Lists.add(new Doctor("Mayur","Liam Wilson","Male",35,"Sinusitis","Flonase","null","+91 7890123456","Hillside",69,"Lime"));
+        Doctor_Lists.add(new Doctor("Mayur","Sophia Adams","Female",30,"Migraine","Maxalt","null","+33 2345678901","Downtown",68,"Coconut"));
+        Doctor_Lists.add(new Doctor("Mayur","Ethan Turner","Male",28,"Chest Pain","Aspirin","null","+44 9012345678","Riverside",58,"Passionfruit"));
+        Doctor_Lists.add(new Doctor("Mayur","Ava Martinez","Female",33,"Sore Throat","Cepacol","null","+61 5678901234","City Center",74,"Banana"));
+        Doctor_Lists.add(new Doctor("Mayur","Noah Turner","Male",27,"Indigestion","Tums","null","+1 2345678901","Suburbia",61,"Strawberry"));
+        Doctor_Lists.add(new Doctor("Mayur","Olivia Johnson","Female",38,"Headache","Advil","null","+33 7890123456","Beachfront",77,"Blueberry"));
+        Doctor_Lists.add(new Doctor("Mayur","Liam Cooper","Male",32,"Cough","Robitussin","null","+44 5678901234","Hillslope",63,"Raspberry"));
+        Doctor_Lists.add(new Doctor("Mayur","Noah Turner","Male",33,"Headache","Advil","null","+44 5678901234","Downtown",69,"Banana"));
+
+//          ---------------------------------- Data for Doctor Kartik ----------------------------------------------------------------------------
+
+        Doctor_Lists.add(new Doctor("Kartik","Liam Turner","Male",27,"Chest Pain","Aspirin","null","+1 3456789012","City Center",62,"Pineapple"));
+        Doctor_Lists.add(new Doctor("Kartik","Emma Martinez","Female",34,"Fever","Tylenol","null","+33 5678901234","Riverside",78,"Orange"));
+        Doctor_Lists.add(new Doctor("Kartik","Noah Adams","Male",31,"Sinusitis","Sudafed","null","+44 9012345678","Hillside",69,"Grapes"));
+        Doctor_Lists.add(new Doctor("Kartik","Olivia Turner","Female",26,"Cough","Robitussin","null","+61 1234567890","Beachfront",59,"Dragonfruit"));
+        Doctor_Lists.add(new Doctor("Kartik","Liam Clark","Male",28,"Headache","Advil","null","+1 5678901234","Mountainside",61,"Strawberry"));
+        Doctor_Lists.add(new Doctor("Kartik","Emma Adams","Female",33,"Allergy","Allegra","null","+33 8901234567","Seaside",77,"Mango"));
+        Doctor_Lists.add(new Doctor("Kartik","Noah Turner","Male",29,"Sprained Ankle","Icy Hot","null","+44 2345678901","City Center",63,"Blueberry"));
+        Doctor_Lists.add(new Doctor("Kartik","Sophia Harris","Female",26,"Cold","DayQuil","null","+61 9012345678","Downtown",57,"Raspberry"));
+        Doctor_Lists.add(new Doctor("Kartik","Liam Turner","Male",32,"Back Pain","Ibuprofen","null","+91 3456789012","Hillslope",65,"Blackberry"));
+        Doctor_Lists.add(new Doctor("Kartik","Ava Johnson","Female",28,"Stomachache","Gas-X","null","+33 5678901234","Beachfront",58,"Watermelon"));
+        Doctor_Lists.add(new Doctor("Kartik","Noah Turner","Male",35,"Migraine","Excedrin","null","+44 9012345678","Mountainside",74,"Kiwi"));
+        Doctor_Lists.add(new Doctor("Kartik","Sophia Wilson","Female",30,"Indigestion","Tums","null","+61 2345678901","Seaside",63,"Banana"));
+        Doctor_Lists.add(new Doctor("Kartik","Liam Turner","Male",27,"Chest Pain","Aspirin","null","+1 3456789012","City Center",63,"Pineapple"));
+        Doctor_Lists.add(new Doctor("Kartik","Emma Martinez","Female",34,"Fever","Tylenol","null","+33 5678901234","Riverside",76,"Orange"));
+        Doctor_Lists.add(new Doctor("Kartik","Noah Adams","Male",31,"Sinusitis","Sudafed","null","+44 9012345678","Hillside",67,"Grapes"));
+        Doctor_Lists.add(new Doctor("Kartik","Olivia Turner","Female",26,"Cough","Robitussin","null","+61 1234567890","Beachfront",57,"Dragonfruit"));
+        Doctor_Lists.add(new Doctor("Kartik","Liam Clark","Male",28,"Headache","Advil","null","+1 5678901234","Mountainside",59,"Strawberry"));
+        Doctor_Lists.add(new Doctor("Kartik","Emma Adams","Female",33,"Allergy","Allegra","null","+33 8901234567","Seaside",78,"Mango"));
+        Doctor_Lists.add(new Doctor("Kartik","Noah Turner","Male",29,"Sprained Ankle","Icy Hot","null","+44 2345678901","City Center",66,"Blueberry"));
+
+//        ----------------------------- Data for Doctor Geetanjali ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        Doctor_Lists.add(new Doctor("Geetanjali","Ethan Rivera","Male",31,"Fever","Aleve","null","+91 1234567890","Mountainside",67,"Pear"));
+        Doctor_Lists.add(new Doctor("Geetanjali","Olivia Stewart","Female",40,"Back Pain","Tiger Balm","null","+33 3456789012","Uptown",72,"Plum"));
+        Doctor_Lists.add(new Doctor("Geetanjali","Jackson Bailey","Male",23,"Cold","Mucinex","null","+44 5678901234","Countryside",53,"Kiwi"));
+        Doctor_Lists.add(new Doctor("Geetanjali","Ava Turner","Female",29,"Sprained Ankle","Icy Hot","null","+61 7890123456","Seaside",60,"Dragonfruit"));
+        Doctor_Lists.add(new Doctor("Geetanjali","Sophia Martinez","Female",27,"Stomachache","Gas-X","null","+61 2345678901","Seaside",59,"Blueberry"));
+        Doctor_Lists.add(new Doctor("Geetanjali","Liam Turner","Male",35,"Headache","Excedrin","null","+1 3456789012","Beachfront",70,"Raspberry"));
+        Doctor_Lists.add(new Doctor("Geetanjali","Emma Adams","Female",29,"Sore Throat","Cepacol","null","+33 5678901234","City Center",56,"Watermelon"));
+        Doctor_Lists.add(new Doctor("Geetanjali","Noah Davis","Male",33,"Migraine","Maxalt","null","+44 9012345678","Hillslope",68,"Kiwi"));
+        Doctor_Lists.add(new Doctor("Geetanjali","Sophia Turner","Female",30,"Indigestion","Tums","null","+61 6789012345","Suburbia",62,"Banana"));
+
+//        -------------------------------Data for Doctor Vaibhav --------------------------------------------------------------
+
+        Doctor_Lists.add(new Doctor("Vaibhav","Noah Turner","Female",27,"Stomachache","Pepto-Bismol","null","+1 1234567890","Beachfront",58,"Watermelon"));
+        Doctor_Lists.add(new Doctor("Vaibhav","Sophia Turner","Male",28,"Cough","Robitussin","null","+33 6789012345","Mountainside",62,"Cherry"));
+        Doctor_Lists.add(new Doctor("Vaibhav","Liam Adams","Female",29,"Indigestion","Tums","null","+44 8901234567","Suburbia",66,"Grapes"));
+        Doctor_Lists.add(new Doctor("Vaibhav","Emma Turner","Male",31,"Sinusitis","Claritin","null","+61 6789012345","City Center",68,"Orange"));
+        Doctor_Lists.add(new Doctor("Vaibhav","Noah Turner","Female",32,"Headache","Advil","null","+1 5678901234","Downtown",70,"Pomegranate"));
+
+//         ------------------------------  Data For Doctor Chinmay -----------------------------------------------------
+
+        Doctor_Lists.add(new Doctor("Chinmay","Olivia Johnson","Female",30,"Indigestion","Tums","null","+1 6789012345","Downtown",69,"Grapes"));
+        Doctor_Lists.add(new Doctor("Chinmay","Noah Walker","Male",34,"Fever","Tylenol","null","+33 9012345678","Seaside",73,"Orange"));
+        Doctor_Lists.add(new Doctor("Chinmay","Sophia Turner","Female",26,"Headache","Advil","null","+44 7890123456","Hillside",61,"Cherry"));
+        Doctor_Lists.add(new Doctor("Chinmay","Liam Adams","Male",29,"Allergy","Allegra","null","+61 2345678901","Riverside",64,"Banana"));
+        Doctor_Lists.add(new Doctor("Chinmay","Emma Turner","Female",32,"Sore Throat","Cepacol","null","+1 5678901234","City Center",69,"Strawberry"));
+        Doctor_Lists.add(new Doctor("Chinmay","Noah Wilson","Male",27,"Cough","Robitussin","null","+33 8901234567","Suburbia",58,"Raspberry"));
+        Doctor_Lists.add(new Doctor("Chinmay","Sophia Harris","Female",35,"Migraine","Excedrin","null","+44 5678901234","Beachfront",71,"Pineapple"));
+        Doctor_Lists.add(new Doctor("Chinmay","Liam Turner","Male",28,"Stomachache","Gas-X","null","+61 6789012345","Mountainside",66,"Watermelon"));
+        Doctor_Lists.add(new Doctor("Chinmay","Emma Clark","Female",31,"Sinusitis","Sudafed","null","+1 1234567890","Uptown",62,"Blueberry"));
+        Doctor_Lists.add(new Doctor("Chinmay","Noah Turner","Male",29,"Cold","Nyquil","null","+33 7890123456","Downtown",69,"Mango"));
+        Doctor_Lists.add(new Doctor("Chinmay","Sophia Wilson","Female",36,"Indigestion","Tums","null","+44 2345678901","Riverside",74,"Strawberry"));
+        Doctor_Lists.add(new Doctor("Chinmay","Liam Adams","Male",26,"Chest Pain","Aspirin","null","+61 5678901234","City Center",59,"Cherry"));
+
+// ------------------------------------- Data for Doctor Rohit ------------------------------------------------------
+
+        Doctor_Lists.add(new Doctor("Rohit","Liam Smith","Male",27,"Stomachache","Pepto-Bismol","null","+61 8901234567","Downtown",63,"Grapefruit"));
+        Doctor_Lists.add(new Doctor("Rohit","Emma Turner","Female",29,"Fever","Tylenol","null","+1 2345678901","Suburbia",57,"Pineapple"));
+        Doctor_Lists.add(new Doctor("Rohit","Noah Adams","Male",32,"Cough","Robitussin","null","+33 6789012345","Seaside",68,"Orange"));
+        Doctor_Lists.add(new Doctor("Rohit","Sophia Turner","Female",31,"Allergy","Allegra","null","+44 9012345678","City Center",70,"Cherry"));
+        Doctor_Lists.add(new Doctor("Rohit","Liam Martin","Male",25,"Sinusitis","Sudafed","null","+61 2345678901","Riverside",62,"Banana"));
+        Doctor_Lists.add(new Doctor("Rohit","Emma Turner","Female",27,"Headache","Advil","null","+1 5678901234","Mountainside",59,"Strawberry"));
+        Doctor_Lists.add(new Doctor("Rohit","Noah Wilson","Male",30,"Cold","Nyquil","null","+33 7890123456","Beachfront",66,"Raspberry"));
+        Doctor_Lists.add(new Doctor("Rohit","Sophia Turner","Female",28,"Back Pain","Ibuprofen","null","+44 8901234567","Uptown",64,"Blackberry"));
+        Doctor_Lists.add(new Doctor("Rohit","Liam Johnson","Male",32,"Sprained Ankle","Icy Hot","null","+61 1234567890","Downtown",69,"Grapefruit"));
+        Doctor_Lists.add(new Doctor("Rohit","Emma Turner","Female",34,"Migraine","Excedrin","null","+1 5678901234","Mountainside",72,"Watermelon"));
+        Doctor_Lists.add(new Doctor("Rohit","Noah Clark","Male",29,"Stomachache","Gas-X","null","+33 7890123456","City Center",58,"Banana"));
+        Doctor_Lists.add(new Doctor("Rohit","Sophia Turner","Female",27,"Indigestion","Tums","null","+44 9012345678","Beachfront",61,"Pineapple"));
+        Doctor_Lists.add(new Doctor("Rohit","Liam Martinez","Male",28,"Chest Pain","Aspirin","null","+61 5678901234","Riverside",66,"Pear"));
+        Doctor_Lists.add(new Doctor("Rohit","Emma Walker","Female",30,"Cold","Nyquil","null","+1 8901234567","Hillside",69,"Dragonfruit"));
+        Doctor_Lists.add(new Doctor("Rohit","Noah Turner","Male",32,"Headache","Advil","null","+33 1234567890","Suburbia",71,"Blueberry"));
+        Doctor_Lists.add(new Doctor("Rohit","Sophia Turner","Female",29,"Allergy","Allegra","null","+44 5678901234","Downtown",75,"Raspberry"));
+
+//          ---------------------------------- switch case logic--------------------------=---------------------------------
 
 
         Hospital H = new Hospital();
@@ -2981,17 +3060,11 @@ public class Driver {
 //                    To take user input
 
                                                     System.out.println("Enter Dept_Name :");
-                                                    String dept_Name = sc.nextLine();
+                                                    String dept_Name = sc.nextLine().toLowerCase();
 
-                                                    System.out.println("Enter Dept_Degree :");
-                                                    String dept_Degree = sc.nextLine();
-
-                                                    System.out.println("Enter Dept_Exp :");
-                                                    double dept_Exp = sc.nextDouble();
-                                                    sc.nextLine();
 
                                                     System.out.println("Enter Dept_Specialization :");
-                                                    String dept_Specialization = sc.nextLine();
+                                                    String dept_Specialization = sc.nextLine().toLowerCase();
 
                                                     System.out.println("=====================================================================================");
 
@@ -2999,10 +3072,8 @@ public class Driver {
                                                     boolean found = false;
 
                                                     for (Departments dE : DepartmentsList) {
-                                                        if (dE.getDept_Name().toLowerCase().equals(dept_Name.toLowerCase())
-                                                                && dE.getDept_Degree().toLowerCase().equals(dept_Degree.toLowerCase())
-                                                                && dE.getDept_Exp() == dept_Exp
-                                                                && dE.getDept_Specialization().toLowerCase().equals(dept_Specialization.toLowerCase())) {
+                                                        if (dE.getDept_Name().equalsIgnoreCase(dept_Name)
+                                                                && dE.getDept_Specialization().equalsIgnoreCase(dept_Specialization)) {
                                                             System.out.println("=====================================================================================");
                                                             dE.toString();
                                                             System.out.println("=====================================================================================");
@@ -3025,17 +3096,11 @@ public class Driver {
 //                    To take user input
 
                                                     System.out.println("Enter Dept_Name :");
-                                                    String dept_name = sc.nextLine();
+                                                    String dept_name = sc.nextLine().toLowerCase();
 
-                                                    System.out.println("Enter Dept_Degree :");
-                                                    String dept_degree = sc.nextLine();
-
-                                                    System.out.println("Enter Dept_Exp :");
-                                                    double dept_exp = sc.nextDouble();
-                                                    sc.nextLine();
 
                                                     System.out.println("Enter Dept_Specialization :");
-                                                    String dept_specialization = sc.nextLine();
+                                                    String dept_specialization = sc.nextLine().toLowerCase();
 
                                                     System.out.println("=====================================================================================");
 
@@ -3046,10 +3111,8 @@ public class Driver {
 
 // Search specific data into departments class
                                                     for (Departments de : DepartmentsList) {
-                                                        if (de.getDept_Name().toLowerCase().equals(dept_name.toLowerCase())
-                                                                && de.getDept_Degree().toLowerCase().equals(dept_degree.toLowerCase())
-                                                                && de.getDept_Exp() == dept_exp
-                                                                && de.getDept_Specialization().toLowerCase().equals(dept_specialization.toLowerCase())) {
+                                                        if (de.getDept_Name().equalsIgnoreCase(dept_name)
+                                                                && de.getDept_Specialization().equalsIgnoreCase(dept_specialization)) {
 
                                                             objectsToRemove.add(de);
                                                         }
@@ -3161,31 +3224,25 @@ public class Driver {
 //                    To take user input
 
                                                     System.out.println("Enter Patient_name :");
-                                                    String patient_name = sc.nextLine();
+                                                    String patient_name = sc.nextLine().toLowerCase();
 
                                                     System.out.println("Enter Dept_Name :");
-                                                    String dept_Name = sc.nextLine();
+                                                    String dept_Name = sc.nextLine().toLowerCase();
 
-                                                    System.out.println("Enter Dept_Degree :");
-                                                    String dept_Degree = sc.nextLine();
-
-                                                    System.out.println("Enter Dept_Exp :");
-                                                    double dept_Exp = sc.nextDouble();
-                                                    sc.nextLine();
 
                                                     System.out.println("Enter Dept_Specialization :");
-                                                    String dept_Specialization = sc.nextLine();
+                                                    String dept_Specialization = sc.nextLine().toLowerCase();
 
                                                     System.out.println("=================================================================");
 
                                                     boolean Account_Found = false;
 
                                                     for (Accounts Ac : accountsList) {
-                                                        if (Ac.getPatient_name().toLowerCase().equals(patient_name.toLowerCase())
-                                                                && Ac.getDept_Name().toLowerCase().equals(dept_Name.toLowerCase())
-                                                                && Ac.getDept_Degree().toLowerCase().equals(dept_Degree.toLowerCase())
-                                                                && Ac.getDept_Exp() == dept_Exp
-                                                                && Ac.getDept_Specialization().toLowerCase().equals(dept_Specialization.toLowerCase())) {
+                                                        if (Ac.getPatient_name().equalsIgnoreCase(patient_name)
+                                                                && Ac.getDept_Name().equalsIgnoreCase(dept_Name)
+                                                                && Ac.getDept_Specialization().equalsIgnoreCase(dept_Specialization)
+                                                        )
+                                                        {
                                                             System.out.println("Data found : " + Ac.getPatient_name());
                                                             Ac.toString();
                                                             Account_Found = true;
@@ -3207,20 +3264,13 @@ public class Driver {
 //                    To take user input
 
                                                     System.out.println("Enter Patient_name :");
-                                                    String patient_Name = sc.nextLine();
+                                                    String patient_Name = sc.nextLine().toLowerCase();
 
                                                     System.out.println("Enter Dept_Name :");
-                                                    String dept_name = sc.nextLine();
-
-                                                    System.out.println("Enter Dept_Degree :");
-                                                    String dept_degree = sc.nextLine();
-
-                                                    System.out.println("Enter Dept_Exp :");
-                                                    double dept_exp = sc.nextDouble();
-                                                    sc.nextLine();
+                                                    String dept_name = sc.nextLine().toLowerCase();
 
                                                     System.out.println("Enter Dept_Specialization :");
-                                                    String dept_specialization = sc.nextLine();
+                                                    String dept_specialization = sc.nextLine().toLowerCase();
 
                                                     System.out.println("=================================================================");
 
@@ -3229,11 +3279,9 @@ public class Driver {
 //                    To access data
 
                                                     for(Accounts Ac : accountsList){
-                                                        if(Ac.getPatient_name().toLowerCase().equals(patient_Name.toLowerCase())
-                                                                && Ac.getDept_Name().toLowerCase().equals(dept_name.toLowerCase())
-                                                                && Ac.getDept_Degree().toLowerCase().equals(dept_degree.toLowerCase())
-                                                                && Ac.getDept_Exp()==dept_exp
-                                                                && Ac.getDept_Specialization().toLowerCase().equals(dept_specialization.toLowerCase()))
+                                                        if(Ac.getPatient_name().equalsIgnoreCase(patient_Name)
+                                                                && Ac.getDept_Name().equalsIgnoreCase(dept_name)
+                                                                && Ac.getDept_Specialization().equalsIgnoreCase(dept_specialization))
                                                         {
                                                             System.out.println("Data found : "+Ac.getPatient_name());
                                                             System.out.println("=================================================================");
@@ -3693,21 +3741,15 @@ public class Driver {
 //                    To take user input
 
                                                     System.out.println("Enter Patient_name : ");
-                                                    String patient_name = sc.nextLine();
+                                                    String patient_name = sc.nextLine().toLowerCase();
 
                                                     System.out.println("Enter Patient_gender : ");
-                                                    String patient_gender = sc.nextLine();
+                                                    String patient_gender = sc.nextLine().toLowerCase();
 
-                                                    System.out.println("Enter Patient_age : ");
-                                                    int patient_age = sc.nextInt();
-                                                    sc.nextLine();
 
                                                     System.out.println("Enter Patient_disease : ");
-                                                    String patient_disease = sc.nextLine();
+                                                    String patient_disease = sc.nextLine().toLowerCase();
 
-                                                    System.out.println("Enter Patient_claimAmount : ");
-                                                    double patient_claimAmount = sc.nextDouble();
-                                                    sc.nextLine();
 
                                                     System.out.println("=================================================================");
 
@@ -3716,11 +3758,10 @@ public class Driver {
                                                     boolean found = false;
 
                                                     for (Insurance i : InsuranceList) {
-                                                        if (i.getPatient_name().toLowerCase().equals(patient_name.toLowerCase())
-                                                                && i.getPatient_gender().toLowerCase().equals(patient_gender.toLowerCase())
-                                                                && i.getPatient_age() == patient_age
-                                                                && i.getPatient_disease().toLowerCase().equals(patient_disease.toLowerCase())
-                                                                && i.getPatient_claimAmount() == patient_claimAmount) {
+                                                        if (i.getPatient_name().equalsIgnoreCase(patient_name)
+                                                                && i.getPatient_gender().equalsIgnoreCase(patient_gender)
+                                                                && i.getPatient_disease().equalsIgnoreCase(patient_disease)
+                                                        ) {
 
                                                             i.toString();
                                                             System.out.println("=================================================================");
@@ -3748,16 +3789,9 @@ public class Driver {
                                                     System.out.println("Enter Patient_gender : ");
                                                     String pAtient_gender = sc.nextLine().toLowerCase();
 
-                                                    System.out.println("Enter Patient_age : ");
-                                                    int pAtient_age = sc.nextInt();
-                                                    sc.nextLine();
-
                                                     System.out.println("Enter Patient_disease : ");
                                                     String pAtient_disease = sc.nextLine().toLowerCase();
 
-                                                    System.out.println("Enter Patient_claimAmount : ");
-                                                    double pAtient_claimAmount = sc.nextDouble();
-                                                    sc.nextLine();
 
                                                     System.out.println("=================================================================");
 
@@ -3770,9 +3804,8 @@ public class Driver {
                                                     for (Insurance in : InsuranceList) {
                                                         if (in.getPatient_name().equalsIgnoreCase(pAtient_name)
                                                                 && in.getPatient_gender().equalsIgnoreCase(pAtient_gender)
-                                                                && in.getPatient_age() == pAtient_age
                                                                 && in.getPatient_disease().equalsIgnoreCase(pAtient_disease)
-                                                                && in.getPatient_claimAmount() == pAtient_claimAmount) {
+                                                        ) {
                                                             System.out.println("Data found ...............");
                                                             toRemove = in;
                                                             System.out.println("=================================================================");
@@ -3821,7 +3854,7 @@ public class Driver {
                                             sc.nextLine(); // Consume the newline left by nextInt()
                                             switch (Management_Staff_menu_Choice){
                                                 case 1:
-//                    To Add Insurance  details
+//                    To Add Nanage_Staff  details
 
 //                    To take user input
 
@@ -3875,7 +3908,7 @@ public class Driver {
                                                     break;
 
                                                 case 2:
-//                    To Display Insurance  details
+//                    To Display Manage_staff  details
 
                                                     //        To print Staff info
 
@@ -3886,7 +3919,7 @@ public class Driver {
                                                     break;
 
                                                 case 3:
-//                   To get specific data from Insurance  class
+//                   To get specific data from MANAGE_staff  class
 
 //                    To take user input
 
@@ -3902,11 +3935,6 @@ public class Driver {
                                                     System.out.println("Enter Staff_Dept_Name : ");
                                                     String staff_Dept_name = sc.nextLine().toLowerCase();
 
-                                                    System.out.println("Enter Staff_gender : ");
-                                                    String staff_Gender = sc.nextLine().toLowerCase();
-
-                                                    System.out.println("Enter Staff_Designation : ");
-                                                    String staff_designation = sc.nextLine().toLowerCase();
 
                                                     System.out.println("===================================================================================");
 
@@ -3917,8 +3945,7 @@ public class Driver {
                                                                 && m.getStaff_Middle_Name().equalsIgnoreCase(staff_Middle_name)
                                                                 && m.getStaff_Last_Name().equalsIgnoreCase(staff_Last_name)
                                                                 && m.getStaff_Dept_name().equalsIgnoreCase(staff_Dept_name)
-                                                                && m.getStaff_gender().equalsIgnoreCase(staff_Gender)
-                                                                && m.getStaff_Designation().equalsIgnoreCase(staff_designation)) {
+                                                        ) {
                                                             System.out.println("Data found for : " + m.getStaff_First_Name());
                                                             System.out.println("===================================================================================");
                                                             m.toString();
@@ -3939,7 +3966,7 @@ public class Driver {
                                                     break;
 
                                                 case 4:
-//                   To Remove specific data from Insurance  class
+//                   To Remove specific data from Manage_Staff  class
 
 //                    To take user input
 
@@ -3955,13 +3982,8 @@ public class Driver {
                                                     System.out.println("Enter Staff_Dept_Name : ");
                                                     String staff_dept_name = sc.nextLine().toLowerCase();
 
-                                                    System.out.println("Enter Staff_gender : ");
-                                                    String staff_gender = sc.nextLine().toLowerCase();
 
-                                                    System.out.println("Enter Staff_Designation : ");
-                                                    String staff_Designation = sc.nextLine().toLowerCase();
-
-                                                    System.out.println("===================================================================================");
+                                                    System.out.println("========2===========================================================================");
 
 // To remove data first initialize data to null
                                                     Management_staff removedData = null;
@@ -3972,8 +3994,7 @@ public class Driver {
                                                                 && ms.getStaff_Middle_Name().equalsIgnoreCase(staff_middle_name)
                                                                 && ms.getStaff_Last_Name().equalsIgnoreCase(staff_last_name)
                                                                 && ms.getStaff_Dept_name().equalsIgnoreCase(staff_dept_name)
-                                                                && ms.getStaff_gender().equalsIgnoreCase(staff_gender)
-                                                                && ms.getStaff_Designation().equalsIgnoreCase(staff_Designation)) {
+                                                        ) {
                                                             System.out.println("Data found for : " + ms.getStaff_First_Name());
                                                             System.out.println("===================================================================================");
                                                             removedData = ms;
@@ -4083,12 +4104,6 @@ public class Driver {
                                                     System.out.println("Enter Payment_Name : ");
                                                     String payment_Name = sc.nextLine().toLowerCase();
 
-                                                    System.out.println("Enter Payment_Type : ");
-                                                    String payment_Type = sc.nextLine().toLowerCase();
-
-                                                    System.out.println("Enter Payment_Amount : ");
-                                                    double payment_Amount = sc.nextDouble();
-                                                    sc.nextLine();
 
                                                     System.out.println("Enter Payment_Dept_name : ");
                                                     String payment_Dept_name = sc.nextLine().toLowerCase();
@@ -4102,8 +4117,6 @@ public class Driver {
 
                                                     for (Manage_Accouts mac : Manage_Accouts_Lists) {
                                                         if (mac.getPayment_Name().equalsIgnoreCase(payment_Name)
-                                                                && mac.getPayment_Type().equalsIgnoreCase(payment_Type)
-                                                                && mac.getPayment_Amount() == payment_Amount
                                                                 && mac.getPayment_Dept_name().equalsIgnoreCase(payment_Dept_name)
                                                                 && mac.getPayee().equalsIgnoreCase(payee)) {
                                                             System.out.println("=====================================================================================");
@@ -4128,13 +4141,6 @@ public class Driver {
                                                     System.out.println("Enter Payment_Name : ");
                                                     String payment_name = sc.nextLine().toLowerCase();
 
-                                                    System.out.println("Enter Payment_Type : ");
-                                                    String payment_type = sc.nextLine().toLowerCase();
-
-                                                    System.out.println("Enter Payment_Amount : ");
-                                                    double payment_amount = sc.nextDouble();
-                                                    sc.nextLine();
-
                                                     System.out.println("Enter Payment_Dept_name : ");
                                                     String payment_dept_name = sc.nextLine().toLowerCase();
 
@@ -4149,8 +4155,6 @@ public class Driver {
 // To find specific data in Manage_Accouts_Lists
                                                     for (Manage_Accouts maca : Manage_Accouts_Lists) {
                                                         if (maca.getPayment_Name().equalsIgnoreCase(payment_name)
-                                                                && maca.getPayment_Type().equalsIgnoreCase(payment_type)
-                                                                && maca.getPayment_Amount() == payment_amount
                                                                 && maca.getPayment_Dept_name().equalsIgnoreCase(payment_dept_name)
                                                                 && maca.getPayee().equalsIgnoreCase(paYee)) {
                                                             System.out.println("=====================================================================================");
@@ -4275,16 +4279,10 @@ public class Driver {
                                                                 System.out.println("Enter Pharmacy_Staff_Name : ");
                                                                 String pharmacy_Staff_name = sc.nextLine().toLowerCase();
 
-                                                                System.out.println("Enter Pharmacy_Staff_sal : ");
-                                                                double pharmacy_Staff_Sal = sc.nextDouble();
-                                                                sc.nextLine();
 
                                                                 System.out.println("Enter Pharmacy_Staff_Designation : ");
                                                                 String pharmacy_Staff_designation = sc.nextLine().toLowerCase();
 
-                                                                System.out.println("Enter Pharmacy_Staff_Experiance : ");
-                                                                double pharmacy_Staff_experiance = sc.nextDouble();
-                                                                sc.nextLine();
 
                                                                 System.out.println("=================================================================");
 
@@ -4293,9 +4291,8 @@ public class Driver {
 // To find specific data in Pharmacy_Staff_List
                                                                 for (Pharmacy_Staff ps : Pharmacy_Staff_List) {
                                                                     if (ps.getPharmacy_Staff_name().equalsIgnoreCase(pharmacy_Staff_name)
-                                                                            && ps.getPharmacy_Staff_sal() == pharmacy_Staff_Sal
                                                                             && ps.getPharmacy_Staff_Designation().equalsIgnoreCase(pharmacy_Staff_designation)
-                                                                            && ps.getPharmacy_Staff_Experiance() == pharmacy_Staff_experiance) {
+                                                                    ) {
                                                                         ps.toString();
                                                                         System.out.println("=================================================================");
                                                                         dataFound = true;
@@ -4318,16 +4315,9 @@ public class Driver {
                                                                 System.out.println("Enter Pharmacy_Staff_Name : ");
                                                                 String pharmacy_staff_name = sc.nextLine().toLowerCase();
 
-                                                                System.out.println("Enter Pharmacy_Staff_sal : ");
-                                                                double pharmacy_staff_sal = sc.nextDouble();
-                                                                sc.nextLine();
-
                                                                 System.out.println("Enter Pharmacy_Staff_Designation : ");
                                                                 String pharmacy_staff_designation = sc.nextLine().toLowerCase();
 
-                                                                System.out.println("Enter Pharmacy_Staff_Experiance : ");
-                                                                double pharmacy_staff_experience = sc.nextDouble();
-                                                                sc.nextLine();
 
                                                                 System.out.println("=================================================================");
 
@@ -4336,9 +4326,8 @@ public class Driver {
 // To find specific data in Pharmacy_Staff_List
                                                                 for (Pharmacy_Staff pS : Pharmacy_Staff_List) {
                                                                     if (pS.getPharmacy_Staff_name().equalsIgnoreCase(pharmacy_staff_name)
-                                                                            && pS.getPharmacy_Staff_sal() == pharmacy_staff_sal
                                                                             && pS.getPharmacy_Staff_Designation().equalsIgnoreCase(pharmacy_staff_designation)
-                                                                            && pS.getPharmacy_Staff_Experiance() == pharmacy_staff_experience) {
+                                                                    ) {
                                                                         objectToRemove = pS;
                                                                         System.out.println("=================================================================");
                                                                         System.out.println("Data Found");
@@ -4443,16 +4432,8 @@ public class Driver {
                                                                 System.out.println("Enter Pharmacy_Medicine_Dealer_name : ");
                                                                 String pharmacy_Medicine_Dealer_name = sc.nextLine().toLowerCase();
 
-                                                                System.out.println("Enter Pharmacy_Medicine_Price : ");
-                                                                double pharmacy_Medicine_Price = sc.nextDouble();
-                                                                sc.nextLine();
-
                                                                 System.out.println("Enter Pharmacy_Medicine_Dealer_Loc : ");
                                                                 String pharmacy_Medicine_Dealer_Loc = sc.nextLine().toLowerCase();
-
-                                                                System.out.println("Enter Pharmacy_Medicine_Dealer_Experiance : ");
-                                                                double pharmacy_Medicine_Dealer_Experiance = sc.nextDouble();
-                                                                sc.nextLine();
 
                                                                 System.out.println("=================================================================");
 
@@ -4461,9 +4442,8 @@ public class Driver {
 // To find specific data in Pharmacy_Medicine_List
                                                                 for (Pharmacy_Medicine PM : Pharmacy_Medicine_List) {
                                                                     if (PM.getPharmacy_Medicine_Dealer_name().equalsIgnoreCase(pharmacy_Medicine_Dealer_name)
-                                                                            && PM.getPharmacy_Medicine_Price() == pharmacy_Medicine_Price
                                                                             && PM.getPharmacy_Medicine_Dealer_Loc().equalsIgnoreCase(pharmacy_Medicine_Dealer_Loc)
-                                                                            && PM.getPharmacy_Medicine_Dealer_Experiance() == pharmacy_Medicine_Dealer_Experiance) {
+                                                                    ) {
                                                                         PM.toString();
                                                                         System.out.println("=================================================================");
                                                                         System.out.println("Data found for : " + PM.getPharmacy_Medicine_Dealer_name());
@@ -4487,16 +4467,9 @@ public class Driver {
                                                                 System.out.println("Enter Pharmacy_Medicine_Dealer_name : ");
                                                                 String pharmacy_Medicine_dealer_name = sc.nextLine().toLowerCase();
 
-                                                                System.out.println("Enter Pharmacy_Medicine_Price : ");
-                                                                double pharmacy_Medicine_dealer_Price = sc.nextDouble();
-                                                                sc.nextLine();
-
                                                                 System.out.println("Enter Pharmacy_Medicine_Dealer_Loc : ");
                                                                 String pharmacy_Medicine_dealer_Loc = sc.nextLine().toLowerCase();
 
-                                                                System.out.println("Enter Pharmacy_Medicine_Dealer_Experiance : ");
-                                                                double pharmacy_Medicine_dealer_Experiance = sc.nextDouble();
-                                                                sc.nextLine();
 
                                                                 System.out.println("=================================================================");
 
@@ -4505,9 +4478,8 @@ public class Driver {
 // To find data to be deleted
                                                                 for (Pharmacy_Medicine Pm : Pharmacy_Medicine_List) {
                                                                     if (Pm.getPharmacy_Medicine_Dealer_name().equalsIgnoreCase(pharmacy_Medicine_dealer_name)
-                                                                            && Pm.getPharmacy_Medicine_Price() == pharmacy_Medicine_dealer_Price
                                                                             && Pm.getPharmacy_Medicine_Dealer_Loc().equalsIgnoreCase(pharmacy_Medicine_dealer_Loc)
-                                                                            && Pm.getPharmacy_Medicine_Dealer_Experiance() == pharmacy_Medicine_dealer_Experiance) {
+                                                                    ) {
                                                                         objectToRemove = Pm;
                                                                         System.out.println("=================================================================");
                                                                         System.out.println("Data Found");
@@ -4891,6 +4863,8 @@ public class Driver {
                                         int Docter_Menu_Choice;
 
                                         do{
+//                                Doctor_Login D = new Doctor_Login();  // for comparing login doctor name with data doctor name
+
                                             System.out.println("========= Menu =========");
                                             System.out.println("1. Add Patient details");
                                             System.out.println("2. Display Patient details");
@@ -4966,16 +4940,25 @@ public class Driver {
                                                 case 2:
 //                    Display patient details
 
-                                                    for(Doctor D : Doctor_Lists){
-                                                        D.toString();
-                                                        System.out.println("====================================================================");
+                                                    System.out.println("Enter Doctor Name");
+                                                    String Doctor_Name = sc.nextLine().toLowerCase();
 
+                                                    for(Doctor Do : Doctor_Lists){
+                                                        if(Do.getDoctor_First_Name().equalsIgnoreCase(Doctor_Name)){
+                                                            Do.toString();
+
+                                                            System.out.println("====================================================================");
+
+                                                        }
                                                     }
 
                                                     break;
                                                 case 3:
 //                    To get specific info from patient
 
+
+                                                    System.out.println("Enter Doctor Name");
+                                                    String Doctor_name = sc.nextLine().toLowerCase();
 
                                                     System.out.println("Enter Patient name:");
                                                     String patient_Name = sc.nextLine().toLowerCase();
@@ -4991,7 +4974,8 @@ public class Driver {
 
                                                     boolean dataFound = false;
                                                     for (Doctor d : Doctor_Lists) {
-                                                        if (d.getDocter_Patient_name().equalsIgnoreCase(patient_Name)
+                                                        if (d.getDoctor_First_Name().equalsIgnoreCase(Doctor_name)
+                                                                && d.getDocter_Patient_name().equalsIgnoreCase(patient_Name)
                                                                 && d.getDocter_Patient_gender().equalsIgnoreCase(patient_gender)
                                                                 && d.getDocter_Patient_age() == patient_age
                                                         ) {
@@ -5012,6 +4996,9 @@ public class Driver {
                                                 case 4:
 //                    to remove specific info from patient
 
+                                                    System.out.println("Enter Doctor Name");
+                                                    String doctor_Name = sc.nextLine().toLowerCase();
+
                                                     System.out.println("Enter Patient name:");
                                                     String patient_name = sc.nextLine().toLowerCase();
 
@@ -5027,7 +5014,8 @@ public class Driver {
                                                     Doctor ObjToRemove = null;
 
                                                     for(Doctor Ac : Doctor_Lists){
-                                                        if(Ac.getDocter_Patient_name().equalsIgnoreCase(patient_name)
+                                                        if(Ac.getDoctor_First_Name().equalsIgnoreCase(doctor_Name)
+                                                                && Ac.getDocter_Patient_name().equalsIgnoreCase(patient_name)
                                                                 && Ac.getDocter_Patient_gender().equalsIgnoreCase(patient_Gender)
                                                                 && Ac.getDocter_Patient_age()==patient_Age)
                                                         {
@@ -5135,11 +5123,13 @@ public class Driver {
                     for(Doctor_Login DL : Doctor_Login_List){
                         if(DL.getD_Username().equals(D_username)
                                 && DL.getD_Password().equals(D_Password)){
-                            System.out.println("Welcome Doctor : "+DL.getDoctor_First_Name());
+                            System.out.println("Welcome Doctor : "+DL.getDoctor_LFirst_Name());
                             System.out.println("===================================================================");
-                            int Docter_Menu_Choice_Log;
+                            int Docter_Menu_Choice;
 
                             do{
+//                                Doctor_Login D = new Doctor_Login();  // for comparing login doctor name with data doctor name
+
                                 System.out.println("========= Menu =========");
                                 System.out.println("1. Add Patient details");
                                 System.out.println("2. Display Patient details");
@@ -5148,9 +5138,9 @@ public class Driver {
                                 System.out.println("0. Exit");
                                 System.out.println("========================");
                                 System.out.println("Enter your choice: ");
-                                Docter_Menu_Choice_Log = sc.nextInt();
+                                Docter_Menu_Choice = sc.nextInt();
                                 sc.nextLine();
-                                switch (Docter_Menu_Choice_Log){
+                                switch (Docter_Menu_Choice){
 
                                     case 1:
 //                    Add patient details
@@ -5215,16 +5205,25 @@ public class Driver {
                                     case 2:
 //                    Display patient details
 
-                                        for(Doctor D : Doctor_Lists){
-                                            D.toString();
-                                            System.out.println("====================================================================");
+                                        System.out.println("Enter Doctor Name");
+                                        String Doctor_Name = sc.nextLine().toLowerCase();
 
+                                        for(Doctor Do : Doctor_Lists){
+                                            if(Do.getDoctor_First_Name().equalsIgnoreCase(Doctor_Name)){
+                                                Do.toString();
+
+                                                System.out.println("====================================================================");
+
+                                            }
                                         }
 
                                         break;
                                     case 3:
 //                    To get specific info from patient
 
+
+                                        System.out.println("Enter Doctor Name");
+                                        String Doctor_name = sc.nextLine().toLowerCase();
 
                                         System.out.println("Enter Patient name:");
                                         String patient_Name = sc.nextLine().toLowerCase();
@@ -5240,7 +5239,8 @@ public class Driver {
 
                                         boolean dataFound = false;
                                         for (Doctor d : Doctor_Lists) {
-                                            if (d.getDocter_Patient_name().equalsIgnoreCase(patient_Name)
+                                            if (d.getDoctor_First_Name().equalsIgnoreCase(Doctor_name)
+                                                    && d.getDocter_Patient_name().equalsIgnoreCase(patient_Name)
                                                     && d.getDocter_Patient_gender().equalsIgnoreCase(patient_gender)
                                                     && d.getDocter_Patient_age() == patient_age
                                             ) {
@@ -5261,6 +5261,9 @@ public class Driver {
                                     case 4:
 //                    to remove specific info from patient
 
+                                        System.out.println("Enter Doctor Name");
+                                        String doctor_Name = sc.nextLine().toLowerCase();
+
                                         System.out.println("Enter Patient name:");
                                         String patient_name = sc.nextLine().toLowerCase();
 
@@ -5276,7 +5279,8 @@ public class Driver {
                                         Doctor ObjToRemove = null;
 
                                         for(Doctor Ac : Doctor_Lists){
-                                            if(Ac.getDocter_Patient_name().equalsIgnoreCase(patient_name)
+                                            if(Ac.getDoctor_First_Name().equalsIgnoreCase(doctor_Name)
+                                                    && Ac.getDocter_Patient_name().equalsIgnoreCase(patient_name)
                                                     && Ac.getDocter_Patient_gender().equalsIgnoreCase(patient_Gender)
                                                     && Ac.getDocter_Patient_age()==patient_Age)
                                             {
@@ -5309,7 +5313,8 @@ public class Driver {
 
                                 }
 
-                            }while(Docter_Menu_Choice_Log !=0);
+                            }while(Docter_Menu_Choice !=0);
+
                             break;
 
                         }else{
@@ -5344,13 +5349,13 @@ public class Driver {
 
 
                     for(Doctor_Login dl : Doctor_Login_List) {
-                        dl.setDoctor_First_Name(first_name);
+                        dl.setDoctor_LFirst_Name(first_name);
                         dl.setDoctor_Middle_Name(middle_name);
                         dl.setDoctor_Last_Name(last_name);
                         dl.setD_Username(user_name);
                         dl.setD_Password(password_use);
 
-                        System.out.println("Admin Details are created for : " + dl.getDoctor_First_Name());
+                        System.out.println("Admin Details are created for : " + dl.getDoctor_LFirst_Name());
 
                         System.out.println("=================================================================");
 
@@ -5368,6 +5373,10 @@ public class Driver {
                     System.out.println("Invalid choice. Please try again.");
             }
         }while(Admin_Choice !=0);
+
+
+
+
     }
 }
 
