@@ -1,0 +1,162 @@
+int Departments_Choice_Menu;
+        do{
+            System.out.println("========= Menu =========");
+            System.out.println("1. Add Departments details");
+            System.out.println("2. Display Departments details");
+            System.out.println("3. To get specific data from Departments class");
+            System.out.println("4. To Remove specific data from Departments class");
+            System.out.println("0. Exit");
+            System.out.println("========================");
+            System.out.println("Enter your choice: ");
+            Departments_Choice_Menu = sc.nextInt();
+            sc.nextLine(); // Consume the newline left by nextInt()
+            switch (Departments_Choice_Menu){
+                case 1:
+//                    To Add Departments details
+
+//                    To take user input
+
+                    System.out.println("Enter Dept_Name:");
+                    String Dept_Name = sc.nextLine();
+
+                    System.out.println("Enter Dept_Degree:");
+                    String Dept_Degree = sc.nextLine();
+
+                    double Dept_Exp = 0.0;
+
+                    while (true) {
+                        try {
+                            System.out.println("Enter Dept_Exp:");
+                            Dept_Exp = sc.nextDouble();
+                            sc.nextLine(); // Consume the newline character
+                            break; // Exit the loop if input is successful
+                        } catch (InputMismatchException e) {
+                            System.out.println("Invalid input for Dept_Exp. Please enter a valid number.");
+                            sc.nextLine(); // Consume the invalid input
+                        }
+                    }
+
+                    System.out.println("Enter Dept_Specialization:");
+                    String Dept_Specialization = sc.nextLine();
+
+                    System.out.println("=====================================================================================");
+
+// To add data into departments class
+                    for (Departments De : DepartmentsList) {
+                        De.setDept_Name(Dept_Name);
+                        De.setDept_Degree(Dept_Degree);
+                        De.setDept_Exp(Dept_Exp);
+                        De.setDept_Specialization(Dept_Specialization);
+                        System.out.println("=====================================================================================");
+                        System.out.println("Data has been added for : " + De.getDept_Name());
+                        System.out.println("=====================================================================================");
+                        break;
+                    }
+
+
+
+                    break;
+
+                case 2:
+//                    To Display Departments details
+
+                    // to Print Departments info
+                    for(Departments Dept : DepartmentsList){
+                        Dept.toString();
+                        System.out.println("=====================================================================================");
+                    }
+                    System.out.println("=====================================================================================");
+                    break;
+
+                case 3:
+//                   To get specific data from Departments class
+
+//                    To take user input
+
+                    System.out.println("Enter Dept_Name :");
+                    String dept_Name = sc.nextLine().toLowerCase();
+
+
+                    System.out.println("Enter Dept_Specialization :");
+                    String dept_Specialization = sc.nextLine().toLowerCase();
+
+                    System.out.println("=====================================================================================");
+
+// To search specific data into departments class
+                    boolean found = false;
+
+                    for (Departments dE : DepartmentsList) {
+                        if (dE.getDept_Name().equalsIgnoreCase(dept_Name)
+                                && dE.getDept_Specialization().equalsIgnoreCase(dept_Specialization)) {
+                            System.out.println("=====================================================================================");
+                            dE.toString();
+                            System.out.println("=====================================================================================");
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found) {
+                        System.out.println("Data is not found ............");
+                        System.out.println("===========================================================================================");
+                    }
+
+
+                    break;
+
+                case 4:
+//                   To Remove specific data from Departments class
+
+//                    To take user input
+
+                    System.out.println("Enter Dept_Name :");
+                    String dept_name = sc.nextLine().toLowerCase();
+
+
+                    System.out.println("Enter Dept_Specialization :");
+                    String dept_specialization = sc.nextLine().toLowerCase();
+
+                    System.out.println("=====================================================================================");
+
+//                    To remove data initialized null first
+
+                    // Create a list to store matching objects (if more than one found)
+                    List<Departments> objectsToRemove = new ArrayList<>();
+
+// Search specific data into departments class
+                    for (Departments de : DepartmentsList) {
+                        if (de.getDept_Name().equalsIgnoreCase(dept_name)
+                                && de.getDept_Specialization().equalsIgnoreCase(dept_specialization)) {
+
+                            objectsToRemove.add(de);
+                        }
+                    }
+
+// To remove data from the departments table
+                    if (!objectsToRemove.isEmpty()) {
+                        for (Departments de : objectsToRemove) {
+                            DepartmentsList.remove(de);
+                        }
+                        System.out.println("=================================================================");
+                        System.out.println("Data for following departments is removed : ");
+                        for (Departments de : objectsToRemove) {
+                            System.out.println(de.getDept_Name());
+                            break;
+                        }
+                        System.out.println("=================================================================");
+                    } else {
+                        System.out.println("No matching object found.");
+                        break;
+                    }
+
+
+
+                    break;
+
+                case 0:
+                    System.out.println("Exiting the program. Goodbye!");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }while(Departments_Choice_Menu !=0);
