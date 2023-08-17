@@ -1,0 +1,180 @@
+int Account_Menu_Choice;
+        do{
+            System.out.println("========= Menu =========");
+            System.out.println("1. Add Accounts details");
+            System.out.println("2. Display Accounts details");
+            System.out.println("3. To get specific data from Accounts class");
+            System.out.println("4. To Remove specific data from Accounts class");
+            System.out.println("0. Exit");
+            System.out.println("========================");
+            System.out.println("Enter your choice: ");
+            Account_Menu_Choice = sc.nextInt();
+            sc.nextLine(); // Consume the newline left by nextInt()
+            switch (Account_Menu_Choice){
+                case 1:
+//                    To Add Accounts details
+
+                    double Account_money = 0.0;
+                    double Dept_Exp = 0.0;
+//                    To take user input
+                    System.out.println("Enter Patient_name :");
+                    String Patient_name = sc.nextLine();
+
+                    while (true){
+                        try {
+                            System.out.println("Enter Account_money :");
+                            Account_money = sc.nextDouble();
+                            sc.nextLine();
+                            break;
+                        }catch (InputMismatchException A){
+                            System.out.println("Invalid input please enter value in number");
+                            sc.nextLine();
+                        }
+                    }
+
+
+                    System.out.println("Enter Dept_Name :");
+                    String Dept_Name = sc.nextLine();
+
+                    System.out.println("Enter Dept_Degree :");
+                    String Dept_Degree = sc.nextLine();
+
+                    while (true){
+                        try{
+                            System.out.println("Enter Dept_Exp :");
+                            Dept_Exp = sc.nextDouble();
+                            sc.nextLine();
+                            break;
+                        }catch (InputMismatchException a){
+                            System.out.println("Invalid input please enter value in number");
+                            sc.nextLine();
+                        }
+                    }
+
+
+                    System.out.println("Enter Dept_Specialization :");
+                    String Dept_Specialization = sc.nextLine();
+
+                    System.out.println("=================================================================");
+
+
+                    for(Accounts Account : accountsList){
+                        Account.setPatient_name(Patient_name);
+                        Account.setAccount_money(Account_money);
+                        Account.setDept_Name(Dept_Name);
+                        Account.setDept_Degree(Dept_Degree);
+                        Account.setDept_Exp(Dept_Exp);
+                        Account.setDept_Specialization(Dept_Specialization);
+                        System.out.println("data has been added for : "+Account.getPatient_name());
+                        System.out.println("=================================================================");
+                        break;
+                    }
+
+
+                    break;
+
+                case 2:
+//                    To Display Accounts details
+
+                    //      To print Accounts info
+
+                    for (Accounts account : accountsList) {
+                        account.toString();
+                        System.out.println("================================");
+                    }
+                    System.out.println("=================================================================");
+                    break;
+
+                case 3:
+//                   To get specific data from Accounts class
+
+//                    To take user input
+
+                    System.out.println("Enter Patient_name :");
+                    String patient_name = sc.nextLine().toLowerCase();
+
+                    System.out.println("Enter Dept_Name :");
+                    String dept_Name = sc.nextLine().toLowerCase();
+
+
+                    System.out.println("Enter Dept_Specialization :");
+                    String dept_Specialization = sc.nextLine().toLowerCase();
+
+                    System.out.println("=================================================================");
+
+                    boolean Account_Found = false;
+
+                    for (Accounts Ac : accountsList) {
+                        if (Ac.getPatient_name().equalsIgnoreCase(patient_name)
+                                && Ac.getDept_Name().equalsIgnoreCase(dept_Name)
+                                && Ac.getDept_Specialization().equalsIgnoreCase(dept_Specialization)
+                        )
+                        {
+                            System.out.println("Data found : " + Ac.getPatient_name());
+                            Ac.toString();
+                            Account_Found = true;
+                            System.out.println("=================================================================");
+                            break;
+                        }
+                    }
+
+                    if (!Account_Found) {
+                        System.out.println("Data is not found .......");
+                        System.out.println("===================================================================");
+                    }
+
+                    break;
+
+                case 4:
+//                   To Remove specific data from Accounts class
+
+//                    To take user input
+
+                    System.out.println("Enter Patient_name :");
+                    String patient_Name = sc.nextLine().toLowerCase();
+
+                    System.out.println("Enter Dept_Name :");
+                    String dept_name = sc.nextLine().toLowerCase();
+
+                    System.out.println("Enter Dept_Specialization :");
+                    String dept_specialization = sc.nextLine().toLowerCase();
+
+                    System.out.println("=================================================================");
+
+                    Accounts object_To_remove = null;
+
+//                    To access data
+
+                    for(Accounts Ac : accountsList){
+                        if(Ac.getPatient_name().equalsIgnoreCase(patient_Name)
+                                && Ac.getDept_Name().equalsIgnoreCase(dept_name)
+                                && Ac.getDept_Specialization().equalsIgnoreCase(dept_specialization))
+                        {
+                            System.out.println("Data found : "+Ac.getPatient_name());
+                            System.out.println("=================================================================");
+                            object_To_remove = Ac;
+
+                        }
+                    }
+
+//                   To remove specific data from account class
+
+                    if (object_To_remove != null) {
+                        accountsList.remove(object_To_remove);
+                        System.out.println("Data for following patient is removed " + object_To_remove.getPatient_name());
+                        // At this point, the object " account staff   "  is no longer accessible,
+                        // and the garbage collector will eventually reclaim its memory.
+                    } else {
+                        System.out.println("No matching object found.");
+                    }
+                    System.out.println("=================================================================");
+
+                    break;
+
+                case 0:
+                    System.out.println("Exiting the program. Goodbye!");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }while(Account_Menu_Choice !=0);
