@@ -1,0 +1,2435 @@
+Hospital H = new Hospital();
+
+        int Admin_Choice;
+        do{
+            System.out.println("Welcome To : " +H.Hospital_name);
+            System.out.println("========= Menu =========");
+            System.out.println("1. Admin Login ");
+            System.out.println("2. Admin Sign-up");
+            System.out.println("3. Doctor Log-in");
+            System.out.println("4. Dotor Sign-up");
+            System.out.println("0. Exit");
+            System.out.println("========================");
+            System.out.println("Enter your choice: ");
+            Admin_Choice = sc.nextInt();
+            sc.nextLine(); // Consume the newline left by nextInt()
+            switch (Admin_Choice) {
+                case 1:
+//                    Admin Log-in
+
+                    System.out.println("Enter User Name :");
+                    String username = sc.nextLine();
+
+                    System.out.println("Enter Password : ");
+                    String password = sc.nextLine();
+
+                    System.out.println("=================================================================");
+
+
+                    for(Admin A : Admin_List){
+                        if(A.getUser_name().equals(username)
+                                && A.getPassword().equals(password)){
+                            System.out.println("Welcome : "+A.getFirst_name());
+                            System.out.println("===================================================");
+
+                            int Admin_choice_Menu;
+                            do{
+                                System.out.println("========= Menu =========");
+                                System.out.println("1. Departments");
+                                System.out.println("2. Accounts");
+                                System.out.println("3. Admissions");
+                                System.out.println("4. Insurance ");
+                                System.out.println("5. Management_Staff ");
+                                System.out.println("6. Manages_Account ");
+                                System.out.println("7. Pharmacy");
+                                System.out.println("8. Docter_Patient");
+                                System.out.println("0. Exit");
+                                System.out.println("========================");
+                                System.out.println("Enter your choice: ");
+                                Admin_choice_Menu = sc.nextInt();
+                                sc.nextLine();
+                                switch (Admin_choice_Menu){
+                                    case 1:
+//                                        Departments
+                                        // --------------------------Switch case logic for departments class
+                                        int Departments_Choice_Menu;
+                                        do{
+                                            System.out.println("========= Menu =========");
+                                            System.out.println("1. Add Departments details");
+                                            System.out.println("2. Display Departments details");
+                                            System.out.println("3. To get specific data from Departments class");
+                                            System.out.println("4. To Remove specific data from Departments class");
+                                            System.out.println("0. Exit");
+                                            System.out.println("========================");
+                                            System.out.println("Enter your choice: ");
+                                            Departments_Choice_Menu = sc.nextInt();
+                                            sc.nextLine(); // Consume the newline left by nextInt()
+                                            switch (Departments_Choice_Menu){
+                                                case 1:
+//                    To Add Departments details
+
+//                    To take user input
+
+                                                    System.out.println("Enter Dept_Name :");
+                                                    String Dept_Name = sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Degree :");
+                                                    String Dept_Degree = sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Exp :");
+                                                    double Dept_Exp = sc.nextDouble();
+                                                    sc.nextLine();
+
+
+                                                    System.out.println("Enter Dept_Specialization :");
+                                                    String Dept_Specialization = sc.nextLine();
+
+                                                    System.out.println("=====================================================================================");
+
+
+//                    To add data into departments class
+
+                                                    for(Departments De : DepartmentsList){
+                                                        De.setDept_Name(Dept_Name);
+                                                        De.setDept_Degree(Dept_Degree);
+                                                        De.setDept_Exp(Dept_Exp);
+                                                        De.setDept_Specialization(Dept_Specialization);
+                                                        System.out.println("=====================================================================================");
+                                                        System.out.println("Data has been added for : "+De.getDept_Name());
+                                                        System.out.println("=====================================================================================");
+                                                        break;
+
+                                                    }
+
+                                                    break;
+
+                                                case 2:
+//                    To Display Departments details
+
+                                                    // to Print Departments info
+                                                    for(Departments Dept : DepartmentsList){
+                                                        Dept.toString();
+                                                        System.out.println("=====================================================================================");
+                                                    }
+                                                    System.out.println("=====================================================================================");
+                                                    break;
+
+                                                case 3:
+//                   To get specific data from Departments class
+
+//                    To take user input
+
+                                                    System.out.println("Enter Dept_Name :");
+                                                    String dept_Name = sc.nextLine().toLowerCase();
+
+
+                                                    System.out.println("Enter Dept_Specialization :");
+                                                    String dept_Specialization = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("=====================================================================================");
+
+// To search specific data into departments class
+                                                    boolean found = false;
+
+                                                    for (Departments dE : DepartmentsList) {
+                                                        if (dE.getDept_Name().equalsIgnoreCase(dept_Name)
+                                                                && dE.getDept_Specialization().equalsIgnoreCase(dept_Specialization)) {
+                                                            System.out.println("=====================================================================================");
+                                                            dE.toString();
+                                                            System.out.println("=====================================================================================");
+                                                            found = true;
+                                                            break;
+                                                        }
+                                                    }
+
+                                                    if (!found) {
+                                                        System.out.println("Data is not found ............");
+                                                        System.out.println("===========================================================================================");
+                                                    }
+
+
+                                                    break;
+
+                                                case 4:
+//                   To Remove specific data from Departments class
+
+//                    To take user input
+
+                                                    System.out.println("Enter Dept_Name :");
+                                                    String dept_name = sc.nextLine().toLowerCase();
+
+
+                                                    System.out.println("Enter Dept_Specialization :");
+                                                    String dept_specialization = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("=====================================================================================");
+
+//                    To remove data initialized null first
+
+                                                    // Create a list to store matching objects (if more than one found)
+                                                    List<Departments> objectsToRemove = new ArrayList<>();
+
+// Search specific data into departments class
+                                                    for (Departments de : DepartmentsList) {
+                                                        if (de.getDept_Name().equalsIgnoreCase(dept_name)
+                                                                && de.getDept_Specialization().equalsIgnoreCase(dept_specialization)) {
+
+                                                            objectsToRemove.add(de);
+                                                        }
+                                                    }
+
+// To remove data from the departments table
+                                                    if (!objectsToRemove.isEmpty()) {
+                                                        for (Departments de : objectsToRemove) {
+                                                            DepartmentsList.remove(de);
+                                                        }
+                                                        System.out.println("=================================================================");
+                                                        System.out.println("Data for following departments is removed : ");
+                                                        for (Departments de : objectsToRemove) {
+                                                            System.out.println(de.getDept_Name());
+                                                            break;
+                                                        }
+                                                        System.out.println("=================================================================");
+                                                    } else {
+                                                        System.out.println("No matching object found.");
+                                                        break;
+                                                    }
+
+
+
+                                                    break;
+
+                                                case 0:
+                                                    System.out.println("Exiting the program. Goodbye!");
+                                                    break;
+                                                default:
+                                                    System.out.println("Invalid choice. Please try again.");
+                                            }
+                                        }while(Departments_Choice_Menu !=0);
+                                        break;
+                                    case 2:
+//                                        Accounts
+
+                                        //        -----------------------------------------Switch case logic for accounts-------------------------------
+                                        int Account_Menu_Choice;
+                                        do{
+                                            System.out.println("========= Menu =========");
+                                            System.out.println("1. Add Accounts details");
+                                            System.out.println("2. Display Accounts details");
+                                            System.out.println("3. To get specific data from Accounts class");
+                                            System.out.println("4. To Remove specific data from Accounts class");
+                                            System.out.println("0. Exit");
+                                            System.out.println("========================");
+                                            System.out.println("Enter your choice: ");
+                                            Account_Menu_Choice = sc.nextInt();
+                                            sc.nextLine(); // Consume the newline left by nextInt()
+                                            switch (Account_Menu_Choice){
+                                                case 1:
+//                    To Add Accounts details
+
+//                    To take user input
+                                                    System.out.println("Enter Patient_name :");
+                                                    String Patient_name = sc.nextLine();
+
+                                                    System.out.println("Enter Account_money :");
+                                                    double Account_money = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Name :");
+                                                    String Dept_Name = sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Degree :");
+                                                    String Dept_Degree = sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Exp :");
+                                                    double Dept_Exp = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Dept_Specialization :");
+                                                    String Dept_Specialization = sc.nextLine();
+
+                                                    System.out.println("=================================================================");
+
+
+                                                    for(Accounts Account : accountsList){
+                                                        Account.setPatient_name(Patient_name);
+                                                        Account.setAccount_money(Account_money);
+                                                        Account.setDept_Name(Dept_Name);
+                                                        Account.setDept_Degree(Dept_Degree);
+                                                        Account.setDept_Exp(Dept_Exp);
+                                                        Account.setDept_Specialization(Dept_Specialization);
+                                                        System.out.println("data has been added for : "+Account.getPatient_name());
+                                                        System.out.println("=================================================================");
+                                                        break;
+                                                    }
+
+
+                                                    break;
+
+                                                case 2:
+//                    To Display Accounts details
+
+                                                    //      To print Accounts info
+
+                                                    for (Accounts account : accountsList) {
+                                                        account.toString();
+                                                        System.out.println("================================");
+                                                    }
+                                                    System.out.println("=================================================================");
+                                                    break;
+
+                                                case 3:
+//                   To get specific data from Accounts class
+
+//                    To take user input
+
+                                                    System.out.println("Enter Patient_name :");
+                                                    String patient_name = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Dept_Name :");
+                                                    String dept_Name = sc.nextLine().toLowerCase();
+
+
+                                                    System.out.println("Enter Dept_Specialization :");
+                                                    String dept_Specialization = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("=================================================================");
+
+                                                    boolean Account_Found = false;
+
+                                                    for (Accounts Ac : accountsList) {
+                                                        if (Ac.getPatient_name().equalsIgnoreCase(patient_name)
+                                                                && Ac.getDept_Name().equalsIgnoreCase(dept_Name)
+                                                                && Ac.getDept_Specialization().equalsIgnoreCase(dept_Specialization)
+                                                        )
+                                                        {
+                                                            System.out.println("Data found : " + Ac.getPatient_name());
+                                                            Ac.toString();
+                                                            Account_Found = true;
+                                                            System.out.println("=================================================================");
+                                                            break;
+                                                        }
+                                                    }
+
+                                                    if (!Account_Found) {
+                                                        System.out.println("Data is not found .......");
+                                                        System.out.println("===================================================================");
+                                                    }
+
+                                                    break;
+
+                                                case 4:
+//                   To Remove specific data from Accounts class
+
+//                    To take user input
+
+                                                    System.out.println("Enter Patient_name :");
+                                                    String patient_Name = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Dept_Name :");
+                                                    String dept_name = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Dept_Specialization :");
+                                                    String dept_specialization = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("=================================================================");
+
+                                                    Accounts object_To_remove = null;
+
+//                    To access data
+
+                                                    for(Accounts Ac : accountsList){
+                                                        if(Ac.getPatient_name().equalsIgnoreCase(patient_Name)
+                                                                && Ac.getDept_Name().equalsIgnoreCase(dept_name)
+                                                                && Ac.getDept_Specialization().equalsIgnoreCase(dept_specialization))
+                                                        {
+                                                            System.out.println("Data found : "+Ac.getPatient_name());
+                                                            System.out.println("=================================================================");
+                                                            object_To_remove = Ac;
+
+                                                        }
+                                                    }
+
+//                   To remove specific data from account class
+
+                                                    if (object_To_remove != null) {
+                                                        accountsList.remove(object_To_remove);
+                                                        System.out.println("Data for following patient is removed " + object_To_remove.getPatient_name());
+                                                        // At this point, the object " account staff   "  is no longer accessible,
+                                                        // and the garbage collector will eventually reclaim its memory.
+                                                    } else {
+                                                        System.out.println("No matching object found.");
+                                                    }
+                                                    System.out.println("=================================================================");
+
+                                                    break;
+
+                                                case 0:
+                                                    System.out.println("Exiting the program. Goodbye!");
+                                                    break;
+                                                default:
+                                                    System.out.println("Invalid choice. Please try again.");
+                                            }
+                                        }while(Account_Menu_Choice !=0);
+                                        break;
+                                    case 3:
+//                                        Admission
+                                        int Admission_Menu_Choice;
+                                        do{
+                                            System.out.println("========= Menu =========");
+                                            System.out.println("1. Admit Details ");
+                                            System.out.println("2. Discharege Details ");
+                                            System.out.println("0. Exit ");
+                                            System.out.println("========================");
+                                            System.out.println("Enter your choice: ");
+                                            Admission_Menu_Choice = sc.nextInt();
+                                            sc.nextLine();
+
+                                            switch (Admission_Menu_Choice){
+                                                case 1:
+//                                                    Admit data
+                                                    int Admit_Menu_Choice;
+                                                    do{
+                                                        System.out.println("========= Menu =========");
+                                                        System.out.println("1. Add Admit data");
+                                                        System.out.println("2. Display Admit data");
+                                                        System.out.println("3. To Remove specific data from Admit class");
+                                                        System.out.println("4. To get specific data from Admit class");
+                                                        System.out.println("0. Exit");
+                                                        System.out.println("========================");
+                                                        System.out.println("Enter your choice: ");
+                                                        Admit_Menu_Choice = sc.nextInt();
+                                                        sc.nextLine(); // Consume the newline left by nextInt()
+
+                                                        switch (Admit_Menu_Choice){
+                                                            case 1:
+////                    --------------------------------Add Admit data-------------------------
+//
+////                    -------------------------------Take user input -----------------------------------------------------------
+
+                                                                System.out.println("Enter Patient_First_name : ");
+                                                                String patient_first_name = sc.nextLine();
+
+                                                                System.out.println("Enter Patient_Middle_name : ");
+                                                                String patient_Middle_name = sc.nextLine();
+
+                                                                System.out.println("Enter Patient_Last_name : ");
+                                                                String patient_Last_name = sc.nextLine();
+
+                                                                System.out.println("Enter Patient_Age : ");
+                                                                int Patient_Age = sc.nextInt();
+                                                                sc.nextLine();
+
+                                                                System.out.println("Enter Patient_Sex: ");
+                                                                String Patient_sex = sc.nextLine();
+
+                                                                System.out.println("Enter Patient_Address : ");
+                                                                String Patient_Address = sc.nextLine();
+
+                                                                System.out.println("Enter  Patient_MbNo : ");
+                                                                String  Patient_MbNo = sc.nextLine();
+
+                                                                System.out.println("Enter  Patient_Realtion :");
+                                                                String  Patient_Realtion = sc.nextLine();
+
+                                                                System.out.println("=================================================================");
+
+//                   ----------------------To add data into admit class ----------------------------------------------------
+
+                                                                for(Admit Ad : Admit_List){
+                                                                    Ad.setPatient_First_name(patient_first_name);
+                                                                    Ad.setPatient_Middle_name(patient_Middle_name);
+                                                                    Ad.setPatient_Last_name(patient_Last_name);
+                                                                    Ad.setPatient_Age(Patient_Age);
+                                                                    Ad.setPatient_Sex(Patient_sex);
+                                                                    Ad.setPatient_Address(Patient_Address);
+                                                                    Ad.setPatient_MbNo(Patient_MbNo);
+                                                                    Ad.setPatient_Realtion(Patient_Realtion);
+                                                                    System.out.println("Patient data has been added : "+Ad.getPatient_First_name());
+                                                                    break;
+                                                                }
+                                                                System.out.println("=================================================================");
+                                                                break;
+
+                                                            case 2:
+//                    Display Admit data
+//                    To print All Admit Patient data
+                                                                for(Admit Ad : Admit_List){
+                                                                    Ad.toString();
+                                                                    System.out.println("===========================================================================================");
+
+                                                                }
+                                                                break;
+
+                                                            case 3:
+//                    To Remove specific data from Admit class
+//                    To take input from user
+
+
+                                                                System.out.println("Enter Patient first name : ");
+                                                                String patientFirstName = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("Enter Patient Middle name : ");
+                                                                String patientMiddleName = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("Enter Patient_Last_name : ");
+                                                                String patientLastName = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("=================================================================");
+
+                                                                Admit objectToRemove = null;
+
+                                                                for (Admit Ad : Admit_List) {
+                                                                    if (Ad.getPatient_First_name().toLowerCase().equals(patientFirstName)
+                                                                            && Ad.getPatient_Middle_name().toLowerCase().equals(patientMiddleName)
+                                                                            && Ad.getPatient_Last_name().toLowerCase().equals(patientLastName)) {
+                                                                        objectToRemove = Ad;
+                                                                        System.out.println("Data found");
+                                                                        System.out.println("=================================================================");
+                                                                        break; // Found the matching object, no need to continue the loop.
+                                                                    }
+                                                                }
+
+// Now, remove the object from the list:
+                                                                if (objectToRemove != null) {
+                                                                    Admit_List.remove(objectToRemove);
+                                                                    System.out.println("Data for following patient is removed: " + objectToRemove.getPatient_First_name());
+                                                                    // At this point, the object "John Doe Smith" is no longer accessible,
+                                                                    // and the garbage collector will eventually reclaim its memory.
+                                                                } else {
+                                                                    System.out.println("No matching object found.");
+                                                                }
+                                                                System.out.println("=================================================================");
+
+                                                                break;
+
+                                                            case 4:
+//                    To get specific data from Admit class
+                                                                System.out.println("Enter Patient first name : ");
+                                                                String Admit_Patient_first_name = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("Enter Patient Middle name : ");
+                                                                String Admit_Patient_Middle_name = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("Enter Patient_Last_name : ");
+                                                                String Admit_Patient_Last_name = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("=================================================================");
+
+                                                                boolean AdmitdataFound = false;
+
+                                                                for (Admit Ad : Admit_List) {
+                                                                    if (Ad.getPatient_First_name().toLowerCase().equals(Admit_Patient_first_name)
+                                                                            && Ad.getPatient_Middle_name().toLowerCase().equals(Admit_Patient_Middle_name)
+                                                                            && Ad.getPatient_Last_name().toLowerCase().equals(Admit_Patient_Last_name)) {
+                                                                        Ad.Admit_add(Ad.getPatient_First_name(), Ad.getPatient_Middle_name(), Ad.getPatient_Last_name(), Ad.getPatient_Age(), Ad.getPatient_Sex(), Ad.getPatient_Address(), Ad.getPatient_MbNo(), Ad.getPatient_Realtion());
+                                                                        Ad.toString();
+                                                                        System.out.println("====================================================================================================================");
+                                                                        AdmitdataFound = true;
+                                                                        break; // Found the matching object, no need to continue the loop.
+                                                                    }
+                                                                }
+
+                                                                if (!AdmitdataFound) {
+                                                                    System.out.println("Data is not found ........");
+                                                                }
+
+                                                                System.out.println("=================================================================");
+
+                                                                break;
+
+                                                            case 0:
+                                                                System.out.println("Exiting the program. Goodbye!");
+                                                                break;
+                                                            default:
+                                                                System.out.println("Invalid choice. Please try again.");
+                                                        }
+
+
+                                                    }while(Admit_Menu_Choice != 0);
+                                                    break;
+
+                                                case 2:
+//                                                    Discharge Details
+
+                                                    int Discharge_Menu_choice;
+                                                    do{
+                                                        System.out.println("========= Menu =========");
+                                                        System.out.println("1. Add Discharge data");
+                                                        System.out.println("2. Display Discharge data");
+                                                        System.out.println("3. To Remove specific data from Discharge class");
+                                                        System.out.println("4. To get specific data from Discharge class");
+                                                        System.out.println("0. Exit");
+                                                        System.out.println("========================");
+                                                        System.out.println("Enter your choice: ");
+                                                        Discharge_Menu_choice = sc.nextInt();
+                                                        sc.nextLine(); // Consume the newline left by nextInt()
+
+                                                        switch (Discharge_Menu_choice){
+
+                                                            case 1:
+                                                                // ---------------------------------------Add Discharge data --------------------------------------------------
+
+// ---------------------------------------Take user input --------------------------------------------------------
+                                                                System.out.println("Enter Discharge_Patient_First_name : ");
+                                                                String discharge_patient_first_name = sc.nextLine();
+
+                                                                System.out.println("Enter Discharge_Patient_Middle_name : ");
+                                                                String discharge_patient_Middle_name = sc.nextLine();
+
+                                                                System.out.println("Enter Discharge_Patient_Last_name : ");
+                                                                String discharge_patient_Last_name = sc.nextLine();
+
+                                                                System.out.println("Enter Discharge_Patient_Age : ");
+                                                                int discharge_Patient_Age = sc.nextInt();
+                                                                sc.nextLine();
+
+                                                                System.out.println("Enter Discharge_Patient_Sex: ");
+                                                                String enter_sex = sc.nextLine();
+
+                                                                System.out.println("Enter Discharge_Patient_Address : ");
+                                                                String discharge_Patient_Address = sc.nextLine();
+
+                                                                System.out.println("Enter  Discharge_Patient_MbNo : ");
+                                                                String  discharge_Patient_MbNo = sc.nextLine();
+
+                                                                System.out.println("Enter  Discharge_Patient_Realtion :");
+                                                                String  discharge_Patient_Realtion = sc.nextLine();
+
+                                                                System.out.println("=================================================================");
+
+//                    Add data into dischare class
+                                                                for(Discharge diS : Discharge_List){
+                                                                    diS.setDischarge_Patient_First_name(discharge_patient_first_name);
+                                                                    diS.setDischarge_Patient_Middle_name(discharge_patient_Middle_name);
+                                                                    diS.setDischarge_Patient_Last_name(discharge_patient_Last_name);
+                                                                    diS.setDischarge_Patient_Age(discharge_Patient_Age);
+                                                                    diS.setDischarge_Patient_Sex(enter_sex);
+                                                                    diS.setDischarge_Patient_Address(discharge_Patient_Address);
+                                                                    diS.setDischarge_Patient_MbNo(discharge_Patient_MbNo);
+                                                                    diS.setDischarge_Patient_Realtion(discharge_Patient_Realtion);
+                                                                    diS.toString();
+                                                                    System.out.println("=================================================================");
+                                                                    System.out.println("Data is added for : "+diS.Discharge_getPatient_First_name());
+                                                                    System.out.println("=================================================================");
+                                                                    break;
+                                                                }
+                                                                break;
+
+                                                            case 2:
+//                                                                Display Discharge data
+                                                                //        ---------------------------------To print all discharge data ---------------------------------------------------------------
+                                                                for(Discharge Dis : Discharge_List){
+                                                                    Dis.toString();
+                                                                    System.out.println("===========================================================");
+                                                                }
+                                                                break;
+
+                                                            case 3:
+//                                      // Take user input
+                                                                System.out.println("Enter Patient first name: ");
+                                                                String discharge_Patient_first_name = sc.nextLine();
+
+                                                                System.out.println("Enter Patient Middle name: ");
+                                                                String discharge_Patient_Middle_name = sc.nextLine();
+
+                                                                System.out.println("Enter Patient_Last_name: ");
+                                                                String discharge_Patient_Last_name = sc.nextLine();
+
+                                                                System.out.println("=================================================================");
+
+// Object to remove
+                                                                Discharge ObjectToremove = null;
+
+// Select specific data from Discharge class to remove
+                                                                for (Discharge di : Discharge_List) {
+                                                                    if (di.Discharge_getPatient_First_name().toLowerCase().equals(discharge_Patient_first_name.toLowerCase())
+                                                                            && di.Discharge_getPatient_Middle_name().toLowerCase().equals(discharge_Patient_Middle_name.toLowerCase())
+                                                                            && di.Discharge_getPatient_Last_name().toLowerCase().equals(discharge_Patient_Last_name.toLowerCase())) {
+
+                                                                        ObjectToremove = di;
+                                                                        System.out.println("data found");
+                                                                        System.out.println("=================================================================");
+
+                                                                        break;
+                                                                    }
+                                                                }
+
+// Remove specific data from discharge table
+                                                                if (ObjectToremove != null) {
+                                                                    Discharge_List.remove(ObjectToremove);
+                                                                    System.out.println("Data for following patient is removed: " + ObjectToremove.Discharge_getPatient_First_name());
+                                                                    // At this point, the object "John Doe Smith" is no longer accessible,
+                                                                    // and the garbage collector will eventually reclaim its memory.
+                                                                } else {
+                                                                    System.out.println("No matching object found.");
+                                                                }
+                                                                System.out.println("=================================================================");
+                                                                break;
+
+                                                            case 4:
+//                                                                To access specific data from discharge data
+
+//                    -------------------------------------------------To get user input --------------------------------------------
+                                                                System.out.println("Enter Patient first name : ");
+                                                                String Discharge_Patient_first_name = sc.nextLine();
+
+                                                                System.out.println("Enter Patient Middle name : ");
+                                                                String Discharge_Patient_Middle_name = sc.nextLine();
+
+                                                                System.out.println("Enter Patient_Last_name : ");
+                                                                String Discharge_Patient_Last_name = sc.nextLine();
+//                     To select / display specific discharge data from admit class
+
+                                                                System.out.println("=================================================================");
+
+                                                                for (Discharge Di : Discharge_List){
+
+
+                                                                    if (Di.Discharge_getPatient_First_name().toLowerCase().equals(Discharge_Patient_first_name.toLowerCase())
+                                                                            && Di.Discharge_getPatient_Middle_name().toLowerCase().equals(Discharge_Patient_Middle_name.toLowerCase())
+                                                                            && Di.Discharge_getPatient_Last_name().toLowerCase().equals(Discharge_Patient_Last_name.toLowerCase()))
+                                                                    {
+                                                                        Di.Discharge_add(Di.Discharge_getPatient_First_name(), Di.Discharge_getPatient_Middle_name(), Di.Discharge_getPatient_Last_name(), Di.Discharge_getPatient_Age(), Di.Discharge_getPatient_Sex(),Di.Discharge_getPatient_Address(),Di.Discharge_getPatient_MbNo(),Di.Discharge_getPatient_Realtion());
+                                                                        Di.toString();
+                                                                        System.out.println("====================================================================================================================");
+                                                                        break; // Found the matching object, no need to continue the loop.
+                                                                    }else{
+                                                                        System.out.println("Data is not found ..........");
+                                                                        System.out.println("====================================================================================================================");
+
+                                                                        break;
+
+                                                                    }
+                                                                }
+//
+
+
+                                                                break;
+
+                                                            case 0:
+                                                                System.out.println("Exiting the program. Goodbye!");
+                                                                break;
+                                                            default:
+                                                                System.out.println("Invalid choice. Please try again.");
+                                                        }
+
+                                                    }while(Discharge_Menu_choice != 0);
+                                                    break;
+                                                case 0:
+                                                    System.out.println("Exiting the program. Goodbye!");
+                                                    break;
+                                                default:
+                                                    System.out.println("Invalid choice. Please try again.");
+                                            }
+                                        }while(Admission_Menu_Choice != 0);
+                                        break;
+                                    case 4:
+//                                        Insurance
+
+//                               -----------------------Switch case logic for insurance list---------------------------------------------
+                                        int Switch_choice_Menu;
+                                        do{
+                                            System.out.println("========= Menu =========");
+                                            System.out.println("1. Add Insurance details");
+                                            System.out.println("2. Display Insurance details");
+                                            System.out.println("3. To get specific data from Insurance class");
+                                            System.out.println("4. To Remove specific data from Insurance class");
+                                            System.out.println("0. Exit");
+                                            System.out.println("========================");
+                                            System.out.println("Enter your choice: ");
+                                            Switch_choice_Menu = sc.nextInt();
+                                            sc.nextLine(); // Consume the newline left by nextInt()
+                                            switch (Switch_choice_Menu){
+                                                case 1:
+//                    To Add Insurance  details
+
+//                    To take user input
+
+                                                    System.out.println("Enter Patient_name : ");
+                                                    String Patient_name = sc.nextLine();
+
+                                                    System.out.println("Enter Patient_gender : ");
+                                                    String Patient_gender = sc.nextLine();
+
+                                                    System.out.println("Enter Patient_age : ");
+                                                    int Patient_age = sc.nextInt();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Patient_disease : ");
+                                                    String Patient_disease = sc.nextLine();
+
+                                                    System.out.println("Enter Patient_claimAmount : ");
+                                                    double Patient_claimAmount = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("=================================================================");
+//
+
+//                    To add data into Insurance
+
+                                                    for(Insurance I : InsuranceList){
+                                                        I.setPatient_name(Patient_name);
+                                                        I.setPatient_gender(Patient_gender);
+                                                        I.setPatient_age(Patient_age);
+                                                        I.setPatient_disease(Patient_disease);
+                                                        I.setPatient_claimAmount(Patient_claimAmount);
+                                                        System.out.println("Data has been added for : " +I.getPatient_name());
+                                                        System.out.println("=================================================================");
+
+                                                        break;
+                                                    }
+
+
+                                                    break;
+
+                                                case 2:
+//                    To Display Insurance  details
+
+//                    To print Insurance info
+
+                                                    for(Insurance issues : InsuranceList){
+                                                        issues.toString();
+                                                        System.out.println("===================================================================================");
+                                                    }
+
+                                                    break;
+
+                                                case 3:
+//                   To get specific data from Insurance  class
+
+//                    To take user input
+
+                                                    System.out.println("Enter Patient_name : ");
+                                                    String patient_name = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Patient_gender : ");
+                                                    String patient_gender = sc.nextLine().toLowerCase();
+
+
+                                                    System.out.println("Enter Patient_disease : ");
+                                                    String patient_disease = sc.nextLine().toLowerCase();
+
+
+                                                    System.out.println("=================================================================");
+
+//                    To get specific data from insurance list
+
+                                                    boolean found = false;
+
+                                                    for (Insurance i : InsuranceList) {
+                                                        if (i.getPatient_name().equalsIgnoreCase(patient_name)
+                                                                && i.getPatient_gender().equalsIgnoreCase(patient_gender)
+                                                                && i.getPatient_disease().equalsIgnoreCase(patient_disease)
+                                                        ) {
+
+                                                            i.toString();
+                                                            System.out.println("=================================================================");
+                                                            found = true;
+                                                            break; // Exit the loop once a match is found
+                                                        }
+                                                    }
+
+                                                    if (!found) {
+                                                        System.out.println("Data is not found ...........");
+                                                        System.out.println("=================================================================");
+                                                    }
+
+
+                                                    break;
+
+                                                case 4:
+//                   To Remove specific data from Insurance  class
+
+//                    To take user input
+
+                                                    System.out.println("Enter Patient_name : ");
+                                                    String pAtient_name = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Patient_gender : ");
+                                                    String pAtient_gender = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Patient_disease : ");
+                                                    String pAtient_disease = sc.nextLine().toLowerCase();
+
+
+                                                    System.out.println("=================================================================");
+
+//                    to find data into insurance list
+
+//                    to remove data intialize null first
+
+                                                    Insurance toRemove = null;
+
+                                                    for (Insurance in : InsuranceList) {
+                                                        if (in.getPatient_name().equalsIgnoreCase(pAtient_name)
+                                                                && in.getPatient_gender().equalsIgnoreCase(pAtient_gender)
+                                                                && in.getPatient_disease().equalsIgnoreCase(pAtient_disease)
+                                                        ) {
+                                                            System.out.println("Data found ...............");
+                                                            toRemove = in;
+                                                            System.out.println("=================================================================");
+                                                            break;
+                                                        }
+                                                    }
+
+                                                    if (toRemove != null) {
+                                                        InsuranceList.remove(toRemove);
+                                                        System.out.println("Data has been removed :  " + toRemove.getPatient_name());
+                                                        System.out.println("=================================================================");
+                                                    } else {
+                                                        System.out.println("Data not found .........................");
+                                                        System.out.println("=================================================================");
+                                                    }
+
+
+                                                    break;
+
+
+
+
+                                                case 0:
+                                                    System.out.println("Exiting the program. Goodbye!");
+                                                    break;
+                                                default:
+                                                    System.out.println("Invalid choice. Please try again.");
+                                            }
+                                        }while(Switch_choice_Menu !=0);
+                                        break;
+                                    case 5:
+//                                        Management_Staff
+//                                        -------------switch logic for management staff -----------------------------------
+
+                                        int Management_Staff_menu_Choice;
+                                        do{
+                                            System.out.println("========= Menu =========");
+                                            System.out.println("1. Add management staff details");
+                                            System.out.println("2. Display management staff details");
+                                            System.out.println("3. To get specific data from management staff class");
+                                            System.out.println("4. To Remove specific data from management staff class");
+                                            System.out.println("0. Exit");
+                                            System.out.println("========================");
+                                            System.out.println("Enter your choice: ");
+                                            Management_Staff_menu_Choice = sc.nextInt();
+                                            sc.nextLine(); // Consume the newline left by nextInt()
+                                            switch (Management_Staff_menu_Choice){
+                                                case 1:
+//                    To Add Nanage_Staff  details
+
+//                    To take user input
+
+                                                    System.out.println("Enter Staff_First_Name : ");
+                                                    String Staff_First_Name = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_Middle_Name : ");
+                                                    String Staff_Middle_Name = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_Last_Name : ");
+                                                    String Staff_Last_Name = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_Dept_Name : ");
+                                                    String Staff_Dept_Name = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_sal : ");
+                                                    double Staff_sal = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Staff_age : ");
+                                                    int Staff_age = sc.nextInt();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Staff_gender : ");
+                                                    String Staff_gender = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_Designation : ");
+                                                    String Staff_Designation = sc.nextLine();
+
+                                                    System.out.println("===================================================================================");
+
+
+//                    To add data into the table
+
+                                                    for(Management_staff M : managementStaffList){
+                                                        M.setStaff_First_Name(Staff_First_Name);
+                                                        M.setStaff_Middle_Name(Staff_Middle_Name);
+                                                        M.setStaff_Last_Name(Staff_Last_Name);
+                                                        M.setStaff_Dept_name(Staff_Dept_Name);
+                                                        M.setStaff_sal(Staff_sal);
+                                                        M.setStaff_age(Staff_age);
+                                                        M.setStaff_gender(Staff_gender);
+                                                        M.setStaff_Designation(Staff_Designation);
+
+                                                        System.out.println("data has been added for : "+M.getStaff_First_Name());
+                                                        System.out.println("===================================================================================");
+                                                        break;
+
+                                                    }
+
+                                                    break;
+
+                                                case 2:
+//                    To Display Manage_staff  details
+
+                                                    //        To print Staff info
+
+                                                    for(Management_staff Manages :managementStaffList){
+                                                        Manages.toString();
+                                                        System.out.println("===================================================================================");
+                                                    }
+                                                    break;
+
+                                                case 3:
+//                   To get specific data from MANAGE_staff  class
+
+//                    To take user input
+
+                                                    System.out.println("Enter Staff_First_Name : ");
+                                                    String staff_First_name = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Staff_Middle_Name : ");
+                                                    String staff_Middle_name = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Staff_Last_Name : ");
+                                                    String staff_Last_name = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Staff_Dept_Name : ");
+                                                    String staff_Dept_name = sc.nextLine().toLowerCase();
+
+
+                                                    System.out.println("===================================================================================");
+
+                                                    boolean dataFound = false;
+
+                                                    for (Management_staff m : managementStaffList) {
+                                                        if (m.getStaff_First_Name().equalsIgnoreCase(staff_First_name)
+                                                                && m.getStaff_Middle_Name().equalsIgnoreCase(staff_Middle_name)
+                                                                && m.getStaff_Last_Name().equalsIgnoreCase(staff_Last_name)
+                                                                && m.getStaff_Dept_name().equalsIgnoreCase(staff_Dept_name)
+                                                        ) {
+                                                            System.out.println("Data found for : " + m.getStaff_First_Name());
+                                                            System.out.println("===================================================================================");
+                                                            m.toString();
+                                                            System.out.println("===================================================================================");
+                                                            dataFound = true;
+                                                            break;
+                                                        }
+                                                    }
+
+                                                    if (!dataFound) {
+                                                        System.out.println("Data is not found ");
+                                                        System.out.println("===============================================");
+                                                    }
+
+
+
+
+                                                    break;
+
+                                                case 4:
+//                   To Remove specific data from Manage_Staff  class
+
+//                    To take user input
+
+                                                    System.out.println("Enter Staff_First_Name : ");
+                                                    String staff_first_name = sc.nextLine();
+
+                                                    System.out.println("Enter Staff_Middle_Name : ");
+                                                    String staff_middle_name = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Staff_Last_Name : ");
+                                                    String staff_last_name = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Staff_Dept_Name : ");
+                                                    String staff_dept_name = sc.nextLine().toLowerCase();
+
+
+                                                    System.out.println("========2===========================================================================");
+
+// To remove data first initialize data to null
+                                                    Management_staff removedData = null;
+
+// To select specific data from manage_staff list
+                                                    for (Management_staff ms : managementStaffList) {
+                                                        if (ms.getStaff_First_Name().equalsIgnoreCase(staff_first_name)
+                                                                && ms.getStaff_Middle_Name().equalsIgnoreCase(staff_middle_name)
+                                                                && ms.getStaff_Last_Name().equalsIgnoreCase(staff_last_name)
+                                                                && ms.getStaff_Dept_name().equalsIgnoreCase(staff_dept_name)
+                                                        ) {
+                                                            System.out.println("Data found for : " + ms.getStaff_First_Name());
+                                                            System.out.println("===================================================================================");
+                                                            removedData = ms;
+                                                            break;
+                                                        }
+                                                    }
+
+// To remove Data from manage_Staff
+                                                    if (removedData != null) {
+                                                        managementStaffList.remove(removedData);
+                                                        System.out.println("Data has been removed: " + removedData.getStaff_First_Name());
+                                                        System.out.println("=================================================================");
+                                                    } else {
+                                                        System.out.println("Data not found.");
+                                                        System.out.println("=================================================================");
+                                                    }
+
+
+                                                    break;
+
+
+
+
+                                                case 0:
+                                                    System.out.println("Exiting the program. Goodbye!");
+                                                    break;
+                                                default:
+                                                    System.out.println("Invalid choice. Please try again.");
+                                            }
+                                        }while(Management_Staff_menu_Choice !=0);
+
+                                        break;
+                                    case 6:
+//                                        MAnages_account
+
+                                        //        ---------------------- switch case logic for Manage_Account -----------------------------------
+
+                                        int MAnages_account_Choice_Menu;
+                                        do{
+                                            System.out.println("========= Menu =========");
+                                            System.out.println("1. Add Manage_Accouts details");
+                                            System.out.println("2. Display Manage_Accouts details");
+                                            System.out.println("3. To get specific data from Manage_Accouts class");
+                                            System.out.println("4. To Remove specific data from Manage_Accouts class");
+                                            System.out.println("0. Exit");
+                                            System.out.println("========================");
+                                            System.out.println("Enter your choice: ");
+                                            MAnages_account_Choice_Menu = sc.nextInt();
+                                            sc.nextLine(); // Consume the newline left by nextInt()
+                                            switch (MAnages_account_Choice_Menu){
+                                                case 1:
+//                    To Add DManage_Accouts  details
+
+//                    To take user input
+
+                                                    System.out.println("Enter Payment_Name : ");
+                                                    String Payment_Name = sc.nextLine();
+
+                                                    System.out.println("Enter Payment_Type : ");
+                                                    String Payment_Type = sc.nextLine();
+
+                                                    System.out.println("Enter Payment_Amount : ");
+                                                    double Payment_Amount = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Payment_Dept_name : ");
+                                                    String Payment_Dept_name = sc.nextLine();
+
+                                                    System.out.println("Enter Payee name : ");
+                                                    String Payee = sc.nextLine();
+
+                                                    System.out.println("=================================================================");
+
+                                                    for(Manage_Accouts MA : Manage_Accouts_Lists){
+                                                        MA.setPayment_Name(Payment_Name);
+                                                        MA.setPayment_Type(Payment_Type);
+                                                        MA.setPayment_Amount(Payment_Amount);
+                                                        MA.setPayment_Dept_name(Payment_Dept_name);
+                                                        MA.setPayee(Payee);
+                                                        System.out.println("=================================================================");
+                                                        System.out.println("Data has been added for : "+MA.getPayee());
+                                                        System.out.println("=================================================================");
+                                                        break;
+                                                    }
+
+                                                    break;
+
+                                                case 2:
+//                    To Display Manage_Accouts  details
+
+                                                    //      To Print  Manage_Accouts data
+
+                                                    for(Manage_Accouts Man_Account : Manage_Accouts_Lists){
+                                                        Man_Account.toString();
+                                                        System.out.println("=====================================================================================");
+                                                    }
+
+
+                                                    break;
+
+                                                case 3:
+//                   To get specific data from Manage_Accouts  class
+
+//                    To take user input
+
+
+                                                    System.out.println("Enter Payment_Name : ");
+                                                    String payment_Name = sc.nextLine().toLowerCase();
+
+
+                                                    System.out.println("Enter Payment_Dept_name : ");
+                                                    String payment_Dept_name = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Payee name : ");
+                                                    String payee = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("=================================================================");
+
+                                                    boolean dataFound = false;
+
+                                                    for (Manage_Accouts mac : Manage_Accouts_Lists) {
+                                                        if (mac.getPayment_Name().equalsIgnoreCase(payment_Name)
+                                                                && mac.getPayment_Dept_name().equalsIgnoreCase(payment_Dept_name)
+                                                                && mac.getPayee().equalsIgnoreCase(payee)) {
+                                                            System.out.println("=====================================================================================");
+                                                            mac.toString();
+                                                            System.out.println("=====================================================================================");
+                                                            dataFound = true;
+                                                            break;
+                                                        }
+                                                    }
+
+                                                    if (!dataFound) {
+                                                        System.out.println("Data is not found .....");
+                                                        System.out.println("==============================================");
+                                                    }
+
+                                                    break;
+
+                                                case 4:
+//                   To Remove specific data from Manage_Accouts  class
+
+//                    To take user input
+                                                    System.out.println("Enter Payment_Name : ");
+                                                    String payment_name = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Payment_Dept_name : ");
+                                                    String payment_dept_name = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Payee name : ");
+                                                    String paYee = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("=================================================================");
+
+// To store the object to be removed
+                                                    Manage_Accouts removed_object = null;
+
+// To find specific data in Manage_Accouts_Lists
+                                                    for (Manage_Accouts maca : Manage_Accouts_Lists) {
+                                                        if (maca.getPayment_Name().equalsIgnoreCase(payment_name)
+                                                                && maca.getPayment_Dept_name().equalsIgnoreCase(payment_dept_name)
+                                                                && maca.getPayee().equalsIgnoreCase(paYee)) {
+                                                            System.out.println("=====================================================================================");
+                                                            System.out.println("Data found ......................");
+                                                            removed_object = maca;
+                                                            break;
+                                                        }
+                                                    }
+
+// To remove data from Manage_Accouts_Lists
+                                                    if (removed_object != null) {
+                                                        Manage_Accouts_Lists.remove(removed_object);
+                                                        System.out.println("=================================================================");
+                                                        System.out.println("Data for following payee is removed: " + removed_object.getPayee());
+                                                        System.out.println("=================================================================");
+                                                    } else {
+                                                        System.out.println("No matching object found.");
+                                                    }
+
+                                                    break;
+
+
+
+
+                                                case 0:
+                                                    System.out.println("Exiting the program. Goodbye!");
+                                                    break;
+                                                default:
+                                                    System.out.println("Invalid choice. Please try again.");
+                                            }
+                                        }while(MAnages_account_Choice_Menu !=0);
+                                        break;
+                                    case 7:
+//                                        Pharmacy
+
+//                                        Pharmacy Switch menu
+
+                                        int Pharmacy_Menu_Choice;
+
+                                        do{
+                                            System.out.println("========= Menu =========");
+                                            System.out.println("1. Pharmacy_Staff ");
+                                            System.out.println("2. Pharmacy Medicine Dealer");
+                                            System.out.println("3. Pharmacy Medicine Branded");
+                                            System.out.println("4. Pharmacy Medicine Generic");
+                                            System.out.println("0. Exit");
+                                            System.out.println("========================");
+                                            System.out.println("Enter your choice: ");
+                                            Pharmacy_Menu_Choice = sc.nextInt();
+                                            sc.nextLine();
+
+                                            switch(Pharmacy_Menu_Choice){
+
+                                                case 1:
+//                                                    Pharmacy Staff info
+
+                                                    //        ------------------------------------------Switch case Logic For Pharmacy staff ---------------------------------------------------------
+
+                                                    int Pharmacy_Staff_Menu_Choice;
+                                                    do{
+                                                        System.out.println("========= Menu =========");
+                                                        System.out.println("1. Add Pharmacy_Staff");
+                                                        System.out.println("2. Display Pharmacy_Staff");
+                                                        System.out.println("3. To get specific data from Pharmacy_Staff class");
+                                                        System.out.println("4. To Remove specific data from Pharmacy_Staff class");
+                                                        System.out.println("0. Exit");
+                                                        System.out.println("========================");
+                                                        System.out.println("Enter your choice: ");
+                                                        Pharmacy_Staff_Menu_Choice = sc.nextInt();
+                                                        sc.nextLine(); // Consume the newline left by nextInt()
+                                                        switch (Pharmacy_Staff_Menu_Choice){
+                                                            case 1:
+//                    Add Pharmacy_Staff
+
+//                    tO TAKE user INput
+                                                                System.out.println("Enter Pharmacy_Staff_Name : ");
+                                                                String Pharmacy_Staff_Name = sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Staff_sal : ");
+                                                                double Pharmacy_Staff_sal = sc.nextDouble();
+                                                                sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Staff_Designation : ");
+                                                                String Pharmacy_Staff_Designation = sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Staff_Experiance : ");
+                                                                double Pharmacy_Staff_Experiance = sc.nextDouble();
+                                                                sc.nextLine();
+
+                                                                System.out.println("=================================================================");
+
+//                  To add info inside
+
+                                                                for(Pharmacy_Staff PS : Pharmacy_Staff_List){
+                                                                    PS.setPharmacy_Staff_name(Pharmacy_Staff_Name);
+                                                                    PS.setPharmacy_Staff_sal(Pharmacy_Staff_sal);
+                                                                    PS.setPharmacy_Staff_Designation(Pharmacy_Staff_Designation);
+                                                                    PS.setPharmacy_Staff_Experiance(Pharmacy_Staff_Experiance);
+                                                                    System.out.println("=================================================================");
+                                                                    System.out.println("Data  has been added for : "+PS.getPharmacy_Staff_name());
+                                                                    System.out.println("=================================================================");
+                                                                    break;
+
+                                                                }
+                                                                break;
+
+                                                            case 2:
+//                    Display Pharmacy_Staff
+                                                                //        To print Pharmacy_staff data
+                                                                for(Pharmacy_Staff Pharma : Pharmacy_Staff_List){
+                                                                    Pharma.toString();
+                                                                    System.out.println("=====================================================================================");
+
+                                                                }
+                                                                break;
+
+                                                            case 3:
+//                    To get specific data from Pharmacy_Staff class
+
+//                    tO TAKE user INput
+
+                                                                System.out.println("Enter Pharmacy_Staff_Name : ");
+                                                                String pharmacy_Staff_name = sc.nextLine().toLowerCase();
+
+
+                                                                System.out.println("Enter Pharmacy_Staff_Designation : ");
+                                                                String pharmacy_Staff_designation = sc.nextLine().toLowerCase();
+
+
+                                                                System.out.println("=================================================================");
+
+                                                                boolean dataFound = false;
+
+// To find specific data in Pharmacy_Staff_List
+                                                                for (Pharmacy_Staff ps : Pharmacy_Staff_List) {
+                                                                    if (ps.getPharmacy_Staff_name().equalsIgnoreCase(pharmacy_Staff_name)
+                                                                            && ps.getPharmacy_Staff_Designation().equalsIgnoreCase(pharmacy_Staff_designation)
+                                                                    ) {
+                                                                        ps.toString();
+                                                                        System.out.println("=================================================================");
+                                                                        dataFound = true;
+                                                                        break;
+                                                                    }
+                                                                }
+
+                                                                if (!dataFound) {
+                                                                    System.out.println("Data is not found ........");
+                                                                    System.out.println("==============================================");
+                                                                }
+                                                                System.out.println("=================================================================");
+                                                                break;
+
+                                                            case 4:
+//                    To Remove specific data from Pharmacy_Staff class
+
+//                    To take user input
+
+                                                                System.out.println("Enter Pharmacy_Staff_Name : ");
+                                                                String pharmacy_staff_name = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("Enter Pharmacy_Staff_Designation : ");
+                                                                String pharmacy_staff_designation = sc.nextLine().toLowerCase();
+
+
+                                                                System.out.println("=================================================================");
+
+                                                                Pharmacy_Staff objectToRemove = null;
+
+// To find specific data in Pharmacy_Staff_List
+                                                                for (Pharmacy_Staff pS : Pharmacy_Staff_List) {
+                                                                    if (pS.getPharmacy_Staff_name().equalsIgnoreCase(pharmacy_staff_name)
+                                                                            && pS.getPharmacy_Staff_Designation().equalsIgnoreCase(pharmacy_staff_designation)
+                                                                    ) {
+                                                                        objectToRemove = pS;
+                                                                        System.out.println("=================================================================");
+                                                                        System.out.println("Data Found");
+                                                                        System.out.println("=================================================================");
+                                                                        break; // Found the matching object, no need to continue the loop.
+                                                                    }
+                                                                }
+
+// To remove specific data
+                                                                if (objectToRemove != null) {
+                                                                    Pharmacy_Staff_List.remove(objectToRemove);
+                                                                    System.out.println("Data for the following Pharmacy Medicine Staff is removed: " + objectToRemove.getPharmacy_Staff_name());
+                                                                    // At this point, the object "Pharmacy_Staff" is no longer accessible,
+                                                                    // and the garbage collector will eventually reclaim its memory.
+                                                                } else {
+                                                                    System.out.println("No matching object found.");
+                                                                }
+
+                                                                System.out.println("=================================================================");
+
+                                                                break;
+
+                                                            case 0:
+                                                                System.out.println("Exiting the program. Goodbye!");
+                                                                break;
+                                                            default:
+                                                                System.out.println("Invalid choice. Please try again.");
+                                                        }
+                                                    }while(Pharmacy_Staff_Menu_Choice !=0);
+
+                                                    break;
+
+                                                case 2:
+//                                                    Pharmacy Medicine Dealer
+
+                                                    //        --------------------------------------------Switch Case logic for Pharmacy _Medicine_Dealer----------------------------------------------
+
+                                                    int Pharmacy_Medicine_Dealer;
+                                                    do{
+                                                        System.out.println("========= Menu =========");
+                                                        System.out.println("1. Add Pharmacy Medicine dealer");
+                                                        System.out.println("2. Display Pharmacy Medicine dealer");
+                                                        System.out.println("3. To get specific data from Pharmacy Medicine dealer class");
+                                                        System.out.println("4. To Remove specific data from Pharmacy Medicine dealer class");
+                                                        System.out.println("0. Exit");
+                                                        System.out.println("========================");
+                                                        System.out.println("Enter your choice: ");
+                                                        Pharmacy_Medicine_Dealer = sc.nextInt();
+                                                        sc.nextLine(); // Consume the newline left by nextInt()
+
+                                                        switch (Pharmacy_Medicine_Dealer){
+                                                            case 1:
+//                    Add Pharmacy Medicine dealer
+
+//                    To take user input
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Dealer_name : ");
+                                                                String Pharmacy_medicine_dealer_name = sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Price : ");
+                                                                double Pharmacy_medicine_price = sc.nextDouble();
+                                                                sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Dealer_Loc : ");
+                                                                String Pharmacy_medicine_dealer_Loc = sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Dealer_Experiance : ");
+                                                                double Pharmacy_medicine_dealer_Experiance = sc.nextDouble();
+                                                                sc.nextLine();
+
+                                                                System.out.println("=================================================================");
+
+                                                                for(Pharmacy_Medicine pM : Pharmacy_Medicine_List){
+                                                                    pM.setPharmacy_Medicine_Dealer_name(Pharmacy_medicine_dealer_name);
+                                                                    pM.setPharmacy_Medicine_Price(Pharmacy_medicine_price);
+                                                                    pM.setPharmacy_Medicine_Dealer_Loc(Pharmacy_medicine_dealer_Loc);
+                                                                    pM.setPharmacy_Medicine_Dealer_Experiance(Pharmacy_medicine_dealer_Experiance);
+                                                                    System.out.println("=================================================================");
+                                                                    System.out.println("Data has been added for : "+pM.getPharmacy_Medicine_Dealer_name());
+                                                                    System.out.println("=================================================================");
+
+                                                                    break;
+                                                                }
+                                                                System.out.println("=================================================================");
+                                                                break;
+
+                                                            case 2:
+//                    Display Pharmacy Medicine dealer
+
+                                                                // To print Pharmacy Medicine dealer
+                                                                for(Pharmacy_Medicine Pharma_Med : Pharmacy_Medicine_List){
+                                                                    Pharma_Med.toString();
+                                                                    System.out.println("=====================================================================================");
+
+                                                                }
+                                                                break;
+
+                                                            case 3:
+//                    To get specific data from Pharmacy Medicine dealer class
+
+//                    To take user input
+                                                                System.out.println("Enter Pharmacy_Medicine_Dealer_name : ");
+                                                                String pharmacy_Medicine_Dealer_name = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Dealer_Loc : ");
+                                                                String pharmacy_Medicine_Dealer_Loc = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("=================================================================");
+
+                                                                boolean dataFound = false;
+
+// To find specific data in Pharmacy_Medicine_List
+                                                                for (Pharmacy_Medicine PM : Pharmacy_Medicine_List) {
+                                                                    if (PM.getPharmacy_Medicine_Dealer_name().equalsIgnoreCase(pharmacy_Medicine_Dealer_name)
+                                                                            && PM.getPharmacy_Medicine_Dealer_Loc().equalsIgnoreCase(pharmacy_Medicine_Dealer_Loc)
+                                                                    ) {
+                                                                        PM.toString();
+                                                                        System.out.println("=================================================================");
+                                                                        System.out.println("Data found for : " + PM.getPharmacy_Medicine_Dealer_name());
+                                                                        System.out.println("=================================================================");
+                                                                        dataFound = true;
+                                                                        break; // Found the matching object, no need to continue the loop.
+                                                                    }
+                                                                }
+
+                                                                if (!dataFound) {
+                                                                    System.out.println("Data has not been found.......");
+                                                                    System.out.println("========================================");
+                                                                }
+
+                                                                break;
+
+                                                            case 4:
+                                                                // To Remove specific data from Pharmacy Medicine dealer class
+                                                                // To take input from the user
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Dealer_name : ");
+                                                                String pharmacy_Medicine_dealer_name = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Dealer_Loc : ");
+                                                                String pharmacy_Medicine_dealer_Loc = sc.nextLine().toLowerCase();
+
+
+                                                                System.out.println("=================================================================");
+
+                                                                Pharmacy_Medicine objectToRemove = null;
+
+// To find data to be deleted
+                                                                for (Pharmacy_Medicine Pm : Pharmacy_Medicine_List) {
+                                                                    if (Pm.getPharmacy_Medicine_Dealer_name().equalsIgnoreCase(pharmacy_Medicine_dealer_name)
+                                                                            && Pm.getPharmacy_Medicine_Dealer_Loc().equalsIgnoreCase(pharmacy_Medicine_dealer_Loc)
+                                                                    ) {
+                                                                        objectToRemove = Pm;
+                                                                        System.out.println("=================================================================");
+                                                                        System.out.println("Data Found");
+                                                                        System.out.println("=================================================================");
+                                                                        break; // Exit the loop once data is found
+                                                                    }
+                                                                }
+
+// To remove data
+                                                                if (objectToRemove != null) {
+                                                                    Pharmacy_Medicine_List.remove(objectToRemove);
+                                                                    System.out.println("Data for the following Pharmacy Medicine dealer is removed: " + objectToRemove.getPharmacy_Medicine_Dealer_name());
+                                                                    // At this point, the object "Pharmacy_Medicine" is no longer accessible,
+                                                                    // and the garbage collector will eventually reclaim its memory.
+                                                                } else {
+                                                                    System.out.println("No matching object found.");
+                                                                }
+                                                                System.out.println("=================================================================");
+                                                                break;
+
+                                                            case 0:
+                                                                System.out.println("Exiting the program. Goodbye!");
+                                                                break;
+                                                            default:
+                                                                System.out.println("Invalid choice. Please try again.");
+                                                        }
+                                                    }while(Pharmacy_Medicine_Dealer !=0);
+
+                                                    break;
+
+                                                case 3:
+//                                                    Pharmacy Medicine branded
+
+                                                    //         ------------------------ switch case logic for Pharmacy Medicine Branded -------------------------------------
+
+                                                    int Pharmacy_Medicine_Branded;
+                                                    do{
+                                                        System.out.println("========= Menu =========");
+                                                        System.out.println("1. Add Pharmacy Medicine Branded");
+                                                        System.out.println("2. Display Pharmacy Medicine Branded");
+                                                        System.out.println("3. To get specific data from Pharmacy Medicine Branded class");
+                                                        System.out.println("4. To Remove specific data from Pharmacy Medicine Branded class");
+                                                        System.out.println("0. Exit");
+                                                        System.out.println("========================");
+                                                        System.out.println("Enter your choice: ");
+                                                        Pharmacy_Medicine_Branded = sc.nextInt();
+                                                        sc.nextLine(); // Consume the newline left by nextInt()
+                                                        switch (Pharmacy_Medicine_Branded){
+                                                            case 1:
+//                    Add Pharmacy Medicine
+
+//                    To take User input
+
+                                                                System.out.println("Enter Pharmacy_Medicine_branded_Name : ");
+                                                                String Pharmacy_medicine_branded_Name = sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_branded_Manufracture : ");
+                                                                String Pharmacy_medicine_branded_Manufracture = sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_branded_Use : ");
+                                                                String Pharmacy_medicine_branded_Use = sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_branded_MfgNO : ");
+                                                                double Pharmacy_medicine_branded_MfgNO = sc.nextDouble();
+                                                                sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_branded_MfgDate : ");
+                                                                String Pharmacy_medicine_branded_MfgDate = sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_branded_Mfg_Loc : ");
+                                                                String Pharmacy_medicine_branded_Mfg_Loc = sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_branded_price : ");
+                                                                double Pharmacy_medicine_branded_price = sc.nextDouble();
+                                                                sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_branded_power : ");
+                                                                double Pharmacy_medicine_branded_power = sc.nextDouble();
+                                                                sc.nextLine();
+
+//                    to add data into database
+
+                                                                for(Medicene_Branded mB : Medicene_Branded_List){
+                                                                    mB.setMedicene_Branded_Name(Pharmacy_medicine_branded_Name);
+                                                                    mB.setMedicene_Branded_Manufracture(Pharmacy_medicine_branded_Manufracture);
+                                                                    mB.setMedicene_Branded_Use(Pharmacy_medicine_branded_Use);
+                                                                    mB.setMedicene_Branded_MfgNO(Pharmacy_medicine_branded_MfgNO);
+                                                                    mB.setMedicene_Branded_MfgDate(Pharmacy_medicine_branded_MfgDate);
+                                                                    mB.setMedicene_Branded_Mfg_Loc(Pharmacy_medicine_branded_Mfg_Loc);
+                                                                    mB.setMedicene_Branded_price(Pharmacy_medicine_branded_price);
+                                                                    mB.setMedicene_Branded_Power(Pharmacy_medicine_branded_power);
+                                                                    System.out.println("medicine_branded Data has been added for : "+mB.getMedicene_Branded_Name());
+                                                                    break;
+                                                                }
+                                                                break;
+
+                                                            case 2:
+//                    Display Pharmacy Medicine Branded
+
+                                                                //  To print Medicene_Branded data
+                                                                for(Medicene_Branded MB : Medicene_Branded_List){
+                                                                    MB.toString();
+                                                                    System.out.println("=====================================================================================");
+
+                                                                }
+                                                                break;
+
+                                                            case 3:
+//                    To get specific data from Pharmacy Medicine Branded class
+
+//                    Take user input
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Branded_Name : ");
+                                                                String pharmacy_Medicine_branded_name = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Branded_Manufacture : ");
+                                                                String pharmacy_Medicine_branded_manufacture = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Branded_Use : ");
+                                                                String pharmacy_Medicine_branded_use = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("====================================================================");
+
+                                                                boolean dataFound = false;
+
+                                                                for (Medicene_Branded Mb : Medicene_Branded_List) {
+                                                                    if (Mb.getMedicene_Branded_Name().equalsIgnoreCase(pharmacy_Medicine_branded_name)
+                                                                            && Mb.getMedicene_Branded_Manufracture().equalsIgnoreCase(pharmacy_Medicine_branded_manufacture)
+                                                                            && Mb.getMedicene_Branded_Use().equalsIgnoreCase(pharmacy_Medicine_branded_use)) {
+                                                                        Mb.toString();
+                                                                        System.out.println("=================================================================");
+                                                                        dataFound = true;
+                                                                        break;
+                                                                    }
+                                                                }
+
+                                                                if (!dataFound) {
+                                                                    System.out.println("Data has not been found.......");
+                                                                    System.out.println("========================================");
+                                                                }
+
+
+                                                                break;
+
+                                                            case 4:
+//                    To Remove specific data from Pharmacy Medicine Branded class
+
+//                    To take user input
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Branded_Name : ");
+                                                                String pharmacy_Medicine_Branded_name = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Branded_Manufacture : ");
+                                                                String pharmacy_Medicine_Branded_manufacture = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Branded_Use : ");
+                                                                String pharmacy_Medicine_Branded_use = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("=================================================================");
+
+// To find specific data to remove
+                                                                Medicene_Branded objectToRemove = null;
+
+                                                                for (Medicene_Branded mb : Medicene_Branded_List) {
+                                                                    if (mb.getMedicene_Branded_Name().equalsIgnoreCase(pharmacy_Medicine_Branded_name)
+                                                                            && mb.getMedicene_Branded_Manufracture().equalsIgnoreCase(pharmacy_Medicine_Branded_manufacture)
+                                                                            && mb.getMedicene_Branded_Use().equalsIgnoreCase(pharmacy_Medicine_Branded_use)) {
+                                                                        objectToRemove = mb;
+                                                                        System.out.println("=================================================================");
+                                                                        System.out.println("Data found");
+                                                                        System.out.println("=================================================================");
+                                                                        break;
+                                                                    }
+                                                                }
+
+// To remove specific data
+                                                                if (objectToRemove != null) {
+                                                                    Medicene_Branded_List.remove(objectToRemove);
+                                                                    System.out.println("Data for following medicine is removed: " + objectToRemove.getMedicene_Branded_Name());
+                                                                    // At this point, the object "Medicene_Branded" is no longer accessible,
+                                                                    // and the garbage collector will eventually reclaim its memory.
+                                                                } else {
+                                                                    System.out.println("No matching object found.");
+                                                                }
+                                                                System.out.println("=================================================================");
+                                                                break;
+
+                                                            case 0:
+                                                                System.out.println("Exiting the pr2ogram. Goodbye!");
+                                                                break;
+                                                            default:
+                                                                System.out.println("Invalid choice. Please try again.");
+                                                        }
+                                                    }while(Pharmacy_Medicine_Branded !=0);
+
+//                                                    Pharmacy medicine branded end
+                                                    break;
+
+                                                case 4:
+//                                                    Pharmacy Medicine Generic
+
+                                                    //        ------------------------------------ Switch case logic for Pharmacy Medicine Generic--------------------------------------
+
+                                                    int Pharmacy_Medicine_Generic;
+                                                    do{
+                                                        System.out.println("========= Menu =========");
+                                                        System.out.println("1. Add Pharmacy Medicine Generic");
+                                                        System.out.println("2. Display Pharmacy Medicine Generic");
+                                                        System.out.println("3. To get specific data from Pharmacy Medicine Generic class");
+                                                        System.out.println("4. To Remove specific data from Pharmacy Medicine Generic class");
+                                                        System.out.println("0. Exit");
+                                                        System.out.println("========================");
+                                                        System.out.println("Enter your choice: ");
+                                                        Pharmacy_Medicine_Generic = sc.nextInt();
+                                                        sc.nextLine(); // Consume the newline left by nextInt()
+                                                        switch (Pharmacy_Medicine_Generic){
+                                                            case 1:
+//                    Add Pharmacy Medicine Generic
+
+//                    To take user input
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Generic_Name : ");
+                                                                String Pharmacy_Medicine_Generic_Name = sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Generic_Manufracture : ");
+                                                                String Pharmacy_Medicine_Generic_Manufracture = sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Generic_Use : ");
+                                                                String Pharmacy_Medicine_Generic_Use = sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Generic_MfgNO : ");
+                                                                double Pharmacy_Medicine_Generic_MfgNO = sc.nextInt();
+                                                                sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Generic_MfgDate : ");
+                                                                String Pharmacy_Medicine_Generic_MfgDate = sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Generic_Mfg_Loc : ");
+                                                                String Pharmacy_Medicine_Generic_Mfg_Loc = sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Generic_price : ");
+                                                                double Pharmacy_Medicine_Generic_price = sc.nextInt();
+                                                                sc.nextLine();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Generic_power : ");
+                                                                double Pharmacy_Medicine_Generic_power = sc.nextInt();
+                                                                sc.nextLine();
+
+                                                                System.out.println("=================================================================");
+
+                                                                for(Medicine_Generic mg : Medicine_Generic_List){
+                                                                    mg.setMedicine_Generic_Name(Pharmacy_Medicine_Generic_Name);
+                                                                    mg.setMedicine_Generic_Manufracture(Pharmacy_Medicine_Generic_Manufracture);
+                                                                    mg.setMedicine_Generic_Use(Pharmacy_Medicine_Generic_Use);
+                                                                    mg.setMedicine_Generic_MfgNO(Pharmacy_Medicine_Generic_MfgNO);
+                                                                    mg.setMedicine_Generic_MfgDate(Pharmacy_Medicine_Generic_MfgDate);
+                                                                    mg.setMedicine_Generic_Mfg_Loc(Pharmacy_Medicine_Generic_Mfg_Loc);
+                                                                    mg.setMedicine_Generic_price(Pharmacy_Medicine_Generic_price);
+                                                                    mg.setMedicine_Generic_Power(Pharmacy_Medicine_Generic_power);
+                                                                    System.out.println("Data added for : "+mg.getMedicine_Generic_Name());
+                                                                    break;
+                                                                }
+
+                                                                System.out.println("=================================================================");
+                                                                break;
+
+                                                            case 2:
+//                    Display Pharmacy Medicine Generic
+
+                                                                //  To print Medicene_Generic data
+
+                                                                for(Medicine_Generic MG : Medicine_Generic_List){
+                                                                    MG.toString();
+                                                                    System.out.println("=====================================================================================");
+
+                                                                }
+                                                                break;
+
+                                                            case 3:
+//                    To get specific data from Pharmacy Medicine Generic class
+
+//                    Take user input
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Generic_Name : ");
+                                                                String pharmacy_Medicine_Generic_name = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Generic_Manufacture : ");
+                                                                String pharmacy_Medicine_Generic_manufacture = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Generic_Use : ");
+                                                                String pharmacy_Medicine_Generic_use = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("=================================================================");
+
+// To find specific data from Medicine_Generic_List
+                                                                Medicine_Generic objectToFind = null;
+
+                                                                for (Medicine_Generic mG : Medicine_Generic_List) {
+                                                                    if (mG.getMedicine_Generic_Name().equalsIgnoreCase(pharmacy_Medicine_Generic_name)
+                                                                            && mG.getMedicine_Generic_Manufracture().equalsIgnoreCase(pharmacy_Medicine_Generic_manufacture)
+                                                                            && mG.getMedicine_Generic_Use().equalsIgnoreCase(pharmacy_Medicine_Generic_use)) {
+                                                                        objectToFind = mG;
+                                                                        System.out.println("Data found");
+                                                                        System.out.println("=================================================================");
+                                                                        mG.toString();
+                                                                        break;
+                                                                    }
+                                                                }
+
+                                                                if (objectToFind == null) {
+                                                                    System.out.println("Data has not been found.......");
+                                                                    System.out.println("========================================");
+                                                                }
+
+                                                                break;
+
+                                                            case 4:
+//                    To Remove specific data from Pharmacy Medicine Generic class
+
+//                    Take user input
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Generic_Name : ");
+                                                                String pharmacy_Medicine_generic_name = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Generic_Manufacture : ");
+                                                                String pharmacy_Medicine_generic_manufacture = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("Enter Pharmacy_Medicine_Generic_Use : ");
+                                                                String pharmacy_Medicine_generic_use = sc.nextLine().toLowerCase();
+
+                                                                System.out.println("=================================================================");
+
+// To find specific data from Medicine_Generic_List
+                                                                Medicine_Generic objectToRemove = null;
+
+                                                                for (Medicine_Generic mg : Medicine_Generic_List) {
+                                                                    if (mg.getMedicine_Generic_Name().equalsIgnoreCase(pharmacy_Medicine_generic_name)
+                                                                            && mg.getMedicine_Generic_Manufracture().equalsIgnoreCase(pharmacy_Medicine_generic_manufacture)
+                                                                            && mg.getMedicine_Generic_Use().equalsIgnoreCase(pharmacy_Medicine_generic_use)) {
+                                                                        objectToRemove = mg;
+                                                                        System.out.println("Data found");
+                                                                        System.out.println("=================================================================");
+                                                                    }
+                                                                }
+
+// To remove specific data from generic table
+                                                                if (objectToRemove != null) {
+                                                                    Medicine_Generic_List.remove(objectToRemove);
+                                                                    System.out.println("Data for following medicine is removed: " + objectToRemove.getMedicine_Generic_Name());
+                                                                    // At this point, the object "generic medicine" is no longer accessible,
+                                                                    // and the garbage collector will eventually reclaim its memory.
+                                                                } else {
+                                                                    System.out.println("No matching object found.");
+                                                                }
+                                                                System.out.println("=================================================================");
+                                                                break;
+
+                                                            case 0:
+                                                                System.out.println("Exiting the program. Goodbye!");
+                                                                break;
+                                                            default:
+                                                                System.out.println("Invalid choice. Please try again.");
+                                                        }
+                                                    }while(Pharmacy_Medicine_Generic !=0);
+
+                                                    break;
+                                                case 0:
+                                                    System.out.println("Exiting the program. Goodbye!");
+                                                    break;
+                                                default:
+                                                    System.out.println("Invalid choice. Please try again.");
+                                            }
+
+                                        }while(Pharmacy_Menu_Choice != 0);
+                                        break;
+
+                                    case 8:
+
+//        switch caase logic for docter list
+
+                                        int Docter_Menu_Choice;
+
+                                        do{
+//                                Doctor_Login D = new Doctor_Login();  // for comparing login doctor name with data doctor name
+
+                                            System.out.println("========= Menu =========");
+                                            System.out.println("1. Add Patient details");
+                                            System.out.println("2. Display Patient details");
+                                            System.out.println("3. To get specific data from Patient class");
+                                            System.out.println("4. To Remove specific data from Patient class");
+                                            System.out.println("0. Exit");
+                                            System.out.println("========================");
+                                            System.out.println("Enter your choice: ");
+                                            Docter_Menu_Choice = sc.nextInt();
+                                            sc.nextLine();
+                                            switch (Docter_Menu_Choice){
+
+                                                case 1:
+//                    Add patient details
+
+                                                    System.out.println("Enter Patient name :");
+                                                    String Patient_Name = sc.nextLine();
+
+                                                    System.out.println("Enter Patient_gender :");
+                                                    String Patient_gender = sc.nextLine();
+
+                                                    System.out.println("Enter Patient_age :");
+                                                    double Patient_age = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Patient_suffering :");
+                                                    String Patient_suffering = sc.nextLine();
+
+                                                    System.out.println("Enter Patient_presciption :");
+                                                    String Patient_presciption = sc.nextLine();
+
+                                                    System.out.println("Enter Patient_medical_history :");
+                                                    String Patient_medical_history = sc.nextLine();
+
+                                                    System.out.println("Enter Patient_Contact_details :");
+                                                    String Patient_Contact_details = sc.nextLine();
+
+                                                    System.out.println("Enter Patient_Address :");
+                                                    String Patient_Address = sc.nextLine();
+
+                                                    System.out.println("Enter Patient_weight :");
+                                                    double Patient_weight = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("Enter Patient_allergies :");
+                                                    String Patient_allergies = sc.nextLine();
+
+                                                    System.out.println("====================================================================");
+
+
+                                                    for(Doctor Da : Doctor_Lists){
+                                                        Da.setDocter_Patient_name(Patient_Name);
+                                                        Da.setDocter_Patient_gender(Patient_gender);
+                                                        Da.setDocter_Patient_age(Patient_age);
+                                                        Da.setDocter_Patient_suffering(Patient_suffering);
+                                                        Da.setDocter_Patient_presciption(Patient_presciption);
+                                                        Da.setDocter_Patient_medical_history(Patient_medical_history);
+                                                        Da.setDocter_Patient_Contact_details(Patient_Contact_details);
+                                                        Da.setDocter_Patient_Address(Patient_Address);
+                                                        Da.setDocter_Patient_weight(Patient_weight);
+                                                        Da.setDocter_Patient_allergies(Patient_allergies);
+
+                                                        System.out.println("Data has been added for : "+Da.getDocter_Patient_name());
+                                                        System.out.println("====================================================================");
+
+                                                        break;
+
+                                                    }
+
+
+
+                                                    break;
+                                                case 2:
+//                    Display patient details
+
+                                                    System.out.println("Enter Doctor Name");
+                                                    String Doctor_Name = sc.nextLine().toLowerCase();
+
+                                                    for(Doctor Do : Doctor_Lists){
+                                                        if(Do.getDoctor_First_Name().equalsIgnoreCase(Doctor_Name)){
+                                                            Do.toString();
+
+                                                            System.out.println("====================================================================");
+
+                                                        }
+                                                    }
+
+                                                    break;
+                                                case 3:
+//                    To get specific info from patient
+
+
+                                                    System.out.println("Enter Doctor Name");
+                                                    String Doctor_name = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Patient name:");
+                                                    String patient_Name = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Patient gender:");
+                                                    String patient_gender = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Patient age:");
+                                                    double patient_age = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("================================================================");
+
+                                                    boolean dataFound = false;
+                                                    for (Doctor d : Doctor_Lists) {
+                                                        if (d.getDoctor_First_Name().equalsIgnoreCase(Doctor_name)
+                                                                && d.getDocter_Patient_name().equalsIgnoreCase(patient_Name)
+                                                                && d.getDocter_Patient_gender().equalsIgnoreCase(patient_gender)
+                                                                && d.getDocter_Patient_age() == patient_age
+                                                        ) {
+
+                                                            System.out.println("Data found");
+                                                            System.out.println("=====================================================");
+                                                            d.toString();
+                                                            System.out.println("===================================================");
+                                                            dataFound = true;
+                                                            break;
+                                                        }
+                                                    }
+
+                                                    if (!dataFound) {
+                                                        System.out.println("Data is not found.");
+                                                    }
+                                                    break;
+                                                case 4:
+//                    to remove specific info from patient
+
+                                                    System.out.println("Enter Doctor Name");
+                                                    String doctor_Name = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Patient name:");
+                                                    String patient_name = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Patient gender:");
+                                                    String patient_Gender = sc.nextLine().toLowerCase();
+
+                                                    System.out.println("Enter Patient age:");
+                                                    double patient_Age = sc.nextDouble();
+                                                    sc.nextLine();
+
+                                                    System.out.println("================================================================");
+
+                                                    Doctor ObjToRemove = null;
+
+                                                    for(Doctor Ac : Doctor_Lists){
+                                                        if(Ac.getDoctor_First_Name().equalsIgnoreCase(doctor_Name)
+                                                                && Ac.getDocter_Patient_name().equalsIgnoreCase(patient_name)
+                                                                && Ac.getDocter_Patient_gender().equalsIgnoreCase(patient_Gender)
+                                                                && Ac.getDocter_Patient_age()==patient_Age)
+                                                        {
+                                                            System.out.println("Data found : "+Ac.getDocter_Patient_name());
+                                                            System.out.println("=================================================================");
+                                                            ObjToRemove = Ac;
+                                                            break;
+                                                        }
+                                                    }
+
+//                   To remove specific data from account class
+
+                                                    if (ObjToRemove != null) {
+                                                        Doctor_Lists.remove(ObjToRemove);
+                                                        System.out.println("Data for following patient is removed " + ObjToRemove.getDocter_Patient_name());
+                                                        // At this point, the object " account staff   "  is no longer accessible,
+                                                        // and the garbage collector will eventually reclaim its memory.
+                                                    } else {
+                                                        System.out.println("No matching object found.");
+                                                    }
+                                                    System.out.println("=================================================================");
+                                                    break;
+
+                                                case 0:
+                                                    System.out.println("Exiting the program. Goodbye!");
+                                                    break;
+                                                default:
+                                                    System.out.println("Invalid choice. Please try again.");
+
+
+                                            }
+
+                                        }while(Docter_Menu_Choice !=0);
+                                        break;
+                                    case 0:
+                                        System.out.println("Exiting the program. Goodbye!");
+                                        break;
+                                    default:
+                                        System.out.println("Invalid choice. Please try again.");
+                                }
+
+                            }while(Admin_choice_Menu !=0);
+                        }else{
+                            System.out.println(" Username or Password is wrong ! Please try again ..........");
+                            System.out.println("===================================================================");
+
+                            break;
+                        }
+                    }
+                    break;
+
+                case 2:
+//                    Sign- up logic
+
+                    System.out.println("Enter First Name : ");
+                    String First_name = sc.nextLine();
+
+                    System.out.println("Enter Middle Name : ");
+                    String Middle_name = sc.nextLine();
+
+                    System.out.println("Enter Last Name : ");
+                    String Last_name = sc.nextLine();
+
+                    System.out.println("Enter Username : ");
+                    String User_name = sc.nextLine();
+
+                    System.out.println("Enter Password : ");
+                    String Password_use = sc.nextLine();
+
+                    System.out.println("=================================================================");
+
+
+                    for(Admin ad : Admin_List){
+                        ad.setFirst_name(First_name);
+                        ad.setMiddle_name(Middle_name);
+                        ad.setLast_name(Last_name);
+                        ad.setUser_name(User_name);
+                        ad.setPassword(Password_use);
+
+                        System.out.println("Admin Details are created for : "+ad.getFirst_name());
+
+                        System.out.println("=================================================================");
+
+                        System.out.println("Your username is : "+ad.getUser_name());
+
+                        System.out.println("=================================================================");
+
+
+                        break;
+
+                    }
+                    break;
+
+                case 3:
+//                    Doctor login
+
+                    System.out.println("Enter username :");
+                    String D_username = sc.nextLine();
+
+                    System.out.println("Enter password :");
+                    String D_Password = sc.nextLine();
+
+                    System.out.println("====================================================================");
+
+                    for(Doctor_Login DL : Doctor_Login_List){
+                        if(DL.getD_Username().equals(D_username)
+                                && DL.getD_Password().equals(D_Password)){
+                            System.out.println("Welcome Doctor : "+DL.getDoctor_LFirst_Name());
+                            System.out.println("===================================================================");
+                            int Docter_Menu_Choice;
+
+                            do{
+//                                Doctor_Login D = new Doctor_Login();  // for comparing login doctor name with data doctor name
+
+                                System.out.println("========= Menu =========");
+                                System.out.println("1. Add Patient details");
+                                System.out.println("2. Display Patient details");
+                                System.out.println("3. To get specific data from Patient class");
+                                System.out.println("4. To Remove specific data from Patient class");
+                                System.out.println("0. Exit");
+                                System.out.println("========================");
+                                System.out.println("Enter your choice: ");
+                                Docter_Menu_Choice = sc.nextInt();
+                                sc.nextLine();
+                                switch (Docter_Menu_Choice){
+
+                                    case 1:
+//                    Add patient details
+
+                                        System.out.println("Enter Patient name :");
+                                        String Patient_Name = sc.nextLine();
+
+                                        System.out.println("Enter Patient_gender :");
+                                        String Patient_gender = sc.nextLine();
+
+                                        System.out.println("Enter Patient_age :");
+                                        double Patient_age = sc.nextDouble();
+                                        sc.nextLine();
+
+                                        System.out.println("Enter Patient_suffering :");
+                                        String Patient_suffering = sc.nextLine();
+
+                                        System.out.println("Enter Patient_presciption :");
+                                        String Patient_presciption = sc.nextLine();
+
+                                        System.out.println("Enter Patient_medical_history :");
+                                        String Patient_medical_history = sc.nextLine();
+
+                                        System.out.println("Enter Patient_Contact_details :");
+                                        String Patient_Contact_details = sc.nextLine();
+
+                                        System.out.println("Enter Patient_Address :");
+                                        String Patient_Address = sc.nextLine();
+
+                                        System.out.println("Enter Patient_weight :");
+                                        double Patient_weight = sc.nextDouble();
+                                        sc.nextLine();
+
+                                        System.out.println("Enter Patient_allergies :");
+                                        String Patient_allergies = sc.nextLine();
+
+                                        System.out.println("====================================================================");
+
+
+                                        for(Doctor Da : Doctor_Lists){
+                                            Da.setDocter_Patient_name(Patient_Name);
+                                            Da.setDocter_Patient_gender(Patient_gender);
+                                            Da.setDocter_Patient_age(Patient_age);
+                                            Da.setDocter_Patient_suffering(Patient_suffering);
+                                            Da.setDocter_Patient_presciption(Patient_presciption);
+                                            Da.setDocter_Patient_medical_history(Patient_medical_history);
+                                            Da.setDocter_Patient_Contact_details(Patient_Contact_details);
+                                            Da.setDocter_Patient_Address(Patient_Address);
+                                            Da.setDocter_Patient_weight(Patient_weight);
+                                            Da.setDocter_Patient_allergies(Patient_allergies);
+
+                                            System.out.println("Data has been added for : "+Da.getDocter_Patient_name());
+                                            System.out.println("====================================================================");
+
+                                            break;
+
+                                        }
+
+
+
+                                        break;
+                                    case 2:
+//                    Display patient details
+
+                                        System.out.println("Enter Doctor Name");
+                                        String Doctor_Name = sc.nextLine().toLowerCase();
+
+                                        for(Doctor Do : Doctor_Lists){
+                                            if(Do.getDoctor_First_Name().equalsIgnoreCase(Doctor_Name)){
+                                                Do.toString();
+
+                                                System.out.println("====================================================================");
+
+                                            }
+                                        }
+
+                                        break;
+                                    case 3:
+//                    To get specific info from patient
+
+
+                                        System.out.println("Enter Doctor Name");
+                                        String Doctor_name = sc.nextLine().toLowerCase();
+
+                                        System.out.println("Enter Patient name:");
+                                        String patient_Name = sc.nextLine().toLowerCase();
+
+                                        System.out.println("Enter Patient gender:");
+                                        String patient_gender = sc.nextLine().toLowerCase();
+
+                                        System.out.println("Enter Patient age:");
+                                        double patient_age = sc.nextDouble();
+                                        sc.nextLine();
+
+                                        System.out.println("================================================================");
+
+                                        boolean dataFound = false;
+                                        for (Doctor d : Doctor_Lists) {
+                                            if (d.getDoctor_First_Name().equalsIgnoreCase(Doctor_name)
+                                                    && d.getDocter_Patient_name().equalsIgnoreCase(patient_Name)
+                                                    && d.getDocter_Patient_gender().equalsIgnoreCase(patient_gender)
+                                                    && d.getDocter_Patient_age() == patient_age
+                                            ) {
+
+                                                System.out.println("Data found");
+                                                System.out.println("=====================================================");
+                                                d.toString();
+                                                System.out.println("===================================================");
+                                                dataFound = true;
+                                                break;
+                                            }
+                                        }
+
+                                        if (!dataFound) {
+                                            System.out.println("Data is not found.");
+                                        }
+                                        break;
+                                    case 4:
+//                    to remove specific info from patient
+
+                                        System.out.println("Enter Doctor Name");
+                                        String doctor_Name = sc.nextLine().toLowerCase();
+
+                                        System.out.println("Enter Patient name:");
+                                        String patient_name = sc.nextLine().toLowerCase();
+
+                                        System.out.println("Enter Patient gender:");
+                                        String patient_Gender = sc.nextLine().toLowerCase();
+
+                                        System.out.println("Enter Patient age:");
+                                        double patient_Age = sc.nextDouble();
+                                        sc.nextLine();
+
+                                        System.out.println("================================================================");
+
+                                        Doctor ObjToRemove = null;
+
+                                        for(Doctor Ac : Doctor_Lists){
+                                            if(Ac.getDoctor_First_Name().equalsIgnoreCase(doctor_Name)
+                                                    && Ac.getDocter_Patient_name().equalsIgnoreCase(patient_name)
+                                                    && Ac.getDocter_Patient_gender().equalsIgnoreCase(patient_Gender)
+                                                    && Ac.getDocter_Patient_age()==patient_Age)
+                                            {
+                                                System.out.println("Data found : "+Ac.getDocter_Patient_name());
+                                                System.out.println("=================================================================");
+                                                ObjToRemove = Ac;
+                                                break;
+                                            }
+                                        }
+
+//                   To remove specific data from account class
+
+                                        if (ObjToRemove != null) {
+                                            Doctor_Lists.remove(ObjToRemove);
+                                            System.out.println("Data for following patient is removed " + ObjToRemove.getDocter_Patient_name());
+                                            // At this point, the object " account staff   "  is no longer accessible,
+                                            // and the garbage collector will eventually reclaim its memory.
+                                        } else {
+                                            System.out.println("No matching object found.");
+                                        }
+                                        System.out.println("=================================================================");
+                                        break;
+
+                                    case 0:
+                                        System.out.println("Exiting the program. Goodbye!");
+                                        break;
+                                    default:
+                                        System.out.println("Invalid choice. Please try again.");
+
+
+                                }
+
+                            }while(Docter_Menu_Choice !=0);
+
+                            break;
+
+                        }else{
+                            System.out.println("Username or password is wrong ! try again");
+                            System.out.println("====================================================");
+                            break;
+                        }
+                    }
+
+
+                    break;
+
+                case 4:
+//                    Doctor sign up
+
+                    System.out.println("Enter First Name : ");
+                    String first_name = sc.nextLine();
+
+                    System.out.println("Enter Middle Name : ");
+                    String middle_name = sc.nextLine();
+
+                    System.out.println("Enter Last Name : ");
+                    String last_name = sc.nextLine();
+
+                    System.out.println("Enter Username : ");
+                    String user_name = sc.nextLine();
+
+                    System.out.println("Enter Password : ");
+                    String password_use = sc.nextLine();
+
+                    System.out.println("=================================================================");
+
+
+                    for(Doctor_Login dl : Doctor_Login_List) {
+                        dl.setDoctor_LFirst_Name(first_name);
+                        dl.setDoctor_Middle_Name(middle_name);
+                        dl.setDoctor_Last_Name(last_name);
+                        dl.setD_Username(user_name);
+                        dl.setD_Password(password_use);
+
+                        System.out.println("Admin Details are created for : " + dl.getDoctor_LFirst_Name());
+
+                        System.out.println("=================================================================");
+
+                        System.out.println("Your username is : " + dl.getD_Username());
+
+                        System.out.println("=================================================================");
+                        break;
+                    }
+                    break;
+
+                case 0:
+                    System.out.println("Exiting the program. Goodbye!");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }while(Admin_Choice !=0);
