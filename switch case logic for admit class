@@ -1,0 +1,169 @@
+int Admit_Menu_Choice;
+        do{
+            System.out.println("========= Menu =========");
+            System.out.println("1. Add Admit data");
+            System.out.println("2. Display Admit data");
+            System.out.println("3. To Remove specific data from Admit class");
+            System.out.println("4. To get specific data from Admit class");
+            System.out.println("0. Exit");
+            System.out.println("========================");
+            System.out.println("Enter your choice: ");
+            Admit_Menu_Choice = sc.nextInt();
+            sc.nextLine(); // Consume the newline left by nextInt()
+
+            switch (Admit_Menu_Choice){
+                case 1:
+////                    --------------------------------Add Admit data-------------------------
+//
+////                    -------------------------------Take user input -----------------------------------------------------------
+
+                    int Patient_Age = 0;
+
+                    System.out.println("Enter Patient_First_name : ");
+                    String patient_first_name = sc.nextLine();
+
+                    System.out.println("Enter Patient_Middle_name : ");
+                    String patient_Middle_name = sc.nextLine();
+
+                    System.out.println("Enter Patient_Last_name : ");
+                    String patient_Last_name = sc.nextLine();
+
+                    while (true){
+                        try{
+                            System.out.println("Enter Patient_Age : ");
+                            Patient_Age = sc.nextInt();
+                            sc.nextLine();
+                            break;
+                        }catch (InputMismatchException Ad){
+                            System.out.println("Invalid Input : please enter a number");
+                            sc.nextLine();
+                        }
+                    }
+
+                    System.out.println("Enter Patient_Sex: ");
+                    String Patient_sex = sc.nextLine();
+
+                    System.out.println("Enter Patient_Address : ");
+                    String Patient_Address = sc.nextLine();
+
+                    System.out.println("Enter  Patient_MbNo : ");
+                    String  Patient_MbNo = sc.nextLine();
+
+                    System.out.println("Enter  Patient_Realtion :");
+                    String  Patient_Realtion = sc.nextLine();
+
+                    System.out.println("=================================================================");
+
+//                   ----------------------To add data into admit class ----------------------------------------------------
+
+                    for(Admit Ad : Admit_List){
+                        Ad.setPatient_First_name(patient_first_name);
+                        Ad.setPatient_Middle_name(patient_Middle_name);
+                        Ad.setPatient_Last_name(patient_Last_name);
+                        Ad.setPatient_Age(Patient_Age);
+                        Ad.setPatient_Sex(Patient_sex);
+                        Ad.setPatient_Address(Patient_Address);
+                        Ad.setPatient_MbNo(Patient_MbNo);
+                        Ad.setPatient_Realtion(Patient_Realtion);
+                        System.out.println("Patient data has been added : "+Ad.getPatient_First_name());
+                        break;
+                    }
+                    System.out.println("=================================================================");
+                    break;
+
+                case 2:
+//                    Display Admit data
+//                    To print All Admit Patient data
+                    for(Admit Ad : Admit_List){
+                        Ad.toString();
+                        System.out.println("===========================================================================================");
+
+                    }
+                    break;
+
+                case 3:
+//                    To Remove specific data from Admit class
+//                    To take input from user
+
+
+                    System.out.println("Enter Patient first name : ");
+                    String patientFirstName = sc.nextLine().toLowerCase();
+
+                    System.out.println("Enter Patient Middle name : ");
+                    String patientMiddleName = sc.nextLine().toLowerCase();
+
+                    System.out.println("Enter Patient_Last_name : ");
+                    String patientLastName = sc.nextLine().toLowerCase();
+
+                    System.out.println("=================================================================");
+
+                    Admit objectToRemove = null;
+
+                    for (Admit Ad : Admit_List) {
+                        if (Ad.getPatient_First_name().toLowerCase().equals(patientFirstName)
+                                && Ad.getPatient_Middle_name().toLowerCase().equals(patientMiddleName)
+                                && Ad.getPatient_Last_name().toLowerCase().equals(patientLastName)) {
+                            objectToRemove = Ad;
+                            System.out.println("Data found");
+                            System.out.println("=================================================================");
+                            break; // Found the matching object, no need to continue the loop.
+                        }
+                    }
+
+// Now, remove the object from the list:
+                    if (objectToRemove != null) {
+                        Admit_List.remove(objectToRemove);
+                        System.out.println("Data for following patient is removed: " + objectToRemove.getPatient_First_name());
+                        // At this point, the object "John Doe Smith" is no longer accessible,
+                        // and the garbage collector will eventually reclaim its memory.
+                    } else {
+                        System.out.println("No matching object found.");
+                    }
+                    System.out.println("=================================================================");
+
+                    break;
+
+                case 4:
+//                    To get specific data from Admit class
+                    System.out.println("Enter Patient first name : ");
+                    String Admit_Patient_first_name = sc.nextLine().toLowerCase();
+
+                    System.out.println("Enter Patient Middle name : ");
+                    String Admit_Patient_Middle_name = sc.nextLine().toLowerCase();
+
+                    System.out.println("Enter Patient_Last_name : ");
+                    String Admit_Patient_Last_name = sc.nextLine().toLowerCase();
+
+                    System.out.println("=================================================================");
+
+                    boolean AdmitdataFound = false;
+
+                    for (Admit Ad : Admit_List) {
+                        if (Ad.getPatient_First_name().toLowerCase().equals(Admit_Patient_first_name)
+                                && Ad.getPatient_Middle_name().toLowerCase().equals(Admit_Patient_Middle_name)
+                                && Ad.getPatient_Last_name().toLowerCase().equals(Admit_Patient_Last_name)) {
+                            Ad.Admit_add(Ad.getPatient_First_name(), Ad.getPatient_Middle_name(), Ad.getPatient_Last_name(), Ad.getPatient_Age(), Ad.getPatient_Sex(), Ad.getPatient_Address(), Ad.getPatient_MbNo(), Ad.getPatient_Realtion());
+                            Ad.toString();
+                            System.out.println("====================================================================================================================");
+                            AdmitdataFound = true;
+                            break; // Found the matching object, no need to continue the loop.
+                        }
+                    }
+
+                    if (!AdmitdataFound) {
+                        System.out.println("Data is not found ........");
+                    }
+
+                    System.out.println("=================================================================");
+
+                    break;
+
+                case 0:
+                    System.out.println("Exiting the program. Goodbye!");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+
+
+        }while(Admit_Menu_Choice != 0);
